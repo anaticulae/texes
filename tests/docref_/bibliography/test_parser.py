@@ -165,7 +165,6 @@ urkundliche Erwähnung geht auf das Jahr 1094 zurück wo Neunkirchen als \
 """
 
 
-@pytest.mark.xfail(reason='wait for nltk')
 def test_parse_biblink_fulltext():
     parsed = docref.bibliography.strategies.intext.parse(RAW)
     assert len(parsed) == 2

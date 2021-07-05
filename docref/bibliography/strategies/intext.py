@@ -52,10 +52,29 @@ AUTHOR_AND_YEAR = r"""
     \)
 """
 
+REFERENCE_LONG = r"""
+\(
+    vgl\.
+    [ ]
+    (?P<author>.{8,100})
+    ,
+    [ ]
+    (?P<pages>
+        (S\.)?
+        [ ]
+        (
+            \d+|                # single page
+            \d+[ ]?ff\.?|       # single page with following
+            \d+\-\d+            # from x till y
+        )
+    )
+\)
+"""
+
 
 def parse(raw: str) -> iamraw.BibliographyReferences:
     result = []
-    for pattern in [PATTERN, AUTHOR_AND_YEAR]:
+    for pattern in [PATTERN, AUTHOR_AND_YEAR, REFERENCE_LONG]:
         parsed = parse_pattern(raw, pattern)
         result.extend(parsed)
     return result
@@ -69,7 +88,10 @@ def parse_pattern(raw: str, pattern: str) -> iamraw.BibliographyReferences:
     for item in matched:
         raw = utila.extract_match(item)
         author = item['author']
-        year = int(item['year']) if item['year'] else None
+        try:
+            year = int(item['year'])
+        except (IndexError, TypeError):
+            year = None
         try:
             pages = item['pages']
         except IndexError:
