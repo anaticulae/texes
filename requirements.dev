@@ -16,3 +16,4 @@ power==1.5.0
 rawmaker==2.19.1
 
 genex==0.10.0
+genref==1.0.7
