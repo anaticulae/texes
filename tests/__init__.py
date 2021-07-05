@@ -6,3 +6,9 @@
 # use or distribution is an offensive act against international law and may
 # be prosecuted under federal law. Its content is company confidential.
 #==============================================================================
+
+import utila
+
+
+def words(cmd: str):
+    utila.run(f'words {cmd}')

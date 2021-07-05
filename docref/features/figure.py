@@ -1,17 +1,21 @@
 # =============================================================================
 # C O P Y R I G H T
 # -----------------------------------------------------------------------------
-# Copyright (c) 2021 by Helmut Konrad Fahrendholz. All rights reserved.
+# Copyright (c) 2020-2021 by Helmut Konrad Fahrendholz. All rights reserved.
 # This file is property of Helmut Konrad Fahrendholz. Any unauthorized copy,
 # use or distribution is an offensive act against international law and may
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-utila>=2.37.0<3.0.0
-iamraw>=4.19.0<5.0.0
+import serializeraw
 
-# split sentences and determine language of written sentence
-german>=1.6.1<2.0.0
+import docref.figure
 
-# parse bib tech labels [FHK2016]
-detector>=0.23.0<1.0.0
+
+def work(text: str, headlines: str, pages: tuple = None) -> str:
+    headlines = serializeraw.load_headlines(headlines, pages=pages)
+    text = serializeraw.load_text(text, headlines=headlines, pages=pages)
+
+    parsed = docref.figure.parse_text(text)
+    dumped = serializeraw.dump_docref(parsed)
+    return dumped

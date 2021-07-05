@@ -44,5 +44,19 @@ if __name__ == "__main__":
         ],
         packages=[
             'texas',
+            'docref',
+            'docref.features',
+            'docref.bibliography',
+            'docref.bibliography.strategies',
+            'textflow',
+            'textflow.alignment',
+            'textflow.features',
+            'textflow.quotation',
         ],
+        entry_points={
+            'console_scripts': [
+                'docref = docref.cli:main',
+                'textflow = textflow.cli:main',
+            ],
+        },
     )

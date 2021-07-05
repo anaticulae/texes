@@ -1,10 +1,62 @@
 # =============================================================================
 # C O P Y R I G H T
 # -----------------------------------------------------------------------------
-# Copyright (c) 2021 by Helmut Konrad Fahrendholz. All rights reserved.
+# Copyright (c) 2020-2021 by Helmut Konrad Fahrendholz. All rights reserved.
 # This file is property of Helmut Konrad Fahrendholz. Any unauthorized copy,
 # use or distribution is an offensive act against international law and may
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
+import genex
+import power
+import pytest
+import utila
+
+import texas
+
 pytest_plugins = ['pytester', 'xdist']  # pylint: disable=invalid-name
+
+PACKAGE = texas.PACKAGE
+
+power.setup(texas.ROOT)
+
+RESOURCES = [
+    power.MASTER116_PDF,
+    power.MASTER098_PDF,
+    power.MASTER083_PDF,
+    power.BACHELOR076_PDF,
+    power.MASTER075_PDF,
+    power.MASTER072_PDF,
+    power.BACHELOR051_PDF,
+    power.HOME040_PDF,
+    power.BACHELOR037_PDF,
+    power.DOCU27_PDF,
+    (power.MASTER091B_PDF, '0:20'),
+    (power.BACHELOR056_PDF, '0:20'),
+    power.DOCU09_PDF,
+    power.DOCU07_PDF,
+]
+
+WORKER = 6
+
+
+@pytest.mark.usefixtures('session')
+def pytest_sessionstart():
+    power.run()
+
+
+def extract(resources):
+    utila.log(f'root: {power.REPOSITORY}')
+    genex.extract(
+        files=resources,
+        destination=power.generated(),
+        base=power.REPOSITORY,
+        groupme=True,
+        sections=True,
+        words=True,
+        magic=True,
+        spacestation=True,
+        worker=WORKER,
+        pages=':',
+        rawmaker=genex.CONFIG.replace('--char_margin=3.1', '--char_margin=5.0'),
+    )
