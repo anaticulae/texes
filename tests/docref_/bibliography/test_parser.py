@@ -10,7 +10,7 @@
 import iamraw
 import pytest
 
-import docref.bibliography.strategies.intext as ll
+import docref.bibliography.strategies.intext
 
 BibRef = iamraw.BibliographyReference
 
@@ -126,7 +126,7 @@ def test_parse_bibliographylink(line, expected):
     # ),
     if not isinstance(expected, list):
         expected = [expected]
-    parsed = ll.parse(line)
+    parsed = docref.bibliography.strategies.intext.parse(line)
     assert parsed == expected
 
 
@@ -142,7 +142,7 @@ def test_parse_bibliographylink_in_text():
         # TODO: FIX ORDER AFTER MERGING DIFFERENT REGEX PATTERN
         BibRef(authors=['Benjamin'], year=1939),
     ]
-    parsed = ll.parse(INLINE)
+    parsed = docref.bibliography.strategies.intext.parse(INLINE)
     assert parsed == expected
 
 
@@ -168,5 +168,5 @@ S. 3 ff).
 
 @pytest.mark.xfail(reason='wait for nltk')
 def test_parse_biblink_fulltext():
-    parsed = ll.parse(RAW)
+    parsed = docref.bibliography.strategies.intext.parse(RAW)
     assert len(parsed) == 2
