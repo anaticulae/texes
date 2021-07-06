@@ -2,6 +2,12 @@
 
 Every noteable change is logged here.
 
+## v0.2.0
+
+### Feature
+
+* add further parser (05c96936b06e)
+
 ## v0.1.0
 
 ### Feature
