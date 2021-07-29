@@ -98,7 +98,7 @@ def iscitation_group_right_bounded(group, bounds, textsize) -> bool:
         return False
     left = utila.groupby_diff(
         [item.bounds.leftdist for item in bounds],
-        diff=1.5,
+        maxdiff=1.5,
     )
     if len(left) > 1:
         # more than one different text feed on the left side
