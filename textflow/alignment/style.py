@@ -147,8 +147,10 @@ def page_linealignments_expected(navigator, border=None):
     result = []
     for group in content:
         # TODO: MOVE TO SEPARATE METHOD
-        nav = texmex.PageTextNavigator()
-        nav.width = navigator.width
+        nav = texmex.PageTextNavigator(pagesize=(
+            navigator.width,
+            navigator.height,
+        ))
         nav.data = group
         alignments = page_linealignments(nav, *border)
         if not alignments:
