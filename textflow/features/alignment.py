@@ -63,9 +63,9 @@ def extract_current(navigators):
 @textflow.serialize.dumpme
 def dump_alignment(items) -> str:
     try:
-        dumped = [str(item) for item in items]
+        dumped = [str(item.name) for item in items]
     except TypeError:
-        dumped = str(items)
+        dumped = str(items.name)
     return dumped
 
 

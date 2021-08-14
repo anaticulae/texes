@@ -50,6 +50,26 @@ class TextAlignment(enum.Enum):
         # TODO: REPLACE pylint disable with correct one
         return self.value < item.value  # pylint:disable=all
 
+    def __str__(self):
+        """\
+        >>> str(TextAlignment.RIGHT)
+        'rechts'
+        """
+        if self == TextAlignment.LEFT:
+            return 'links'
+        if self == TextAlignment.CENTER:
+            return 'zentriert'
+        if self == TextAlignment.RIGHT:
+            return 'rechts'
+        if self == TextAlignment.BLOCK:
+            return 'Blocksatz'
+        if self == TextAlignment.BLOCK_CENTER:
+            return 'Blocksatz zentriert'
+        if self == TextAlignment.BLOCK_END:
+            # TODO: VERIFY THIS
+            return 'Blocksatz ?'
+        return 'undefiniert'
+
 
 TextAlignments = typing.List[TextAlignment]
 
