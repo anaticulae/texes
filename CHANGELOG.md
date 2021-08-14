@@ -2,6 +2,12 @@
 
 Every noteable change is logged here.
 
+## v0.2.4
+
+### Feature
+
+* add TextAlignment to str converter (439ce786feb8)
+
 ## v0.2.3
 
 ## v0.2.2
