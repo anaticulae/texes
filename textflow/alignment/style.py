@@ -27,13 +27,10 @@ Style
 
 import dataclasses
 import enum
-import math
 import typing
 
 import texmex
 import utila
-
-import textflow.serialize
 
 
 class TextAlignment(enum.Enum):
