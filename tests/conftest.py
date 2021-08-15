@@ -30,11 +30,11 @@ RESOURCES = [
     power.BACHELOR051_PDF,
     power.HOME040_PDF,
     power.BACHELOR037_PDF,
-    power.DOCU27_PDF,
+    power.DOCU027_PDF,
     (power.MASTER091B_PDF, '0:20'),
     (power.BACHELOR056_PDF, '0:20'),
-    power.DOCU09_PDF,
-    power.DOCU07_PDF,
+    power.DOCU009_PDF,
+    power.DOCU007_PDF,
 ]
 
 WORKER = 6

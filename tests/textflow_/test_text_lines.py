@@ -29,7 +29,7 @@ TextAlignment = textflow.alignment.style.TextAlignment
         id='bachelor37',
     ),
     pytest.param(
-        power.link(power.DOCU07_PDF),
+        power.link(power.DOCU007_PDF),
         TextAlignment.BLOCK,
         id='pyporting',
     ),

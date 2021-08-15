@@ -23,14 +23,14 @@ def test_textflow_cli(monkeypatch):
 @utilatest.longrun
 def test_textflow_alignments_restruct(testdir, monkeypatch):
     """Ensure that document with empty page is parsed correctly."""
-    source = power.link(power.DOCU27_PDF)
+    source = power.link(power.DOCU027_PDF)
     tests.words(f'-i {source}')
     tests.textflow_.run(f'-i {source}', monkeypatch=monkeypatch)
 
 
 @pytest.mark.parametrize('source', [
     pytest.param(power.link(power.MASTER072_PDF), id='master72'),
-    pytest.param(power.link(power.DOCU09_PDF), id='pyporting'),
+    pytest.param(power.link(power.DOCU009_PDF), id='pyporting'),
 ])
 @utilatest.nightly
 def test_textflow_alignments(source, testdir, monkeypatch):
