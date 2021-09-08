@@ -8,8 +8,11 @@
 # =============================================================================
 
 import power
+import pytest
 import serializeraw
+import utila
 import utilatest
+import words.utils
 
 import docref.path
 import tests.docref_
@@ -37,6 +40,24 @@ def test_docref_bibliography_master116(testdir, monkeypatch):
         pages='8:93',
     )
     assert len(bibliography) == 91  # NOT VALIDATED YET
+
+
+@pytest.mark.xfail(reason='[33] is missing')
+@utilatest.requires(power.BACHELOR075_PDF)
+def test_docref_bibliography_bachelor075(testdir, monkeypatch):
+    bibliography = extract_label(
+        power.BACHELOR075_PDF,
+        testdir,
+        monkeypatch,
+    )
+    source = power.link(power.BACHELOR075_PDF)
+    headlines = serializeraw.load_headlines(source)
+    text = serializeraw.load_text(source, headlines=headlines)
+    plain = words.utils.references_plain(bibliography, text)
+    flat = utila.flatten(plain)
+    unique = utila.sort(*utila.make_unique(flat))
+    # TODO: VALIDATED ALL MULTIPLE REFERENCES
+    assert len(unique) == 41  # VALIDATED: 41
 
 
 @utilatest.requires(power.MASTER091B_PDF)
