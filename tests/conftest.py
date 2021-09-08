@@ -25,6 +25,7 @@ RESOURCES = [
     power.MASTER098_PDF,
     power.MASTER083_PDF,
     power.BACHELOR076_PDF,
+    power.BACHELOR075_PDF,
     power.MASTER075_PDF,
     power.MASTER072_PDF,
     power.BACHELOR051_PDF,
