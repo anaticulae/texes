@@ -11,7 +11,6 @@ import power
 import serializeraw
 import utilatest
 
-import tests.resources
 import tests.textflow_
 import textflow.path
 
