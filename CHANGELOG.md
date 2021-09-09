@@ -2,6 +2,12 @@
 
 Every noteable change is logged here.
 
+## v0.3.0
+
+### Feature
+
+* add number reference as valid bib reference (b6af34786916)
+
 ## v0.2.4
 
 ### Feature
