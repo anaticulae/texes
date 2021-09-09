@@ -101,26 +101,26 @@ def valid(item: str):
     return docref.bibliography.parser.parse(item) is not None
 
 
-PATTERN = (
-    '([We05], S. 48)',
-    '([AM11], S. 239 f.)',
-    '([Bo06], S. 133 ff.)',
-    '([Ag12a])',
-    '([WIZ12])',
-    '[Hof11, S. 309-311]',
-    '[Hof11, S. 314f]',
-    '[Mag13]',
-    '[RNB12, S. 62ff]',
-    '(Fornoff 2016: 53; Erll 2017: 11-12)',
-    '(Górny et al. 2012: 14)',
-    '(Hahn; Traba 2015: 17)',
-    '(Koreik 2010: 1478)',
-    '(Robbe 2009: 51-52)',
-    '(ebd.: 21; Fornoff 2016: 45-48)',
-    '(ebd.: 51)',
-    '(ebd.: 51-60)',
-    '(ebd: 51-60)',
-    '(vgl. Darilek 2014),',
-    '(vgl. Darilek 2014b),',
-    '(vgl. Defrance; Pfeil 2014; vgl. Frank 2005)',
-)
+PATTERN = utila.splitlines("""
+[Hof11, S. 309-311]
+[Hof11, S. 314f]
+[Mag13]
+[RNB12, S. 62ff]
+(Fornoff 2016: 53; Erll 2017: 11-12)
+(Górny et al. 2012: 14)
+(Hahn; Traba 2015: 17)
+(Koreik 2010: 1478)
+(Robbe 2009: 51-52)
+([AM11], S. 239 f.)
+([Ag12a])
+([Bo06], S. 133 ff.)
+([WIZ12])
+([We05], S. 48)
+(ebd.: 21; Fornoff 2016: 45-48)
+(ebd.: 51)
+(ebd.: 51-60)
+(ebd: 51-60)
+(vgl. Darilek 2014),
+(vgl. Darilek 2014b),
+(vgl. Defrance; Pfeil 2014; vgl. Frank 2005)
+""")
