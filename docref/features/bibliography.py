@@ -60,6 +60,8 @@ TODO: FOOTER
 TODO: TECHNICAL
 """
 
+import re
+
 import iamraw
 import serializeraw
 import utila
@@ -98,7 +100,11 @@ def remove_invalid(items, text):
 
 
 def valid(item: str):
-    return docref.bibliography.parser.parse(item) is not None
+    if docref.bibliography.parser.parse(item):
+        return True
+    if re.match(r'\[\d{1,3}\]', item):
+        return True
+    return False
 
 
 PATTERN = utila.splitlines("""
@@ -123,4 +129,7 @@ PATTERN = utila.splitlines("""
 (vgl. Darilek 2014),
 (vgl. Darilek 2014b),
 (vgl. Defrance; Pfeil 2014; vgl. Frank 2005)
+[1]
+[25]
+[123]
 """)
