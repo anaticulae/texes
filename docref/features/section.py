@@ -10,7 +10,7 @@
 import iamraw
 import serializeraw
 
-import docref.figure
+import docref.reference
 
 
 def work(text: str, headlines: str, pages: tuple = None) -> str:
@@ -39,4 +39,4 @@ PATTERN = (
 
 
 def parse_text(text) -> iamraw.DocRefs:
-    return docref.figure.parse_text(text, pattern=PATTERN)
+    return docref.reference.parse_text(text, pattern=PATTERN)

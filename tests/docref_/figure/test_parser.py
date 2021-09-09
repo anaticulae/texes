@@ -9,7 +9,7 @@
 
 import german
 
-import docref.figure
+import docref.features.figure
 
 SENTENCE = """\
 Verkehrsanbindung der Stadt Neunkirchen An der schon immer wichtigen
@@ -20,7 +20,7 @@ wurde die Stadt von je her von Handel und Verkehr geprägt (siehe Abb.
 
 
 def test_figure_parser():
-    detected = german.searches(docref.figure.PATTERN, SENTENCE)
+    detected = german.searches(docref.features.figure.PATTERN, SENTENCE)
     assert len(detected) == 1
     expected = [(31, 36)]
     assert detected == expected

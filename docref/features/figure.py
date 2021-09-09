@@ -8,14 +8,31 @@
 # =============================================================================
 
 import serializeraw
+import utila
 
-import docref.figure
+import docref.reference
 
 
 def work(text: str, headlines: str, pages: tuple = None) -> str:
     headlines = serializeraw.load_headlines(headlines, pages=pages)
     text = serializeraw.load_text(text, headlines=headlines, pages=pages)
 
-    parsed = docref.figure.parse_text(text)
+    parsed = docref.reference.parse_text(text, pattern=PATTERN)
     dumped = serializeraw.dump_docref(parsed)
     return dumped
+
+
+PATTERN = utila.splitlines("""
+(Abb. 100 und 101)
+(s. Abb. 3)
+(siehe Abb. 100 und 101)
+(siehe Abb. 100)
+(siehe Abbildung 100)
+(siehe Abbildung 2.12)
+Abb. 100 und 1001
+Abb. 100 und Abb. 101
+Abbildung 2.1
+Abbildungen 100 und 1001
+s. Abb. 3
+siehe Abbildung 2.12
+""")

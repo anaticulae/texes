@@ -11,25 +11,10 @@ import german
 import iamraw
 import words.utils
 
-PATTERN = (
-    '(Abb. 100 und 101)',
-    '(s. Abb. 3)',
-    '(siehe Abb. 100 und 101)',
-    '(siehe Abb. 100)',
-    '(siehe Abbildung 100)',
-    '(siehe Abbildung 2.12)',
-    'Abb. 100 und 1001',
-    'Abb. 100 und Abb. 101',
-    'Abbildung 2.1',
-    'Abbildungen 100 und 1001',
-    's. Abb. 3',
-    'siehe Abbildung 2.12',
-)
-
 
 def parse_text(
     text,
-    pattern=PATTERN,
+    pattern: set,
     compare_content: bool = True,
 ) -> iamraw.DocRefs:
     result = []

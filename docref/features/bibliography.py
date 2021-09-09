@@ -66,14 +66,14 @@ import utila
 import words.utils
 
 import docref.bibliography.parser
-import docref.figure
+import docref.reference
 
 
 def work(text: str, headlines: str, pages: tuple = None) -> str:
     headlines = serializeraw.load_headlines(headlines, pages=pages)
     text = serializeraw.load_text(text, headlines=headlines, pages=pages)
 
-    parsed = docref.figure.parse_text(
+    parsed = docref.reference.parse_text(
         text,
         pattern=PATTERN,
         compare_content=False,

@@ -9,14 +9,14 @@
 
 import serializeraw
 
-import docref.figure
+import docref.reference
 
 
 def work(text: str, headlines: str, pages: tuple = None) -> str:
     headlines = serializeraw.load_headlines(headlines, pages=pages)
     text = serializeraw.load_text(text, headlines=headlines, pages=pages)
 
-    parsed = docref.figure.parse_text(text, pattern=PATTERN)
+    parsed = docref.reference.parse_text(text, pattern=PATTERN)
     dumped = serializeraw.dump_docref(parsed)
     return dumped
 
