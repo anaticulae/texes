@@ -13,11 +13,11 @@ import docref.bibliography.strategies.intext
 import docref.bibliography.strategies.tech
 
 
-def parse(item: str) -> iamraw.BibliographyReference:
-    parsed = docref.bibliography.strategies.tech.parse(item)
+def parse(page: str) -> iamraw.BibliographyReference:
+    parsed = docref.bibliography.strategies.tech.parse(page)
     if parsed:
         return parsed
-    parsed = docref.bibliography.strategies.intext.parse(item)
+    parsed = docref.bibliography.strategies.intext.parse(page)
     if parsed:
         return parsed
     return None
