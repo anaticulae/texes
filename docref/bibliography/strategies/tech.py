@@ -12,4 +12,10 @@ import iamraw
 
 
 def parse(item: str) -> iamraw.BibliographyReference:
-    return detector.bibliography.label.parses(item)
+    parsed = detector.bibliography.label.parses(item)
+    if parsed:
+        return parsed
+    parsed = detector.bibliography.label.numbers(item)
+    if parsed:
+        return parsed
+    return None

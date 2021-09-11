@@ -14,6 +14,10 @@ import docref.bibliography.strategies.tech
 
 
 def parse(page: str) -> iamraw.BibliographyReference:
+    """\
+    >>> parse('[10]')
+    [BibliographyReference(...reference='10'...raw='[10]'...)]
+    """
     parsed = docref.bibliography.strategies.tech.parse(page)
     if parsed:
         return parsed
