@@ -2,6 +2,16 @@
 
 Every noteable change is logged here.
 
+## v0.3.1
+
+### Feature
+
+* add bib-number-ref inside parser (a041a937fcd0)
+
+### Documentation
+
+* adjust data type annotation (c7fb165ca335)
+
 ## v0.3.0
 
 ### Feature
