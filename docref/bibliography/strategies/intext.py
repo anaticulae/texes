@@ -12,13 +12,6 @@ import re
 import iamraw
 import utila
 
-PAGES = r"""
-    (
-        \d+|            # single page
-        \d+ff\.|        # single page with following
-        \d+\-\d+        # from x till y
-    )"""
-
 PATTERN = r"""
     (vgl[.][ ])?
     (?P<author>
