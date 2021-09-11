@@ -13,7 +13,7 @@ import docref.bibliography.strategies.intext
 import docref.bibliography.strategies.tech
 
 
-def parse(page: str) -> iamraw.BibliographyReference:
+def parse(page: str) -> iamraw.BibliographyReferences:
     """\
     >>> parse('[10]')
     [BibliographyReference(...reference='10'...raw='[10]'...)]
