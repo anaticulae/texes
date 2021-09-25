@@ -13,11 +13,13 @@ import utila
 class AlignmentInfo:
 
     def __init__(self, oneline, alignment):
-        assert len(oneline) == len(alignment), f'{len(oneline)} == {len(alignment)}' # yapf:disable
+        msg = f'{len(oneline)} == {len(alignment)}'
+        assert len(oneline) == len(alignment), msg
         self.oneline = PageTextAdapter(layout=oneline)
         self.data = alignment
 
     def alignment(self, page, bounding):
+        # TODO: ADD MORE DOCS HERE
         centered = center(bounding)
         inside = self.oneline.inside(page=page, bounding=centered)
         if not inside:
@@ -51,6 +53,7 @@ class PageTextAdapter:
 
 
 def center(bounding):
+    # TODO: VERIFY THE SENCE OF THIS METHOD
     x0, y0, x1, y1 = bounding
     result = (
         (x1 + x0) / 2,
