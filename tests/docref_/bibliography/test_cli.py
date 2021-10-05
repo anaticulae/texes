@@ -29,6 +29,21 @@ def extract_label(source, testdir, monkeypatch, pages=':'):
     return bibliography
 
 
+def extract_label_plain(pdf, testdir, monkeypatch, pages=None):
+    bibliography = extract_label(
+        pdf,
+        testdir,
+        monkeypatch,
+        pages=utila.simplify_pages(pages),
+    )
+    source = power.link(pdf)
+    headlines = serializeraw.load_headlines(source, pages=pages)
+    text = serializeraw.load_text(source, headlines=headlines, pages=pages)
+    plain = words.utils.references_plain(bibliography, text)
+    flat = utila.flatten(plain)
+    return flat
+
+
 @utilatest.nightly
 @utilatest.requires(power.MASTER116_PDF)
 def test_docref_bibliography_master116(testdir, monkeypatch):
@@ -78,3 +93,13 @@ def test_docref_bibliography_master91b(testdir, monkeypatch):
 def test_docref_bibliography_master98(testdir, monkeypatch):
     bibliography = extract_label(power.MASTER098_PDF, testdir, monkeypatch)
     assert len(bibliography) == 272  # NOT VALIDATED YET
+
+
+def test_docref_bibliography_diss143(testdir, monkeypatch):
+    flat = extract_label_plain(
+        power.DISS143_PDF,
+        testdir,
+        monkeypatch,
+        pages=utila.ranged_tuple(15, 30),
+    )
+    assert len(flat) == 30  # NOT VALIDATED YET
