@@ -9,6 +9,7 @@
 
 import iamraw
 import serializeraw
+import utila
 
 import docref.reference
 
@@ -22,20 +23,20 @@ def work(text: str, headlines: str, pages: tuple = None) -> str:
     return dumped
 
 
-PATTERN = (
-    '(siehe Abs. 5)',
-    '(siehe Kapitel 2.2)'
-    'Abs. 5',
-    'Abschnitt 1',
-    'Abschnitt 1.',
-    'Kapitel 2.',
-    'Punkt 4.1.4',
-    'siehe Abs. 5',
-    'siehe Kapitel 2.2'
-    'siehe Punkt 4.2.2.',
-    'siehe Punkt 4.7',
-    'siehe auch Punkt 4.3.2.',
-)
+PATTERN = utila.splitlines("""
+(siehe Abs. 5)
+(siehe Kapitel 2.2)
+Abs. 5
+Abschnitt 1
+Abschnitt 1.
+Kapitel 2.
+Punkt 4.1.4
+siehe Abs. 5
+siehe Kapitel 2.
+siehe Punkt 4.2.2.
+siehe Punkt 4.7
+siehe auch Punkt 4.3.2.
+""")
 
 
 def parse_text(text) -> iamraw.DocRefs:
