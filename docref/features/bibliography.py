@@ -60,8 +60,6 @@ TODO: FOOTER
 TODO: TECHNICAL
 """
 
-import re
-
 import iamraw
 import serializeraw
 import utila
@@ -99,10 +97,31 @@ def remove_invalid(items, text):
     return result
 
 
+NUMBERED_REFERENCE = r"""
+\[
+    [ ]{0,2}
+    \d{1,3}
+    (
+        [ ]{0,2}
+        \,
+        [ ]{0,2}
+        \d{1,3}
+    )+
+    [ ]{0,2}
+\]
+"""
+
+
 def valid(item: str):
+    """\
+    >>> valid('[ 28 ]')
+    True
+    >>> valid('[28, 76, 59]')
+    True
+    """
     if docref.bibliography.parser.parse(item):
         return True
-    if re.match(r'\[\d{1,3}\]', item):
+    if utila.match(NUMBERED_REFERENCE, item):
         return True
     return False
 
@@ -132,4 +151,6 @@ PATTERN = utila.splitlines("""
 [1]
 [25]
 [123]
+[11, 22]
+[11, 22, 33]
 """)
