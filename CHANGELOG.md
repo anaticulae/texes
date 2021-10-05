@@ -2,6 +2,13 @@
 
 Every noteable change is logged here.
 
+## v0.4.0
+
+### Feature
+
+* add more pattern (e8fd13827fa6)
+* extend numbered intext pattern (87970e10d67e)
+
 ## v0.3.1
 
 ### Feature
