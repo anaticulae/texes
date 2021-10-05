@@ -25,6 +25,7 @@ def work(text: str, headlines: str, pages: tuple = None) -> str:
 
 PATTERN = utila.splitlines("""
 (siehe Abs. 5)
+(siehe Abschnitt 7.1.1)
 (siehe Kapitel 2.2)
 Abs. 5
 Abschnitt 1
@@ -32,6 +33,7 @@ Abschnitt 1.
 Kapitel 2.
 Punkt 4.1.4
 siehe Abs. 5
+siehe Abschnitt 7.1.1
 siehe Kapitel 2.
 siehe Punkt 4.2.2.
 siehe Punkt 4.7
