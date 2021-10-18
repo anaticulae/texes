@@ -2,6 +2,13 @@
 
 Every noteable change is logged here.
 
+## v0.5.0
+
+### Feature
+
+* lookup holy value cloud (b7dbf57a00da)
+* use holy values (bc1393a844f0)
+
 ## v0.4.0
 
 ### Feature
