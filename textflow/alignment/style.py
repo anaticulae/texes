@@ -29,6 +29,7 @@ import dataclasses
 import enum
 import typing
 
+import configo
 import texmex
 import utila
 
@@ -81,7 +82,7 @@ class LineStyleInfo:
     alignment: TextAlignment = None
 
 
-BLOCK_TEXT_DIFF = 10.0  # TODO: HOLY VALUE
+BLOCK_TEXT_DIFF = configo.HV_FLOAT_PLUS(default=10.0)
 
 
 def document_alignment(navigators: texmex.PageTextNavigators) -> TextAlignment:
@@ -100,13 +101,14 @@ def document_textfeed(navigators):
     return left, right
 
 
-TEXT_BORDER_NOISE = 15  # TODO HOLY VALUE
-
+TEXT_BORDER_NOISE = configo.HV_FLOAT_PLUS(default=15.0)
 # A center block must have a minimal width to exclude page numbers or very
 # short centered text as beeing a center text block.
-BLOCK_CENTER_MIN_WIDTH = 300  # TODO: HOLY VALUE
+BLOCK_CENTER_MIN_WIDTH = configo.HV_FLOAT_PLUS(default=300.0)
 
-BLOCK_EUQAL_BORDER_MAX_DIFF = 5.0
+BLOCK_EUQAL_BORDER_MAX_DIFF = configo.HV_FLOAT_PLUS(default=5.0)
+
+PAGE_LINEALIGNMENTS_DIFF_MAX = configo.HV_FLOAT_PLUS(default=3.0)
 
 
 def page_linealignments(
@@ -122,8 +124,7 @@ def page_linealignments(
     )
     for left, right in zip(border_left, border_right):
         width = navigator.width - left - right
-        # TODO: HOLY VALUES
-        if utila.near(right, 0.0, diff=3.0):
+        if utila.near(right, 0.0, diff=PAGE_LINEALIGNMENTS_DIFF_MAX):
             if left > 100:
                 result.append(TextAlignment.RIGHT)
             elif left <= 50:

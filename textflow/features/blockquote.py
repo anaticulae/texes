@@ -12,15 +12,16 @@
 
 """
 
+import configo
 import german
 import iamraw
 import serializeraw
 import texmex
 import utila
 
-MIN_BLOCK_QUOTE_DIST = 5.0  # TODO: HOLY VALUE, SEAMS VERY LOW
+MIN_BLOCK_QUOTE_DIST = configo.HV_FLOAT_PLUS(default=5.0)
 
-MAX_BLOCK_QUOTE_LINE_LENGTH = 15  # TODO: HOLY VALUE
+MAX_BLOCK_QUOTE_LINE_LENGTH = configo.HV_FLOAT_PLUS(default=15)
 
 
 def work(
@@ -83,6 +84,11 @@ def group_todata(index, navigator):
     return result
 
 
+RIGHT_MAX = configo.HV_FLOAT_PLUS(default=3.0)
+
+LEFT_MAX = configo.HV_FLOAT_PLUS(default=20.0)
+
+
 def iscitation_group_right_bounded(group, bounds, textsize) -> bool:
     if len(bounds) < 3:
         # bock quote must have at least 3 lines
@@ -91,9 +97,9 @@ def iscitation_group_right_bounded(group, bounds, textsize) -> bool:
     blocksize = texmex.textsize_frompage(group)
     if blocksize >= textsize:
         return False
-    if right > 3.0:
+    if right > RIGHT_MAX:
         return False
-    if left <= 20.0:  # TODO: HOLY VALUE
+    if left <= LEFT_MAX:
         # left feeded text
         return False
     left = utila.groupby_diff(
@@ -110,12 +116,10 @@ def iscitation_group_intention(bounds) -> bool:
     """Check that group is indentend and contains some quotation
     marks."""
     left, right = group_distance(bounds)
-
     if left < MIN_BLOCK_QUOTE_DIST:
         return False
     if right < MIN_BLOCK_QUOTE_DIST:
         return False
-
     lines = [
         german.word_tokenize(item.text, validate_sentences=False)
         for item in bounds
@@ -133,7 +137,6 @@ def iscitation_group(bounds) -> bool:
     marks = german.word_tokenize(text, validate_sentences=False)
     if len(marks) < 2:
         return False
-
     if not german.contain_quotation_marks([marks[0]]):
         return False
     # 0:3 add some tolerance to ignore, dots or highnotes
@@ -145,12 +148,9 @@ def iscitation_group(bounds) -> bool:
 def group_distance(group):
     if not group:
         return None
-
     left = [item.bounds.leftdist for item in group]
     right = [item.bounds.rightdist for item in group]
-
     left = utila.roundme(left, digits=0, convert=False)
     right = utila.roundme(right, digits=0, convert=False)
-
     left, right = utila.mode(left), utila.mode(right)
     return left, right
