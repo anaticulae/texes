@@ -7,9 +7,13 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
+import configo
+
 import texas
 
 __version__ = texas.__version__
 
 PROCESS = 'textflow'
 ROOT = texas.ROOT
+
+configo.cloud_lookup(PROCESS)
