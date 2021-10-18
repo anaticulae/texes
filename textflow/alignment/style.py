@@ -104,9 +104,9 @@ def document_textfeed(navigators):
 TEXT_BORDER_NOISE = configo.HV_FLOAT_PLUS(default=15.0)
 # A center block must have a minimal width to exclude page numbers or very
 # short centered text as beeing a center text block.
-BLOCK_CENTER_MIN_WIDTH = configo.HV_FLOAT_PLUS(default=300.0)
+BLOCK_CENTER_WIDTH_MIN = configo.HV_FLOAT_PLUS(default=300.0)
 
-BLOCK_EUQAL_BORDER_MAX_DIFF = configo.HV_FLOAT_PLUS(default=5.0)
+BLOCK_EUQAL_BORDER_DIFF_MAX = configo.HV_FLOAT_PLUS(default=5.0)
 
 PAGE_LINEALIGNMENTS_DIFF_MAX = configo.HV_FLOAT_PLUS(default=3.0)
 
@@ -131,8 +131,8 @@ def page_linealignments(
                 result.append(TextAlignment.BLOCK)
         elif right >= 20:
             if left >= 20:
-                if utila.near(right, left, BLOCK_EUQAL_BORDER_MAX_DIFF)\
-                   and width >= BLOCK_CENTER_MIN_WIDTH:
+                if utila.near(right, left, BLOCK_EUQAL_BORDER_DIFF_MAX)\
+                   and width >= BLOCK_CENTER_WIDTH_MIN:
                     # left and right textfeed is equal
                     result.append(TextAlignment.BLOCK_CENTER)
                 else:

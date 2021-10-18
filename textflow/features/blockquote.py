@@ -19,9 +19,9 @@ import serializeraw
 import texmex
 import utila
 
-MIN_BLOCK_QUOTE_DIST = configo.HV_FLOAT_PLUS(default=5.0)
+BLOCK_QUOTE_DIST_MIN = configo.HV_FLOAT_PLUS(default=5.0)
 
-MAX_BLOCK_QUOTE_LINE_LENGTH = configo.HV_FLOAT_PLUS(default=15)
+BLOCK_QUOTE_LINE_LENGTH_MAX = configo.HV_FLOAT_PLUS(default=15)
 
 
 def work(
@@ -66,7 +66,7 @@ def analyze_page(
                 iscitation_group_right_bounded(group, bounds, textsize),
         )):
             continue
-        if len(group) > MAX_BLOCK_QUOTE_LINE_LENGTH:
+        if len(group) > BLOCK_QUOTE_LINE_LENGTH_MAX:
             # TODO: ADD WARNING ABOUT VERY LONG CITATION, DO WE REQUIRE A
             # BETTER STRATEGY?
             continue
@@ -116,9 +116,9 @@ def iscitation_group_intention(bounds) -> bool:
     """Check that group is indentend and contains some quotation
     marks."""
     left, right = group_distance(bounds)
-    if left < MIN_BLOCK_QUOTE_DIST:
+    if left < BLOCK_QUOTE_DIST_MIN:
         return False
-    if right < MIN_BLOCK_QUOTE_DIST:
+    if right < BLOCK_QUOTE_DIST_MIN:
         return False
     lines = [
         german.word_tokenize(item.text, validate_sentences=False)
