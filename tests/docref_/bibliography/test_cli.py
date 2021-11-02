@@ -7,6 +7,8 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
+import os
+
 import power
 import pytest
 import serializeraw
@@ -37,8 +39,9 @@ def extract_label_plain(pdf, testdir, monkeypatch, pages=None):
         pages=utila.simplify_pages(pages),
     )
     source = power.link(pdf)
+    path = os.path.join(source, 'words__sentences_sentences.yaml')
     headlines = serializeraw.load_headlines(source, pages=pages)
-    text = serializeraw.load_text(source, headlines=headlines, pages=pages)
+    text = serializeraw.load_text(path, headlines=headlines, pages=pages)
     plain = docref.utils.references_plain(bibliography, text)
     flat = utila.flatten(plain)
     return flat
@@ -68,7 +71,8 @@ def test_docref_bibliography_bachelor075(testdir, monkeypatch):
     )
     source = power.link(power.BACHELOR075_PDF)
     headlines = serializeraw.load_headlines(source)
-    text = serializeraw.load_text(source, headlines=headlines)
+    path = os.path.join(source, 'words__sentences_sentences.yaml')
+    text = serializeraw.load_text(path, headlines=headlines)
     plain = docref.utils.references_plain(bibliography, text)
     flat = utila.flatten(plain)
     unique = utila.sort(*utila.make_unique(flat))
