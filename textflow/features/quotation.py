@@ -12,10 +12,10 @@ import iamraw
 import knlp
 import serializeraw
 import utila
-import words.undefined
 
 import textflow.quotation.data
 import textflow.quotation.serialize
+import textflow.utils
 
 
 def work(word: str, lists: str, pages: tuple = None) -> str:
@@ -66,7 +66,7 @@ def sentences(  # pylint:disable=R1260
         done = utila.Single()
         for _, content in pagecontent:
             for sentence in content:
-                list_index = words.undefined.listindex(sentence)
+                list_index = textflow.utils.listindex(sentence)
                 if list_index is not None:
                     if done.contains(list_index):
                         continue
@@ -88,7 +88,7 @@ def sentences(  # pylint:disable=R1260
                         yield page, sentence_index, listitem, splitted
                         sentence_index = sentence_index + 1
                     continue
-                undefined = words.undefined.intindex(sentence)
+                undefined = textflow.utils.intindex(sentence)
                 if undefined is not None:
                     continue
                 splitted = knlp.word_tokenize(sentence)

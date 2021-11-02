@@ -63,10 +63,10 @@ TODO: TECHNICAL
 import iamraw
 import serializeraw
 import utila
-import words.utils
 
 import docref.bibliography.parser
 import docref.reference
+import docref.utils
 
 
 def work(text: str, headlines: str, pages: tuple = None) -> str:
@@ -84,11 +84,11 @@ def work(text: str, headlines: str, pages: tuple = None) -> str:
 
 
 def remove_invalid(items, text):
-    lookup = words.utils.sentence_lookup(text)
+    lookup = docref.utils.sentence_lookup(text)
     result = []
     for item in items:
         sentence = lookup[item.page][item.sentence]
-        plain = words.utils.sentence_plain(sentence, item.marked)
+        plain = docref.utils.sentence_plain(sentence, item.marked)
         for reference, mark in zip(plain, item.marked):
             if not valid(reference):
                 utila.error(f'docref:bib:invalid reference: {reference}')

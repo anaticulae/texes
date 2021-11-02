@@ -9,7 +9,8 @@
 
 import german
 import iamraw
-import words.utils
+
+import docref.utils
 
 
 def parse_text(
@@ -18,7 +19,7 @@ def parse_text(
     compare_content: bool = True,
 ) -> iamraw.DocRefs:
     result = []
-    for page, number, sentence in words.utils.sentences(text, numbers=True):
+    for page, number, sentence in docref.utils.sentences(text, numbers=True):
         parsed = german.searches(
             pattern,
             sentence,
