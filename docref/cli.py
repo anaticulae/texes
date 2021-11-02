@@ -22,7 +22,7 @@ WORKPLAN = [
     utila.create_step(
         'bibliography',
         inputs=[
-            utila.ResultFile('words', 'text_text'),
+            utila.ResultFile('words', 'sentences_sentences'),
             utila.ResultFile('words', 'headlines_headlines'),
         ],
         output=('parsed',),
@@ -30,7 +30,7 @@ WORKPLAN = [
     utila.create_step(
         'figure',
         inputs=[
-            utila.ResultFile('words', 'text_text'),
+            utila.ResultFile('words', 'sentences_sentences'),
             utila.ResultFile('words', 'headlines_headlines'),
         ],
         output=('parsed',),
@@ -38,7 +38,7 @@ WORKPLAN = [
     utila.create_step(
         'section',
         inputs=[
-            utila.ResultFile('words', 'text_text'),
+            utila.ResultFile('words', 'sentences_sentences'),
             utila.ResultFile('words', 'headlines_headlines'),
         ],
         output=('parsed',),
@@ -46,7 +46,7 @@ WORKPLAN = [
     utila.create_step(
         'table',
         inputs=[
-            utila.ResultFile('words', 'text_text'),
+            utila.ResultFile('words', 'sentences_sentences'),
             utila.ResultFile('words', 'headlines_headlines'),
         ],
         output=('parsed',),

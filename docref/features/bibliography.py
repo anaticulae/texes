@@ -69,16 +69,18 @@ import docref.reference
 import docref.utils
 
 
-def work(text: str, headlines: str, pages: tuple = None) -> str:
-    headlines = serializeraw.load_headlines(headlines, pages=pages)
-    text = serializeraw.load_text(text, headlines=headlines, pages=pages)
-
+def work(sentences: str, headlines: str, pages: tuple = None) -> str:
+    sentences = serializeraw.load_text(
+        sentences,
+        headlines=headlines,
+        pages=pages,
+    )
     parsed = docref.reference.parse_text(
-        text,
+        sentences,
         pattern=PATTERN,
         compare_content=False,
     )
-    parsed = remove_invalid(parsed, text)
+    parsed = remove_invalid(parsed, sentences)
     dumped = serializeraw.dump_docref(parsed)
     return dumped
 

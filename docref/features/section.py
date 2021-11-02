@@ -14,11 +14,14 @@ import utila
 import docref.reference
 
 
-def work(text: str, headlines: str, pages: tuple = None) -> str:
+def work(sentences: str, headlines: str, pages: tuple = None) -> str:
     headlines = serializeraw.load_headlines(headlines, pages=pages)
-    text = serializeraw.load_text(text, headlines=headlines, pages=pages)
-
-    parsed = parse_text(text)
+    sentences = serializeraw.load_text(
+        sentences,
+        headlines=headlines,
+        pages=pages,
+    )
+    parsed = parse_text(sentences)
     dumped = serializeraw.dump_docref(parsed)
     return dumped
 
