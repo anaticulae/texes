@@ -2,6 +2,12 @@
 
 Every noteable change is logged here.
 
+## v0.6.0
+
+### Feature
+
+* use sentences instead of text as label parser source (b4e49749fc61)
+
 ## v0.5.1
 
 ## v0.5.0
