@@ -9,7 +9,6 @@
 
 import iamraw
 import utila
-import yaml
 
 import textflow.quotation.data
 
@@ -18,7 +17,7 @@ def dump_quotations(quotations) -> str:
     result = []
     for page, index, sentence in quotations:
         result.append(f'{page} {index} {sentence}')
-    dumped = yaml.dump(result)
+    dumped = utila.yaml_dump(result)
     return dumped
 
 
@@ -26,7 +25,7 @@ def load_quotations(
     content: str,
     pages: tuple = None,
 ) -> textflow.quotation.data.ExtractedQuotations:
-    loaded = utila.yaml_from_raw_or_path(content, safe=False)
+    loaded = utila.yaml_load(content, safe=False)
     result = []
     for item in loaded:
         page, index, sentence = item.split(maxsplit=2)
@@ -54,7 +53,7 @@ def load_text(
     Returns:
         loaded text with replaced headlines
     """
-    loaded = utila.yaml_from_raw_or_path(content, safe=False)
+    loaded = utila.yaml_load(content, safe=False)
     # convert page index to global index
     headlines = utila.flatten(headlines) if headlines else None
     result = []

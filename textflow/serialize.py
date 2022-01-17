@@ -12,7 +12,6 @@ import collections
 import iamraw
 import serializeraw
 import utila
-import yaml
 
 PageContent = collections.namedtuple('PageContent', 'content, page')
 
@@ -28,7 +27,7 @@ def dumpme(func):
                 raw = func(line)
                 rawpage.append(raw)
             result.append({'page': page.page, 'content': rawpage})
-        dumped = yaml.dump(result)
+        dumped = utila.yaml_dump(result)
         return dumped
 
     return dumper
@@ -39,7 +38,7 @@ def loadme(func=None, ctor=PageContent):
     def decorating_function(user_function):
 
         def loader(raw: str, pages: tuple = None):
-            loaded = utila.yaml_from_raw_or_path(raw, safe=False)
+            loaded = utila.yaml_load(raw, safe=False)
             result = []
             for page in loaded:
                 pagenumber = int(page['page'])
