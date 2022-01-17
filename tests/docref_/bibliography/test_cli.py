@@ -109,3 +109,14 @@ def test_docref_bibliography_diss143(testdir, monkeypatch):
         pages=utila.ranged_tuple(15, 30),
     )
     assert len(flat) == 30  # NOT VALIDATED YET
+
+
+# @utilatest.longrun
+def test_docref_bibliography_diss172(testdir, monkeypatch):
+    flat = extract_label_plain(
+        power.DISS172_PDF,
+        testdir,
+        monkeypatch,
+        pages=utila.ranged_tuple(30, 70),
+    )
+    assert len(flat) == 30  # NOT VALIDATED YET
