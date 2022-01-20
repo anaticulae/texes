@@ -61,7 +61,7 @@ WORKPLAN = [
             utila.ResultFile('rawmaker', 'border_pages'),
             utila.ResultFile('groupme', 'footer_footerheader'),
             utila.ResultFile('magic', 'content_content'),
-            utila.ResultFile('spacestation', 'wspace_wspace'),
+            utila.ResultFile('spacestation', 'wspace_wspace', optional=True),
         ],
         output=('wordspace',),
     ),
