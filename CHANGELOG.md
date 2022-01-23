@@ -2,6 +2,17 @@
 
 Every noteable change is logged here.
 
+## v0.7.0
+
+### Feature
+
+* make spacestation source optional (fd60c06c40f4)
+
+### Documentation
+
+* adjust modules path (02526d9e1875)
+* Happy New Year! (4dcb456f6407)
+
 ## v0.6.0
 
 ### Feature
