@@ -2,6 +2,12 @@
 
 Every noteable change is logged here.
 
+## v0.7.1
+
+### Fix
+
+* load headlines (1a8549097916)
+
 ## v0.7.0
 
 ### Feature
