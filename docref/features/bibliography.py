@@ -70,6 +70,7 @@ import docref.utils
 
 
 def work(sentences: str, headlines: str, pages: tuple = None) -> str:
+    headlines = serializeraw.load_headlines(headlines, pages=pages)
     sentences = serializeraw.load_text(
         sentences,
         headlines=headlines,
