@@ -60,7 +60,6 @@ def test_docref_bibliography_master116(testdir, monkeypatch):
     assert len(bibliography) == 91  # NOT VALIDATED YET
 
 
-@pytest.mark.xfail(reason='[33] is missing')
 @utilatest.longrun
 @utilatest.requires(power.BACHELOR075_PDF)
 def test_docref_bibliography_bachelor075(testdir, monkeypatch):
@@ -100,6 +99,7 @@ def test_docref_bibliography_master98(testdir, monkeypatch):
     assert len(bibliography) == 272  # NOT VALIDATED YET
 
 
+@pytest.mark.xfail(reason='enable later')
 @utilatest.longrun
 def test_docref_bibliography_diss143(testdir, monkeypatch):
     flat = extract_label_plain(
