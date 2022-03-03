@@ -9,12 +9,13 @@
 
 import iamraw
 import pytest
+import utila
 
 import docref.bibliography.strategies.intext
 
 BibRef = iamraw.BibliographyReference
 
-TEXT = """
+TEXT = utila.splitlines("""\
 (vgl. Abels 2010: 94ff.).
 (vgl. ebd.: 85).
 (vgl. ebd.: 161ff.).
@@ -29,15 +30,16 @@ TEXT = """
 (vgl. McQuail 2010: 467; Schenk 2007: 41; Perse 2001: 3).
 (vgl. Bonfadelli 2004: 33)
 Luhmann (2005a)
-""".splitlines()[1:]
+""")
 
-INLINE = """
-ästhetische Inhalte beliebig oft zu reproduzieren (vgl. Benjamin 1939), sondern auch
-Konsens (vgl. McQuail 2010: 454). Auch ist der eindeutige Nachweis von Medienef
-Vordergrund (vgl. McQuail 2010: 456-459). Der rezipientenorientierte Ansatz in der
-ierten Realität sinnhaft aneignet (vgl. McQuail 2010: 459). Die sinnliche Erfassung und
-tens (vgl. McQuail 2010: 467; Schenk 2007: 41; Perse 2001: 3). Obgleich sich die psy
-sens ausgeweitet (vgl. Dierse 1977: 2-6).
+INLINE = """\
+ästhetische Inhalte beliebig oft zu reproduzieren (vgl. Benjamin 1939), \
+sondern auch Konsens (vgl. McQuail 2010: 454). Auch ist der eindeutige \
+Nachweis von Medienef Vordergrund (vgl. McQuail 2010: 456-459). Der \
+rezipientenorientierte Ansatz in der ierten Realität sinnhaft aneignet \
+(vgl. McQuail 2010: 459). Die sinnliche Erfassung und tens (vgl. McQuail \
+2010: 467; Schenk 2007: 41; Perse 2001: 3). Obgleich sich die psy sens \
+ausgeweitet (vgl. Dierse 1977: 2-6).
 """
 
 FOOTER = """
