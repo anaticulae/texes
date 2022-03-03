@@ -32,6 +32,7 @@ def extract_label(source, testdir, monkeypatch, pages=':'):
 
 
 def extract_label_plain(pdf, testdir, monkeypatch, pages=None):
+    utilatest.fixture_requires(pdf)
     bibliography = extract_label(
         pdf,
         testdir,
@@ -60,7 +61,7 @@ def test_docref_bibliography_master116(testdir, monkeypatch):
     assert len(bibliography) == 91  # NOT VALIDATED YET
 
 
-@utilatest.longrun
+@utilatest.nightly
 @utilatest.requires(power.BACHELOR075_PDF)
 def test_docref_bibliography_bachelor075(testdir, monkeypatch):
     bibliography = extract_label(
@@ -111,7 +112,7 @@ def test_docref_bibliography_diss143(testdir, monkeypatch):
     assert len(flat) == 30  # NOT VALIDATED YET
 
 
-# @utilatest.longrun
+@utilatest.nightly
 def test_docref_bibliography_diss172(testdir, monkeypatch):
     flat = extract_label_plain(
         power.DISS172_PDF,

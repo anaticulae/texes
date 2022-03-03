@@ -32,16 +32,14 @@ def test_blockquote_master72():
     assert len(extracted.content) == 2
 
 
-@utilatest.longrun
+@utilatest.nightly
 def test_blockquote_validate_master72(testdir, monkeypatch):
     tests.textflow_.run(
         f'-i {power.link(power.MASTER072_PDF)} --blockquote --pages=0:65',
         monkeypatch=monkeypatch,
     )
-
     path = textflow.path.blockquote(testdir.tmpdir)
     loaded = serializeraw.load_blockquotes(path)
-
     current = [(item.page, len(item.content)) for item in loaded]
     expected = [(14, 1), (15, 2), (17, 1), (24, 1), (25, 1), (26, 1), (38, 1)]
     assert current == expected

@@ -89,8 +89,8 @@ def test_textflow_validate_quotation_bachelor76_page4_10(testdir, monkeypatch):
     assert raw == BACHELOR76_EXPECTED
 
 
-@utilatest.longrun
-def test_textflow_validate_quotation_bachelor76_page8(testdir, monkeypatch):
+@utilatest.nightly
+def test_textflow_validate_quotation_bachelor76p8(testdir, monkeypatch):
     quotations = tests.textflow_.quotations.utils.extract_quotations(
         power.BACHELOR076_PDF,
         '8',

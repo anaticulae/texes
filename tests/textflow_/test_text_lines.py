@@ -39,7 +39,7 @@ TextAlignment = textflow.alignment.style.TextAlignment
         id='homework40',
     ),
 ])
-@utilatest.longrun
+@utilatest.nightly
 def test_document_alignment(source, expected):
     utilatest.fixture_requires(source)
     content_navigators = serializeraw.create_pagetextnavigators_frompath(
