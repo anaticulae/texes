@@ -30,7 +30,7 @@ def test_textflow_alignments_docu027(testdir, monkeypatch):
 
 @pytest.mark.parametrize('source', [
     pytest.param(power.link(power.MASTER072_PDF), id='master72'),
-    pytest.param(power.link(power.DOCU009_PDF), id='pyporting'),
+    pytest.param(power.link(power.DOCU009_PDF), id='docu009'),
 ])
 @utilatest.nightly
 def test_textflow_alignments(source, testdir, monkeypatch):

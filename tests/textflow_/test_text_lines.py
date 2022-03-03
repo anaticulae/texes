@@ -18,29 +18,14 @@ TextAlignment = textflow.alignment.style.TextAlignment
 
 
 @pytest.mark.parametrize('source, expected', [
-    pytest.param(
-        power.link(power.MASTER072_PDF),
-        TextAlignment.BLOCK,
-        id='master72',
-    ),
-    pytest.param(
-        power.link(power.BACHELOR037_PDF),
-        TextAlignment.BLOCK,
-        id='bachelor37',
-    ),
-    pytest.param(
-        power.link(power.DOCU007_PDF),
-        TextAlignment.BLOCK,
-        id='pyporting',
-    ),
-    pytest.param(
-        power.link(power.HOME040_PDF),
-        TextAlignment.LEFT,
-        id='homework40',
-    ),
+    pytest.param(power.MASTER072_PDF, TextAlignment.BLOCK, id='master72'),
+    pytest.param(power.BACHELOR037_PDF, TextAlignment.BLOCK, id='bachelor37'),
+    pytest.param(power.DOCU007_PDF, TextAlignment.BLOCK, id='docu009'),
+    pytest.param(power.HOME040_PDF, TextAlignment.LEFT, id='home040'),
 ])
 @utilatest.nightly
 def test_document_alignment(source, expected):
+    source = power.link(source)
     utilatest.fixture_requires(source)
     content_navigators = serializeraw.create_pagetextnavigators_frompath(
         source,
