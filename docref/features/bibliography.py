@@ -107,7 +107,7 @@ def remove_invalid(items, text):
     return result
 
 
-NUMBERED_REFERENCE = r"""
+NUMBERED_REFERENCE = utila.compiles(r"""
 \[
     [ ]{0,2}
     \d{1,3}
@@ -119,7 +119,7 @@ NUMBERED_REFERENCE = r"""
     )+
     [ ]{0,2}
 \]
-"""
+""")
 
 
 def valid(item: str):
@@ -131,7 +131,7 @@ def valid(item: str):
     """
     if docref.bibliography.parser.parse(item):
         return True
-    if utila.match(NUMBERED_REFERENCE, item):
+    if NUMBERED_REFERENCE.match(item):
         return True
     return False
 
