@@ -9,6 +9,7 @@
 
 import german
 import iamraw
+import konrad
 
 import docref.utils
 
@@ -25,8 +26,11 @@ def parse_text(
             sentence,
             compare_content=compare_content,
             overlapping_remove=True,
+            verbose=True,
         )
         if not parsed:
             continue
-        result.append(iamraw.DocRef(page, number, parsed))
+        parsed, raws = parsed
+        raws = [''.join(konrad.mark2str(item) for item in raw) for raw in raws]
+        result.append(iamraw.DocRef(page, number, parsed, raw=raws))
     return result
