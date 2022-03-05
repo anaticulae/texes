@@ -158,9 +158,15 @@ PATTERN = utila.splitlines("""
 (ebd.: 51)
 (ebd.: 51-60)
 (ebd: 51-60)
-(vgl. Darilek 2014),
-(vgl. Darilek 2014b),
+(vgl. Darilek 2014)
+(vgl. Darilek 2014b)
 (vgl. Defrance; Pfeil 2014; vgl. Frank 2005)
+(vgl. BOBEK und FESL 1978: S. 228)
+(vgl. BOBEK und FESL 1978, S. 141)
+(vgl. BOBEK u. FESL 1978: S. 227)
+(vgl. HEINRITZ, KLEIN und POPP (2003), S. 29)
+(vgl. BEHRENS 1965, S. 41ff)
+(vgl. BEHRENS 1965, S. 138)
 [1]
 [25]
 [123]
