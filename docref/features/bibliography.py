@@ -166,4 +166,6 @@ PATTERN = utila.splitlines("""
 [123]
 [11, 22]
 [11, 22, 33]
-""")
+""") | {
+    utila.compiles(r'\{\{hn\:\d{1,4}\:nh\}\}'),
+}
