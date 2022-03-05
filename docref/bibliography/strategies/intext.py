@@ -23,7 +23,8 @@ PATTERN = r"""
     [ ]?
     (?P<year>\d{4})?
     (
-        [:]                         # optional collon between author and year
+        # if year matches : and , is possible, if no year matches : is possible
+        (?(year)[:,]|[:])           # optional collon between author and year
         [ ]{0,3}                    # space between collon and pages
         (?P<pages>
             (
@@ -50,7 +51,7 @@ REFERENCE_LONG = r"""
     vgl\.
     [ ]
     (?P<author>.{8,100})
-    ,
+    [,:]
     [ ]
     (?P<pages>
         (S\.)?
