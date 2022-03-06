@@ -38,12 +38,13 @@ PATTERN = r"""
 """
 
 AUTHOR_AND_YEAR = r"""
-    \(
-        (vgl[.][ ])
-        (?P<author>\b[\w/]+?)
-        [ ]
-        (?P<year>\d{4})
-    \)
+\(
+    vgl\.
+    [ ]
+    (?P<author>\b[\w/]+?)
+    [ ]
+    (?P<year>\d{4})
+\)
 """
 
 REFERENCE_LONG = r"""
