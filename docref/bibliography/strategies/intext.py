@@ -7,12 +7,10 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import re
-
 import iamraw
 import utila
 
-PATTERN = r"""
+PATTERN = utila.compiles(r"""
     (vgl[.][ ])?
     (?P<author>
         (
@@ -35,9 +33,9 @@ PATTERN = r"""
             )
         )
     )
-"""
+""")
 
-AUTHOR_AND_YEAR = r"""
+AUTHOR_AND_YEAR = utila.compiles(r"""
 \(
     vgl\.
     [ ]
@@ -45,9 +43,9 @@ AUTHOR_AND_YEAR = r"""
     [ ]
     (?P<year>\d{4})
 \)
-"""
+""")
 
-REFERENCE_LONG = r"""
+REFERENCE_LONG = utila.compiles(r"""
 \(
     vgl\.
     [ ]
@@ -64,19 +62,21 @@ REFERENCE_LONG = r"""
         )
     )
 \)
-"""
+""")
+
+PATTERNS = (PATTERN, AUTHOR_AND_YEAR, REFERENCE_LONG)
 
 
 def parse(raw: str) -> iamraw.BibliographyReferences:
     result = []
-    for pattern in [PATTERN, AUTHOR_AND_YEAR, REFERENCE_LONG]:
+    for pattern in PATTERNS:
         parsed = parse_pattern(raw, pattern)
         result.extend(parsed)
     return result
 
 
 def parse_pattern(raw: str, pattern: str) -> iamraw.BibliographyReferences:
-    matched = re.finditer(pattern, raw, re.VERBOSE)
+    matched = pattern.finditer(raw)
     if not matched:
         return []
     result = []
