@@ -7,7 +7,7 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import os
+import functools
 
 import power
 import pytest
@@ -15,8 +15,15 @@ import utila
 import utilatest
 
 import tests.textflow_
-import tests.textflow_.quotations.utils
 import texas
+import textflow.path
+import textflow.quotation.serialize
+
+ARCHIVE = utila.join(
+    texas.ROOT,
+    'tests/textflow_/quotations/expected',
+    exist=True,
+)
 
 
 @pytest.mark.parametrize('source, expected', [
@@ -25,27 +32,40 @@ import texas
 ])
 @utilatest.nightly
 def test_validate_quotations_x(source, expected, testdir, monkeypatch):
-    expected = file_read(expected)
-    current = tests.textflow_.quotations.utils.extract_quotations(
+    QuotationValidate(
         source,
-        ':',
-        testdir,
-        monkeypatch,
-    )
-    current: str = quotations_raw(current)
-    assert current == expected
+        pages=':',
+        expected=expected,
+        testdir=testdir,
+        monkeypatch=monkeypatch,
+    ).evaluate()
 
 
-def file_read(name):
-    path = os.path.join(texas.ROOT, 'tests/textflow_/quotations/expected')
-    loaded = utila.file_read(os.path.join(path, name))
-    loaded = loaded.strip()
-    return loaded
+class QuotationValidate(utilatest.BaseLiner):
 
+    def __init__(self, source, pages, expected, testdir, monkeypatch):
+        super().__init__(
+            program=functools.partial(
+                tests.textflow_.run,
+                monkeypatch=monkeypatch,
+            ),
+            step='quotation',
+            source=source,
+            pages=pages,
+            workdir=testdir.tmpdir,
+            index=expected,
+            archive=ARCHIVE,
+            loader=self.load_quotations,
+        )
 
-def quotations_raw(quotes: list) -> str:
-    quotes = [
-        f'{str(quote.page).zfill(3)} {quote.sentence}' for quote in quotes
-    ]
-    raw = utila.NEWLINE.join(quotes).strip()
-    return raw
+    def load_quotations(self, workdir):  # pylint:disable=R0201
+        path = textflow.path.quotation(workdir)
+        result = textflow.quotation.serialize.load_quotations(path)
+        return result
+
+    def raw(self, value) -> str:  # pylint:disable=R0201
+        quotes = [
+            f'{str(quote.page).zfill(3)} {quote.sentence}' for quote in value
+        ]
+        raw = utila.NEWLINE.join(quotes).strip()
+        return raw
