@@ -24,7 +24,6 @@ def test_textflow_cli(monkeypatch):
 def test_textflow_alignments_docu027(testdir, monkeypatch):
     """Ensure that document with empty page is parsed correctly."""
     source = power.link(power.DOCU027_PDF)
-    tests.words(f'-i {source}')
     tests.textflow_.run(f'-i {source}', monkeypatch=monkeypatch)
 
 
@@ -35,7 +34,6 @@ def test_textflow_alignments_docu027(testdir, monkeypatch):
 @utilatest.nightly
 def test_textflow_alignments(source, testdir, monkeypatch):
     """Ensure that document with empty page is parsed correctly."""
-    tests.words(f'-i {source}')
     tests.textflow_.run(f'-i {source}', monkeypatch=monkeypatch)
 
 
