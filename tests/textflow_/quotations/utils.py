@@ -9,7 +9,6 @@
 
 import power
 
-import tests
 import tests.textflow_
 import textflow.path
 import textflow.quotation.serialize
@@ -22,7 +21,6 @@ def extract_quotations(
     monkeypatch,
 ) -> textflow.quotation.data.ExtractedQuotation:
     source = power.link(source)
-    tests.words(f'-i {source} --pages={pages}')
     tests.textflow_.run(
         f'-i {source} -i {testdir.tmpdir} --pages={pages} --quotation',
         monkeypatch=monkeypatch,
