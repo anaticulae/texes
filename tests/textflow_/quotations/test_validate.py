@@ -11,13 +11,13 @@ import functools
 
 import power
 import pytest
+import serializeraw
 import utila
 import utilatest
 
 import tests.textflow_
 import texas
 import textflow.path
-import textflow.quotation.serialize
 
 ARCHIVE = utila.join(
     texas.ROOT,
@@ -60,7 +60,7 @@ class QuotationValidate(utilatest.BaseLiner):
 
     def load_quotations(self, workdir):  # pylint:disable=R0201
         path = textflow.path.quotation(workdir)
-        result = textflow.quotation.serialize.load_quotations(path)
+        result = serializeraw.load_quotations(path)
         return result
 
     def raw(self, value) -> str:  # pylint:disable=R0201

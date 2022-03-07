@@ -7,14 +7,15 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
+import iamraw
 import power
+import serializeraw
 import utila
 import utilatest
 
 import tests
 import textflow.path
 import textflow.quotation
-import textflow.quotation.serialize
 
 
 @utilatest.nightly
@@ -27,8 +28,8 @@ def test_textflow_quotation_master72p10t20(testdir, monkeypatch):
     )
     assert current
     assert len(current) >= 30, str(current)
-    dumped = textflow.quotation.serialize.dump_quotations(current)
-    loaded = textflow.quotation.serialize.load_quotations(dumped)
+    dumped = serializeraw.dump_quotations(current)
+    loaded = serializeraw.load_quotations(dumped)
     assert loaded == current
 
 
@@ -106,12 +107,12 @@ def extract_quotations(
     pages: str,
     testdir,
     monkeypatch,
-) -> textflow.quotation.data.ExtractedQuotation:
+) -> iamraw.ExtractedQuotations:
     source = power.link(source)
     tests.textflow_.run(
         f'-i {source} -i {testdir.tmpdir} --pages={pages} --quotation',
         monkeypatch=monkeypatch,
     )
     path = textflow.path.quotation(testdir.tmpdir)
-    result = textflow.quotation.serialize.load_quotations(path)
+    result = serializeraw.load_quotations(path)
     return result

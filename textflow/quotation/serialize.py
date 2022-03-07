@@ -10,33 +10,6 @@
 import iamraw
 import utila
 
-import textflow.quotation.data
-
-
-def dump_quotations(quotations) -> str:
-    result = []
-    for page, index, sentence in quotations:
-        result.append(f'{page} {index} {sentence}')
-    dumped = utila.yaml_dump(result)
-    return dumped
-
-
-def load_quotations(
-    content: str,
-    pages: tuple = None,
-) -> textflow.quotation.data.ExtractedQuotations:
-    loaded = utila.yaml_load(content, safe=False)
-    result = []
-    for item in loaded:
-        page, index, sentence = item.split(maxsplit=2)
-        page = int(page)
-        if utila.should_skip(page, pages):
-            continue
-        index = int(index)
-        result.append(
-            textflow.quotation.data.ExtractedQuotation(page, index, sentence))
-    return result
-
 
 # TODO: REPLACE WITH SERIALZIERAW?
 def load_text(

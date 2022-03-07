@@ -7,15 +7,12 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
+import german
+import iamraw
 import knlp
 import serializeraw
 import texmex
 import utila
-
-import german
-import textflow.quotation.data
-import textflow.quotation.serialize
-import textflow.utils
 
 
 def work(word: str, pages: tuple = None) -> str:
@@ -28,7 +25,7 @@ def work(word: str, pages: tuple = None) -> str:
     return dumped
 
 
-def collect_quotations(word) -> textflow.quotation.data.ExtractedQuotations:
+def collect_quotations(word) -> iamraw.ExtractedQuotations:
     result = []
     for page, index, sentence, splitted in sentences(word):
         lang = german.lang(splitted).language
@@ -48,7 +45,7 @@ def collect_quotations(word) -> textflow.quotation.data.ExtractedQuotations:
     return result
 
 
-def sentences(word) -> textflow.quotation.data.ExtractedQuotations:
+def sentences(word) -> iamraw.ExtractedQuotations:
     for word_section in word:
         page, pagecontent = word_section.page, word_section.content
         sentence_index = 0
