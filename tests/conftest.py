@@ -35,11 +35,10 @@ RESOURCES = [
     power.DOCU027_PDF,
     (power.DISS143_PDF, '0:50'),
     (power.MASTER091B_PDF, '0:20'),
-    (power.BACHELOR056_PDF, '0:20'),
+    power.todo(power.BACHELOR056_PDF, '0:20', spacestation=True),
     power.DOCU009_PDF,
     power.DOCU007_PDF,
 ]
-
 WORKER = 6
 
 
@@ -58,7 +57,6 @@ def extract(resources):
         sections=True,
         words=True,
         magic=True,
-        spacestation=True,
         worker=WORKER,
         pages=':',
         rawmaker=genex.CONFIG.replace('--char_margin=3.1', '--char_margin=5.0'),
