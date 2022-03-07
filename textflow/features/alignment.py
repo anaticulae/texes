@@ -9,6 +9,7 @@
 
 import typing
 
+import iamraw
 import serializeraw
 import texmex
 
@@ -40,7 +41,7 @@ def extract_expected(navigators):
     expected = textflow.alignment.style.document_linealignments_expected(
         navigators)
     expected = [
-        textflow.serialize.PageContent(page=page, content=content)
+        iamraw.PageContent(page=page, content=content)
         for page, content in expected
     ]
     return expected
@@ -49,7 +50,7 @@ def extract_expected(navigators):
 def extract_current(navigators):
     border = textflow.alignment.style.document_textfeed(navigators)
     result = [
-        textflow.serialize.PageContent(
+        iamraw.PageContent(
             page=navigator.page,
             content=textflow.alignment.style.page_linealignments(
                 navigator,

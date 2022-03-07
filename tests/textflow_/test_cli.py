@@ -9,11 +9,11 @@
 
 import power
 import pytest
+import serializeraw
 import utilatest
 
 import tests
 import tests.textflow_
-import textflow.serialize
 
 
 def test_textflow_cli(monkeypatch):
@@ -46,7 +46,7 @@ def test_textflow_wordspace_bachelor56page4(testdir, monkeypatch):
         f'-i {source} --wordspace --pages=4',
         monkeypatch=monkeypatch,
     )
-    loaded = textflow.serialize.load_wordspaces(testdir.tmpdir)
-    dumped = textflow.serialize.dump_wordspaces(loaded)
-    again = textflow.serialize.load_wordspaces(dumped)
+    loaded = serializeraw.load_wordspaces(testdir.tmpdir)
+    dumped = serializeraw.dump_wordspaces(loaded)
+    again = serializeraw.load_wordspaces(dumped)
     assert again == loaded

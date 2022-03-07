@@ -7,13 +7,8 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import collections
-
 import iamraw
-import serializeraw
 import utila
-
-PageContent = collections.namedtuple('PageContent', 'content, page')
 
 
 def dumpme(func):
@@ -33,7 +28,7 @@ def dumpme(func):
     return dumper
 
 
-def loadme(func=None, ctor=PageContent):
+def loadme(func=None, ctor=iamraw.PageContent):
 
     def decorating_function(user_function):
 
@@ -56,41 +51,3 @@ def loadme(func=None, ctor=PageContent):
     if func is None:
         return decorating_function
     return decorating_function(func)
-
-
-def dump_wordspaces(items) -> str:
-
-    def dumper(lines) -> list:
-        result = []
-        for number, content in lines:
-            content = utila.from_tuple(utila.flatten(content))
-            line = f'{number} {content}'
-            result.append(line)
-        return result
-
-    dumped = serializeraw.dump_pagecontent(items, pagedumper=dumper)
-    return dumped
-
-
-def load_wordspaces(content: str, pages: tuple = None) -> iamraw.PageContents:
-
-    def loader(page) -> iamraw.PageContent:
-        result = []
-        for line in page:
-            number, content = line.split(maxsplit=1)
-            # TODO: IMPROVE THIS METHOD
-            content = content.split()
-            content = [
-                utila.parse_tuple(' '.join(chunk))
-                for chunk in utila.chunks(content, size=4)
-            ]
-            result.append((int(number), content))
-        return result
-
-    loaded = serializeraw.load_pagecontent(
-        content,
-        pages=pages,
-        pageloader=loader,
-        fname='textflow__wordspace_wordspace',
-    )
-    return loaded

@@ -10,7 +10,6 @@
 import serializeraw
 import utila
 
-import textflow.serialize
 import textflow.wordspace
 
 
@@ -25,7 +24,7 @@ def work(
 ) -> str:
     if not utila.exists(wordspaces):
         utila.error(f'wordspace does not exists: {wordspaces} skip --wordspace')
-        dumped = textflow.serialize.dump_wordspaces([])
+        dumped = serializeraw.dump_wordspaces([])
         return dumped
     ptcns = serializeraw.create_pagetextcontentnavigators_fromfile(
         text,
@@ -40,5 +39,5 @@ def work(
     )
     wordspaces = serializeraw.load_wspaces(wordspaces, pages=pages)
     result = textflow.wordspace.extract(ptcns, magic, wordspaces)
-    dumped = textflow.serialize.dump_wordspaces(result)
+    dumped = serializeraw.dump_wordspaces(result)
     return dumped

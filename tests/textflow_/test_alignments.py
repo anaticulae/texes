@@ -15,7 +15,6 @@ import utilatest
 import tests.textflow_
 import textflow.features.alignment
 import textflow.path
-import textflow.serialize
 
 
 @utilatest.longrun
