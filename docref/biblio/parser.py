@@ -9,8 +9,8 @@
 
 import iamraw
 
-import docref.bibliography.strategies.intext
-import docref.bibliography.strategies.tech
+import docref.biblio.strategies.intext
+import docref.biblio.strategies.tech
 
 
 def parse(page: str) -> iamraw.BibliographyReferences:
@@ -18,10 +18,10 @@ def parse(page: str) -> iamraw.BibliographyReferences:
     >>> parse('[10]')
     [BibliographyReference(...reference='10'...raw='[10]'...)]
     """
-    parsed = docref.bibliography.strategies.tech.parse(page)
+    parsed = docref.biblio.strategies.tech.parse(page)
     if parsed:
         return parsed
-    parsed = docref.bibliography.strategies.intext.parse(page)
+    parsed = docref.biblio.strategies.intext.parse(page)
     if parsed:
         return parsed
     return None

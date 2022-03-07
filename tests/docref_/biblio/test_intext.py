@@ -9,7 +9,7 @@
 
 import pytest
 
-import docref.bibliography.strategies.intext
+import docref.biblio.strategies.intext
 
 RAW = """\
 (Halbwachs 1985:71)
@@ -27,13 +27,13 @@ TODO = """\
 
 
 def test_parse_label():
-    parsed = docref.bibliography.strategies.intext.parse(RAW)
+    parsed = docref.biblio.strategies.intext.parse(RAW)
     expected = len(RAW.splitlines())
     assert len(parsed) == expected
 
 
 @pytest.mark.xfail(reason='improve collector')
 def test_parse_not_working_yet():
-    parsed = docref.bibliography.strategies.intext.parse(TODO)
+    parsed = docref.biblio.strategies.intext.parse(TODO)
     expected = len(TODO.splitlines())
     assert len(parsed) == expected

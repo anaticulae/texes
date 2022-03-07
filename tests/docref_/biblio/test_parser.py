@@ -11,7 +11,7 @@ import iamraw
 import pytest
 import utila
 
-import docref.bibliography.strategies.intext
+import docref.biblio.strategies.intext
 
 BibRef = iamraw.BibliographyReference
 
@@ -128,7 +128,7 @@ def test_parse_bibliographylink(line, expected):
     # ),
     if not isinstance(expected, list):
         expected = [expected]
-    parsed = docref.bibliography.strategies.intext.parse(line)
+    parsed = docref.biblio.strategies.intext.parse(line)
     assert parsed == expected
 
 
@@ -144,7 +144,7 @@ def test_parse_bibliographylink_in_text():
         # TODO: FIX ORDER AFTER MERGING DIFFERENT REGEX PATTERN
         BibRef(authors=['Benjamin'], year=1939),
     ]
-    parsed = docref.bibliography.strategies.intext.parse(INLINE)
+    parsed = docref.biblio.strategies.intext.parse(INLINE)
     assert parsed == expected
 
 
@@ -168,5 +168,5 @@ urkundliche Erwähnung geht auf das Jahr 1094 zurück wo Neunkirchen als \
 
 
 def test_parse_biblink_fulltext():
-    parsed = docref.bibliography.strategies.intext.parse(RAW)
+    parsed = docref.biblio.strategies.intext.parse(RAW)
     assert len(parsed) == 2

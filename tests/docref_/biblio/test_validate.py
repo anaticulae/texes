@@ -22,7 +22,7 @@ import tests.docref_
 
 ARCHIVE = utila.join(
     docref.ROOT,
-    'tests/docref_/bibliography/expected',
+    'tests/docref_/biblio/expected',
     exist=True,
 )
 

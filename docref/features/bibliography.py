@@ -66,7 +66,7 @@ import iamraw
 import serializeraw
 import utila
 
-import docref.bibliography.parser
+import docref.biblio.parser
 import docref.reference
 import docref.utils
 
@@ -132,7 +132,7 @@ def valid(item: str):
     >>> valid('[28, 76, 59]')
     True
     """
-    if docref.bibliography.parser.parse(item):
+    if docref.biblio.parser.parse(item):
         return True
     if NUMBERED_REFERENCE.match(item):
         return True
