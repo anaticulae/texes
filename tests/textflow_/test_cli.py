@@ -28,12 +28,13 @@ def test_textflow_alignments_docu027(testdir, monkeypatch):
 
 
 @pytest.mark.parametrize('source', [
-    pytest.param(power.link(power.MASTER072_PDF), id='master72'),
-    pytest.param(power.link(power.DOCU009_PDF), id='docu009'),
+    pytest.param(power.MASTER072_PDF, id='master72'),
+    pytest.param(power.DOCU009_PDF, id='docu009'),
 ])
 @utilatest.nightly
 def test_textflow_alignments(source, testdir, monkeypatch):
     """Ensure that document with empty page is parsed correctly."""
+    source = power.link(source)
     tests.textflow_.run(f'-i {source}', monkeypatch=monkeypatch)
 
 

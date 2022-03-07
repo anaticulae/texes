@@ -19,7 +19,6 @@ import textflow.path
 def test_blockquote_master72():
     source = power.link(power.MASTER072_PDF)
     pages = (15,)
-
     textsize = 12.0  # TODO: NOT VALIDATED
     ptcn = serializeraw.create_pagetextcontentnavigators_frompath(
         source,
@@ -34,8 +33,9 @@ def test_blockquote_master72():
 
 @utilatest.nightly
 def test_blockquote_validate_master72(testdir, monkeypatch):
+    source = power.link(power.MASTER072_PDF)
     tests.textflow_.run(
-        f'-i {power.link(power.MASTER072_PDF)} --blockquote --pages=0:65',
+        f'-i {source} --blockquote --pages=0:65',
         monkeypatch=monkeypatch,
     )
     path = textflow.path.blockquote(testdir.tmpdir)
@@ -47,13 +47,13 @@ def test_blockquote_validate_master72(testdir, monkeypatch):
 
 @utilatest.longrun
 def test_blockquote_validate_bachelor76_page8_11_13_15_16(testdir, monkeypatch):
+    source = power.link(power.BACHELOR076_PDF)
     tests.textflow_.run(
-        f'-i {power.link(power.BACHELOR076_PDF)} --blockquote --pages=8:17',
+        f'-i {source} --blockquote --pages=8:17',
         monkeypatch=monkeypatch,
     )
     path = textflow.path.blockquote(testdir.tmpdir)
     loaded = serializeraw.load_blockquotes(path)
-
     expected = [(8, 1), (11, 1), (13, 1), (15, 1), (16, 2)]
     current = [(item.page, len(item.content)) for item in loaded]
     assert current == expected
@@ -61,13 +61,13 @@ def test_blockquote_validate_bachelor76_page8_11_13_15_16(testdir, monkeypatch):
 
 @utilatest.longrun
 def test_blockquote_validate_master98(testdir, monkeypatch):
+    source = power.link(power.MASTER098_PDF)
     tests.textflow_.run(
-        f'-i {power.link(power.MASTER098_PDF)} --blockquote --pages=0:17',
+        f'-i {source} --blockquote --pages=0:17',
         monkeypatch=monkeypatch,
     )
     path = textflow.path.blockquote(testdir.tmpdir)
     loaded = serializeraw.load_blockquotes(path)
-
     expected = [(2, 1), (3, 1), (7, 2), (8, 1), (11, 1), (12, 1), (13, 1),
                 (15, 1)]
     current = [(item.page, len(item.content)) for item in loaded]
