@@ -93,32 +93,3 @@ def test_docref_bibliography_master91b(testdir, monkeypatch):
         pages='9',
     )
     assert len(bibliography) == 2
-
-
-@utilatest.nightly
-@utilatest.requires(power.MASTER098_PDF)
-def test_docref_bibliography_master98(testdir, monkeypatch):
-    bibliography = extract_label(power.MASTER098_PDF, testdir, monkeypatch)
-    assert len(bibliography) == 272  # NOT VALIDATED YET
-
-
-@utilatest.longrun
-def test_docref_bibliography_diss143(testdir, monkeypatch):
-    flat = extract_label_plain(
-        power.DISS143_PDF,
-        testdir,
-        monkeypatch,
-        pages=utila.ranged_tuple(15, 30),
-    )
-    assert len(flat) in (30, 31)  # NOT VALIDATED YET
-
-
-@utilatest.nightly
-def test_docref_bibliography_diss172(testdir, monkeypatch):
-    flat = extract_label_plain(
-        power.DISS172_PDF,
-        testdir,
-        monkeypatch,
-        pages=utila.ranged_tuple(30, 70),
-    )
-    assert len(flat) in (30, 47)  # NOT VALIDATED YET

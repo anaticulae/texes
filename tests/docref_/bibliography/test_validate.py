@@ -31,6 +31,8 @@ ARCHIVE = utila.join(
 @pytest.mark.parametrize('source, pages, expected', [
     pytest.param(power.BACHELOR075_PDF, ':', 'bachelor075', id='bachelor075'),
     pytest.param(power.BACHELOR076_PDF, ':', 'bachelor076', id='bachelor076'),
+    pytest.param(power.DISS143_PDF, '15:30', 'diss143', id='diss143'),
+    pytest.param(power.DISS172_PDF, '30:70', 'diss172', id='diss172'),
     pytest.param(power.MASTER072_PDF, ':', 'master072', id='master072'),
     pytest.param(power.MASTER075_PDF, ':', 'master075', id='master075'),
     pytest.param(power.MASTER083_PDF, ':', 'master083', id='master083'),
