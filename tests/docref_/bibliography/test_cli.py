@@ -81,8 +81,11 @@ def test_docref_bibliography_bachelor075(testdir, monkeypatch):
 
 @utilatest.requires(power.MASTER091B_PDF)
 def test_docref_bibliography_master91b(testdir, monkeypatch):
-    """Do not parse overlapping words. Do not detect overlapping words
-    twice. Some pattern are part of other pattern."""
+    """Do not parse overlapping words.
+
+    Do not detect overlapping words twice. Some pattern are part of
+    other pattern.
+    """
     bibliography = extract_label(
         power.MASTER091B_PDF,
         testdir,
