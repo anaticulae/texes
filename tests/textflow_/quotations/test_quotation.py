@@ -12,13 +12,14 @@ import utila
 import utilatest
 
 import tests
-import tests.textflow_.quotations.utils
+import textflow.path
+import textflow.quotation
 import textflow.quotation.serialize
 
 
 @utilatest.nightly
-def test_textflow_quotation_master72_pages10_20(testdir, monkeypatch):
-    current = tests.textflow_.quotations.utils.extract_quotations(
+def test_textflow_quotation_master72p10t20(testdir, monkeypatch):
+    current = extract_quotations(
         power.MASTER072_PDF,
         '10:21',
         testdir,
@@ -31,9 +32,9 @@ def test_textflow_quotation_master72_pages10_20(testdir, monkeypatch):
     assert loaded == current
 
 
-@utilatest.nightly
+@utilatest.longrun
 def test_textflow_quotation_bachelor76(testdir, monkeypatch):
-    quotations = tests.textflow_.quotations.utils.extract_quotations(
+    quotations = extract_quotations(
         power.BACHELOR076_PDF,
         '4,5',
         testdir,
@@ -75,9 +76,9 @@ zur Reduktion von Schnittstellen , zur funktionsübergreifenden Vernetzung und\
 # „ In - dustrie 4.0 ”"""
 
 
-@utilatest.nightly
-def test_textflow_validate_quotation_bachelor76p4_10(testdir, monkeypatch):
-    quotations = tests.textflow_.quotations.utils.extract_quotations(
+@utilatest.longrun
+def test_textflow_quotation_validate_bachelor76p4_10(testdir, monkeypatch):
+    quotations = extract_quotations(
         power.BACHELOR076_PDF,
         '4:10',
         testdir,
@@ -89,12 +90,28 @@ def test_textflow_validate_quotation_bachelor76p4_10(testdir, monkeypatch):
     assert raw == BACHELOR76_EXPECTED
 
 
-@utilatest.nightly
-def test_textflow_validate_quotation_bachelor76p8(testdir, monkeypatch):
-    quotations = tests.textflow_.quotations.utils.extract_quotations(
+@utilatest.longrun
+def test_textflow_quotation_validate_bachelor76p8(testdir, monkeypatch):
+    quotations = extract_quotations(
         power.BACHELOR076_PDF,
         '8',
         testdir,
         monkeypatch,
     )
     assert len(quotations) == 2  # VALIDATED
+
+
+def extract_quotations(
+    source,
+    pages: str,
+    testdir,
+    monkeypatch,
+) -> textflow.quotation.data.ExtractedQuotation:
+    source = power.link(source)
+    tests.textflow_.run(
+        f'-i {source} -i {testdir.tmpdir} --pages={pages} --quotation',
+        monkeypatch=monkeypatch,
+    )
+    path = textflow.path.quotation(testdir.tmpdir)
+    result = textflow.quotation.serialize.load_quotations(path)
+    return result
