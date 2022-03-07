@@ -38,8 +38,7 @@ WORKPLAN = [
     utila.create_step(
         'quotation',
         inputs=[
-            utila.ResultFile('words', 'word_result'),
-            utila.ResultFile('words', 'list_list'),
+            utila.ResultFile('words', 'sentences_sentences'),
         ],
         output=('quotation',),
     ),

@@ -7,39 +7,30 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import german
-import iamraw
 import knlp
 import serializeraw
+import texmex
 import utila
 
+import german
 import textflow.quotation.data
 import textflow.quotation.serialize
 import textflow.utils
 
 
-def work(word: str, lists: str, pages: tuple = None) -> str:
-    word = textflow.quotation.serialize.load_text(
+def work(word: str, pages: tuple = None) -> str:
+    word = serializeraw.load_text(
         word,
-        headlines=None,
         pages=pages,
     )
-    lists = serializeraw.load_lists(
-        lists,
-        pages=pages,
-    )
-    collected = collect_quotations(word, lists)
-
-    dumped = textflow.quotation.serialize.dump_quotations(collected)
+    collected = collect_quotations(word)
+    dumped = serializeraw.dump_quotations(collected)
     return dumped
 
 
-def collect_quotations(
-    word,
-    lists: iamraw.PageContentLists = None,
-) -> textflow.quotation.data.ExtractedQuotations:
+def collect_quotations(word) -> textflow.quotation.data.ExtractedQuotations:
     result = []
-    for page, index, sentence, splitted in sentences(word, lists):
+    for page, index, sentence, splitted in sentences(word):
         lang = german.lang(splitted).language
         extracted = german.extract_quotes(sentence, lang=lang)
         if not extracted:
@@ -57,40 +48,16 @@ def collect_quotations(
     return result
 
 
-def sentences(  # pylint:disable=R1260
-    word,
-    lists: iamraw.PageContentLists = None,
-) -> textflow.quotation.data.ExtractedQuotations:
-    for page, pagecontent in word:  # pylint:disable=too-many-nested-blocks
+def sentences(word) -> textflow.quotation.data.ExtractedQuotations:
+    for word_section in word:
+        page, pagecontent = word_section.page, word_section.content
         sentence_index = 0
-        done = utila.Single()
         for _, content in pagecontent:
             for sentence in content:
-                list_index = textflow.utils.listindex(sentence)
-                if list_index is not None:
-                    if done.contains(list_index):
-                        continue
-                    extracted_list = utila.select_content(lists, page)
-                    if extracted_list is None:
-                        utila.error(f'could not find list on page: {page}; TODO: split area') # yapf:disable
-                        continue
-                    try:
-                        extracted_list = extracted_list[list_index]
-                    except IndexError:
-                        utila.error(f'could not access: {list_index} on page: {page}') # yapf:disable
-                        continue
-                    for _, listitem in extracted_list:
-                        # list items must not be a full sentence
-                        splitted = knlp.word_tokenize(
-                            listitem,
-                            # validate_sentences=False,
-                        )
-                        yield page, sentence_index, listitem, splitted
-                        sentence_index = sentence_index + 1
-                    continue
-                undefined = textflow.utils.intindex(sentence)
-                if undefined is not None:
-                    continue
+                sentence = texmex.list_split(sentence)
+                if isinstance(sentence, tuple):
+                    # list
+                    sentence = sentence[0]
                 splitted = knlp.word_tokenize(sentence)
                 if splitted:
                     yield page, sentence_index, sentence, splitted

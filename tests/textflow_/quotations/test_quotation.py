@@ -50,13 +50,13 @@ BACHELOR76_EXPECTED = """\
 „ Gesetzen der Digitalisierung “
 
 „ Alles , was digitalisiert und in Informationen verwandelt werden kann , wird\
- digita- lisiert und in Informationen verwandelt “
+ digitalisiert und in Informationen verwandelt “
 
 „ Was automatisiert werden kann , wird automatisiert “
 
-„ Jede Technologie , die zum Zweck der Überwachung und Kontrolle kolonisiert wer-\
- den kann , wird , was immer auch ihr ursprünglicher Zweck war , zum Zwecke der\
- Überwachung und Kontrolle kolonisiert “
+„ Jede Technologie , die zum Zweck der Überwachung und Kontrolle \
+kolonisiert werden kann , wird , was immer auch ihr ursprünglicher \
+Zweck war , zum Zwecke der Überwachung und Kontrolle kolonisiert “
 
 „ Digitalisierung und Industrie 4.0 im Mittelstand – Gestaltungsmöglichkeiten \
 der digitalen Infrastruktur entlang der Wertschöpfungskette “
