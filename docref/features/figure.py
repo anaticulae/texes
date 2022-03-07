@@ -27,15 +27,22 @@ def work(sentences: str, headlines: str, pages: tuple = None) -> str:
 
 PATTERN = utila.splitlines("""
 (Abb. 100 und 101)
+(s. Abb. 3a)
 (s. Abb. 3)
 (siehe Abb. 100 und 101)
 (siehe Abb. 100)
-(siehe Abbildung 100)
 (siehe Abbildung 2.12)
+(siehe Abbildung 100)
 Abb. 100 und 1001
 Abb. 100 und Abb. 101
 Abbildung 2.1
 Abbildungen 100 und 1001
+s. Abb. 8a und 8b
+s. Abb. 8 und 8a
+s. Abb. 8a und 8
+s. Abb. 3b
 s. Abb. 3
+siehe Abbildung 2.12.3
 siehe Abbildung 2.12
+siehe Abbildung 10
 """)
