@@ -2,6 +2,19 @@
 
 Every noteable change is logged here.
 
+## v0.8.0
+
+### Feature
+
+* extend valid intext pattern (2f511eeb8f64)
+* use sentences to determine quotations (d37dd787d28f)
+* compile pattern (165b2e7e9c1f)
+* extend valid intext parser (6b1e36e32d0d)
+* extend valid bib in text reference (550347a23581)
+* add highnotes as valid bib reference (c2d26de266e5)
+* add cache (f7ef6b74b698)
+* serialize raw bib reference (30975a38fefd)
+
 ## v0.7.1
 
 ### Fix
