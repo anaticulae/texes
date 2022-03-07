@@ -24,8 +24,7 @@ def work(
 ) -> str:
     if not utila.exists(wordspaces):
         utila.error(f'wordspace does not exists: {wordspaces} skip --wordspace')
-        dumped = serializeraw.dump_wordspaces([])
-        return dumped
+        return NO_WORDSPACE
     ptcns = serializeraw.create_pagetextcontentnavigators_fromfile(
         text,
         textpositions,
@@ -41,3 +40,6 @@ def work(
     result = textflow.wordspace.extract(ptcns, magic, wordspaces)
     dumped = serializeraw.dump_wordspaces(result)
     return dumped
+
+
+NO_WORDSPACE = serializeraw.dump_wordspaces([])
