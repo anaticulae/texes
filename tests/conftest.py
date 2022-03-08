@@ -39,7 +39,7 @@ RESOURCES = [
     power.DOCU009_PDF,
     power.DOCU007_PDF,
 ]
-WORKER = 6
+WORKER = 4
 
 
 @pytest.mark.usefixtures('session')
