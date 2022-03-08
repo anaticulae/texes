@@ -12,3 +12,7 @@ import utila
 
 def weblink_sentence(path: str, prefix: str = '') -> str:
     return utila.pathconnector(path, 'weblink', 'sentence_sentence', prefix)
+
+
+def weblink_footer(path: str, prefix: str = '') -> str:
+    return utila.pathconnector(path, 'weblink', 'footer_footer', prefix)

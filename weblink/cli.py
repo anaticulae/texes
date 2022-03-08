@@ -23,14 +23,13 @@ WORKPLAN = [
         ],
         output=('sentence',),
     ),
-    # utila.create_step(
-    #     'footer',
-    #     inputs=[
-    #         utila.ResultFile('words', 'sentences_sentences'),
-    #         utila.ResultFile('words', 'headlines_headlines'),
-    #     ],
-    #     output=('parsed',),
-    # ),
+    utila.create_step(
+        'footer',
+        inputs=[
+            utila.ResultFile('groupme', 'footer_footerheader'),
+        ],
+        output=('footer',),
+    ),
     # utila.create_step(
     #     'bibliograhy',
     #     inputs=[
