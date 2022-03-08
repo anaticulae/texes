@@ -9,7 +9,6 @@
 
 import german
 import iamraw
-import knlp
 import serializeraw
 import texmex
 import utila
@@ -55,7 +54,10 @@ def sentences(word) -> iamraw.ExtractedQuotations:
                 if isinstance(sentence, tuple):
                     # list
                     sentence = sentence[0]
-                splitted = knlp.word_tokenize(sentence)
+                splitted = german.word_tokenize(
+                    sentence,
+                    validate_sentences=False,
+                )
                 if splitted:
                     yield page, sentence_index, sentence, splitted
                 sentence_index = sentence_index + 1
