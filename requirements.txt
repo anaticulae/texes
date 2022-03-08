@@ -13,5 +13,5 @@ iamraw>=4.62.0<5.0.0
 german>=1.19.1<2.0.0
 # parse bib tech labels [FHK2016]
 detector>=0.32.0<1.0.0
-words>=1.15.0<2.0.0
+words>=1.15.1<2.0.0
 configo>=0.18.0<1.0.0
