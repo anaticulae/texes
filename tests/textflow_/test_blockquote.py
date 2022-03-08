@@ -68,7 +68,8 @@ def test_blockquote_validate_master98(testdir, monkeypatch):
     )
     path = textflow.path.blockquote(testdir.tmpdir)
     loaded = serializeraw.load_blockquotes(path)
-    expected = [(2, 1), (3, 1), (7, 2), (8, 1), (11, 1), (12, 1), (13, 1),
-                (15, 1)]
+    # expected = [(3, 1), (7, 1), (7, 2), (8, 2), (11, 1), (12, 1), (13, 1),
+    #             (15, 1)]
+    expected = [(3, 1), (7, 1), (8, 1), (12, 1), (13, 1), (15, 1)]
     current = [(item.page, len(item.content)) for item in loaded]
     assert current == expected
