@@ -26,7 +26,10 @@ def work(footers: str, pages: tuple = None) -> str:
     return dumped
 
 
-def load_footnotes(footers: str, pages: tuple = None):
+def load_footnotes(
+    footers: str,
+    pages: tuple = None,
+) -> iamraw.PageContentTexts:
     footers = serializeraw.load_footnotes(
         footers,
         pages=pages,

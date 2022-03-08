@@ -23,7 +23,7 @@ def work(bibliography: str) -> str:
     return dumped
 
 
-def load_bibliography(bibliography: str):
+def load_bibliography(bibliography: str) -> iamraw.PageContentTexts:
     # TODO: STRANGE DATA STRUCTURE AS A RESULT OF REUSING CODE
     bibliography = serializeraw.load_bibliography_reference(bibliography)
     result = []
