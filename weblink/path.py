@@ -7,14 +7,8 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import configo
+import utila
 
-import texas
-import weblink.path
 
-__version__ = texas.__version__
-
-PROCESS = 'weblink'
-ROOT = texas.ROOT
-
-configo.cloud_lookup(PROCESS)
+def weblink_sentence(path: str, prefix: str = '') -> str:
+    return utila.pathconnector(path, 'weblink', 'sentence_sentence', prefix)

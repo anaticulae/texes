@@ -21,7 +21,7 @@ WORKPLAN = [
         inputs=[
             utila.ResultFile('words', 'sentences_sentences'),
         ],
-        output=('parsed',),
+        output=('sentence',),
     ),
     # utila.create_step(
     #     'footer',
