@@ -28,7 +28,7 @@ TextAlignment = texmex.TextAlignment
 def test_document_alignment(source, expected):
     source = power.link(source)
     utilatest.fixture_requires(source)
-    content_navigators = serializeraw.create_pagetextnavigators_frompath(
+    content_navigators = serializeraw.ptn_frompath(
         source,
         prefix='oneline',
     )
@@ -38,7 +38,7 @@ def test_document_alignment(source, expected):
 
 @utilatest.requires(power.HOME040_PDF)
 def test_page_linealignment_homework40_page4():
-    navigators = serializeraw.create_pagetextnavigators_frompath(
+    navigators = serializeraw.ptn_frompath(
         power.link(power.HOME040_PDF),
         prefix='oneline',
     )
@@ -57,7 +57,7 @@ def test_page_linealignment_homework40_page4():
 @utilatest.longrun
 @utilatest.requires(power.MASTER072_PDF)
 def test_page_linealignment_master72_page4():
-    navigators = serializeraw.create_pagetextnavigators_frompath(
+    navigators = serializeraw.ptn_frompath(
         power.link(power.MASTER072_PDF),
         prefix='oneline',
     )
@@ -78,7 +78,7 @@ def test_page_linealignment_master72_page4():
 @utilatest.longrun
 @utilatest.requires(power.MASTER072_PDF)
 def test_page_linealignment_master72_page15():
-    navigators = serializeraw.create_pagetextnavigators_frompath(
+    navigators = serializeraw.ptn_frompath(
         power.link(power.MASTER072_PDF),
         prefix='oneline',
     )

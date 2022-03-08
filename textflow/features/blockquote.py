@@ -31,7 +31,7 @@ def work(
     headerfooterpath: str,
     pages: tuple,
 ) -> str:
-    ptcns = serializeraw.create_pagetextcontentnavigators_fromfile(
+    ptcns = serializeraw.ptcn_fromfile(
         text,
         textpositions,
         sizeandborderpath,

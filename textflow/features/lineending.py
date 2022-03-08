@@ -24,7 +24,7 @@ PageContentLineEndings = typing.List[PageContentLineEnding]
 
 
 def work(text: str, textpositions: str, pages: tuple = None) -> str:
-    navigators = serializeraw.create_pagetextnavigators_fromfile(
+    navigators = serializeraw.ptn_fromfile(
         text,
         textpositions,
         pages=pages,

@@ -22,7 +22,7 @@ def work(
     textpositions: str,
     pages: tuple = None,
 ) -> typing.Tuple[str, str]:
-    navigators = serializeraw.create_pagetextnavigators_fromfile(
+    navigators = serializeraw.ptn_fromfile(
         text,
         textpositions,
         pages=pages,
@@ -77,7 +77,7 @@ def load_alignment(items):
 
 
 def extract_alignment_frompath(path, prefix, pages: tuple = None):
-    navigators = serializeraw.create_pagetextnavigators_frompath(
+    navigators = serializeraw.ptn_frompath(
         path,
         prefix=prefix,
         pages=pages,

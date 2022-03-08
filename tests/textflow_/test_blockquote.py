@@ -20,7 +20,7 @@ def test_blockquote_master72():
     source = power.link(power.MASTER072_PDF)
     pages = (15,)
     textsize = 12.0  # TODO: NOT VALIDATED
-    ptcn = serializeraw.create_pagetextcontentnavigators_frompath(
+    ptcn = serializeraw.ptcn_frompath(
         source,
         pages=pages,
     )

@@ -25,7 +25,7 @@ def work(
     if not utila.exists(wordspaces):
         utila.error(f'wordspace does not exists: {wordspaces} skip --wordspace')
         return NO_WORDSPACE
-    ptcns = serializeraw.create_pagetextcontentnavigators_fromfile(
+    ptcns = serializeraw.ptcn_fromfile(
         text,
         textpositions,
         sizeandborderpath,

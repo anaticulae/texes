@@ -22,7 +22,7 @@ import textflow.alignment.style
 def test_page_linealignments_expected_master72_page4():
     source = power.link(power.MASTER072_PDF)
     pages = (4,)
-    navigators = serializeraw.create_pagetextnavigators_frompath(
+    navigators = serializeraw.ptn_frompath(
         source,
         pages=pages,
     )
@@ -44,7 +44,7 @@ def test_page_linealignments_expected_master72_page4():
 def test_page_linealignments_expected_master72_page6():
     source = power.link(power.MASTER072_PDF)
     pages = (6,)
-    navigators = serializeraw.create_pagetextnavigators_frompath(
+    navigators = serializeraw.ptn_frompath(
         source,
         pages=pages,
     )
@@ -71,7 +71,7 @@ def test_page_linealignments_expected_master72_page6():
 @utilatest.requires(power.HOME040_PDF)
 def test_page_linealignments_expected_homework40_page3():
     source = power.link(power.HOME040_PDF)
-    navigators = serializeraw.create_pagetextnavigators_frompath(source,)
+    navigators = serializeraw.ptn_frompath(source)
     border = textflow.alignment.style.document_textfeed(navigators)
 
     current = textflow.alignment.style.page_linealignments_expected(
@@ -96,7 +96,7 @@ def test_page_linealignments_expected_homework40_page3():
 @utilatest.requires(power.HOME040_PDF)
 def test_page_linealignments_expected_homework40_page4():
     source = power.link(power.HOME040_PDF)
-    navigators = serializeraw.create_pagetextnavigators_frompath(source)
+    navigators = serializeraw.ptn_frompath(source)
     border = textflow.alignment.style.document_textfeed(navigators)
 
     current = textflow.alignment.style.page_linealignments_expected(

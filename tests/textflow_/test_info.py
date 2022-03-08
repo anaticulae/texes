@@ -20,7 +20,7 @@ import textflow.features.alignment
 def test_info_adapter():
     source = power.link(power.MASTER072_PDF)
     pages = (10, 11, 12, 13)
-    navigators = serializeraw.create_pagetextnavigators_frompath(
+    navigators = serializeraw.ptn_frompath(
         source,
         prefix='oneline',
         pages=pages,
@@ -32,7 +32,7 @@ def test_info_adapter():
     )
     adapter = textflow.alignment.info.AlignmentInfo(navigators, current)
 
-    layout = serializeraw.create_pagetextnavigators_frompath(
+    layout = serializeraw.ptn_frompath(
         source,
         pages=pages,
     )
