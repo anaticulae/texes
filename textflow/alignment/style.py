@@ -86,7 +86,8 @@ def page_linealignments(
                 result.append(texmex.TextAlignment.RIGHT)
             elif left <= 50:
                 result.append(texmex.TextAlignment.BLOCK)
-        elif right >= 20:
+            continue
+        if right >= 20:
             if left >= 20:
                 if utila.near(right, left, BLOCK_EUQAL_BORDER_DIFF_MAX)\
                    and width >= BLOCK_CENTER_WIDTH_MIN:
@@ -96,12 +97,12 @@ def page_linealignments(
                     result.append(texmex.TextAlignment.CENTER)
             else:
                 result.append(texmex.TextAlignment.LEFT)
+            continue
+        if left <= 50:
+            result.append(texmex.TextAlignment.LEFT)
         else:
-            if left <= 50:
-                result.append(texmex.TextAlignment.LEFT)
-            else:
-                # ?
-                result.append(texmex.TextAlignment.BLOCK)
+            # ?
+            result.append(texmex.TextAlignment.BLOCK)
     return result
 
 
