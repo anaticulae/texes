@@ -15,7 +15,6 @@ import utilatest
 
 import tests
 import textflow.path
-import textflow.quotation
 
 
 @utilatest.nightly

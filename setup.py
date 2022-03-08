@@ -51,7 +51,6 @@ if __name__ == "__main__":
             'textflow',
             'textflow.alignment',
             'textflow.features',
-            'textflow.quotation',
             'weblink',
             'weblink.features',
         ],
