@@ -52,11 +52,14 @@ if __name__ == "__main__":
             'textflow.alignment',
             'textflow.features',
             'textflow.quotation',
+            'weblink',
+            'weblink.features',
         ],
         entry_points={
             'console_scripts': [
                 'docref = docref.cli:main',
                 'textflow = textflow.cli:main',
+                'weblink = weblink.cli:main',
             ],
         },
     )
