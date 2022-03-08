@@ -76,6 +76,7 @@ class Evaluate(utilatest.BaseLiner):
         return result
 
     def raw(self, value) -> str:
+        value.sort(key=lambda x: x.page)
         result = []
         for hyperlink in value:
             raw = f'{str(hyperlink.page).zfill(3)} {hyperlink.href}'
