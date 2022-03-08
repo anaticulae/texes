@@ -25,19 +25,9 @@ Style
 * block-center
 """
 
-import dataclasses
-
 import configo
 import texmex
 import utila
-
-
-@dataclasses.dataclass
-class LineStyleInfo:
-    feed_left: float = None
-    feed_right: float = None
-    alignment: texmex.TextAlignment = None
-
 
 BLOCK_TEXT_DIFF = configo.HV_FLOAT_PLUS(default=10.0)
 
