@@ -2,6 +2,26 @@
 
 Every noteable change is logged here.
 
+## v0.9.0
+
+### Feature
+
+* add bibliography hyperlink parser (445357cf745d)
+* parse links in footer (97982f6982c4)
+* skip step if resource does not exists (6041a177687c)
+* determine links out of sentences (914f686d18f2)
+* add method to determine result weblink sentence path (12efa7289763)
+* add basic cli (b6eeb9e4decc)
+
+### Fix
+
+* use german word tokeniser (34ff373fd2d9)
+
+### Documentation
+
+* extend interface documentation (33720d20221a)
+* fix interface documentation (a987ea321922)
+
 ## v0.8.1
 
 ## v0.8.0
