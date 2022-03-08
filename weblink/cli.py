@@ -17,11 +17,11 @@ DESCRIPTION = ''
 
 WORKPLAN = [
     utila.create_step(
-        'sentence',
+        'biblio',
         inputs=[
-            utila.ResultFile('words', 'sentences_sentences'),
+            utila.ResultFile('detector', 'bibliography_detected'),
         ],
-        output=('sentence',),
+        output=('biblio',),
     ),
     utila.create_step(
         'footer',
@@ -30,14 +30,13 @@ WORKPLAN = [
         ],
         output=('footer',),
     ),
-    # utila.create_step(
-    #     'bibliograhy',
-    #     inputs=[
-    #         utila.ResultFile('words', 'sentences_sentences'),
-    #         utila.ResultFile('words', 'headlines_headlines'),
-    #     ],
-    #     output=('parsed',),
-    # ),
+    utila.create_step(
+        'sentence',
+        inputs=[
+            utila.ResultFile('words', 'sentences_sentences'),
+        ],
+        output=('sentence',),
+    ),
 ]
 
 # pylint:disable=C0103

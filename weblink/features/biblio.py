@@ -14,34 +14,28 @@ import utila
 import weblink.features.sentence
 
 
-def work(footers: str, pages: tuple = None) -> str:
-    if not utila.exists(footers):
+def work(bibliography: str) -> str:
+    if not utila.exists(bibliography):
         return '[]'
-    loadeded = load_footnotes(
-        footers,
-        pages=pages,
-    )
-    processed = weblink.features.sentence.process_sentences(loadeded)
+    loaded = load_bibliography(bibliography)
+    processed = weblink.features.sentence.process_sentences(loaded)
     dumped = serializeraw.dump_hyperlinks(processed)
     return dumped
 
 
-def load_footnotes(footers: str, pages: tuple = None):
-    footers = serializeraw.load_footnotes(
-        footers,
-        pages=pages,
-    )
+def load_bibliography(bibliography: str):
+    # TODO: STRANGE DATA STRUCTURE AS A RESULT OF REUSING CODE
+    bibliography = serializeraw.load_bibliography_reference(bibliography)
     result = []
-    for page in footers:
-        collected = [item.text for item in page.content]
+    for item in bibliography:
         result.append(
             iamraw.PageContentText(
                 content=[
                     iamraw.TextSection(
-                        content=collected,
-                        pages=[page.page] * len(collected),
+                        content=[item.raw],
+                        pages=[item.raw_pdfpage],
                     )
                 ],
-                page=page.page,
+                page=item.raw_pdfpage,
             ))
     return result

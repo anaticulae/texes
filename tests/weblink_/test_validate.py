@@ -66,10 +66,13 @@ class Evaluate(utilatest.BaseLiner):
 
     def frompath(self, workdir):  # pylint:disable=R0201
         result = []
-        path = weblink.path.weblink_sentence(workdir)
-        result.extend(serializeraw.load_hyperlinks(path))
-        path = weblink.path.weblink_footer(workdir)
-        result.extend(serializeraw.load_hyperlinks(path))
+        for loader in [
+                weblink.path.weblink_bibliography,
+                weblink.path.weblink_footer,
+                weblink.path.weblink_sentence,
+        ]:
+            path = loader(workdir)
+            result.extend(serializeraw.load_hyperlinks(path))
         return result
 
     def raw(self, value) -> str:
