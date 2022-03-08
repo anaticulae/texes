@@ -19,7 +19,7 @@ import textflow.alignment.style
 
 @utilatest.longrun
 @utilatest.requires(power.MASTER072_PDF)
-def test_page_linealignments_expected_master72_page4():
+def test_page_linealignments_expected_master72p4():
     source = power.link(power.MASTER072_PDF)
     pages = (4,)
     navigators = serializeraw.ptn_frompath(
@@ -41,7 +41,7 @@ def test_page_linealignments_expected_master72_page4():
 @pytest.mark.xfail(reason='enable later')
 @utilatest.longrun
 @utilatest.requires(power.MASTER072_PDF)
-def test_page_linealignments_expected_master72_page6():
+def test_page_linealignments_expected_master72p6():
     source = power.link(power.MASTER072_PDF)
     pages = (6,)
     navigators = serializeraw.ptn_frompath(
@@ -69,7 +69,7 @@ def test_page_linealignments_expected_master72_page6():
 
 
 @utilatest.requires(power.HOME040_PDF)
-def test_page_linealignments_expected_homework40_page3():
+def test_page_linealignments_expected_homework40p3():
     source = power.link(power.HOME040_PDF)
     navigators = serializeraw.ptn_frompath(source)
     border = textflow.alignment.style.document_textfeed(navigators)
@@ -94,7 +94,7 @@ def test_page_linealignments_expected_homework40_page3():
 
 
 @utilatest.requires(power.HOME040_PDF)
-def test_page_linealignments_expected_homework40_page4():
+def test_page_linealignments_expected_homework40p4():
     source = power.link(power.HOME040_PDF)
     navigators = serializeraw.ptn_frompath(source)
     border = textflow.alignment.style.document_textfeed(navigators)

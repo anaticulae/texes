@@ -16,7 +16,7 @@ import tests.docref_
 
 
 @utilatest.requires(power.MASTER075_PDF)
-def test_figure_master75_pages6(testdir, monkeypatch):
+def test_figure_master75page6(testdir, monkeypatch):
     source = power.link(power.MASTER075_PDF)
     cmd = f'-i {source} --figure --pages=7:21'
     tests.docref_.run(cmd, monkeypatch=monkeypatch)

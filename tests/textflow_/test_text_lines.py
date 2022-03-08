@@ -37,7 +37,7 @@ def test_document_alignment(source, expected):
 
 
 @utilatest.requires(power.HOME040_PDF)
-def test_page_linealignment_homework40_page4():
+def test_page_linealignment_homework40p4():
     navigators = serializeraw.ptn_frompath(
         power.link(power.HOME040_PDF),
         prefix='oneline',
@@ -56,7 +56,7 @@ def test_page_linealignment_homework40_page4():
 
 @utilatest.longrun
 @utilatest.requires(power.MASTER072_PDF)
-def test_page_linealignment_master72_page4():
+def test_page_linealignment_master72p4():
     navigators = serializeraw.ptn_frompath(
         power.link(power.MASTER072_PDF),
         prefix='oneline',
@@ -77,7 +77,7 @@ def test_page_linealignment_master72_page4():
 
 @utilatest.longrun
 @utilatest.requires(power.MASTER072_PDF)
-def test_page_linealignment_master72_page15():
+def test_page_linealignment_master72p15():
     navigators = serializeraw.ptn_frompath(
         power.link(power.MASTER072_PDF),
         prefix='oneline',

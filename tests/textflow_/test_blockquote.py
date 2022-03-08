@@ -46,7 +46,7 @@ def test_blockquote_validate_master72(testdir, monkeypatch):
 
 
 @utilatest.longrun
-def test_blockquote_validate_bachelor76_page8_11_13_15_16(testdir, monkeypatch):
+def test_blockquote_validate_bachelor76page8_11_13_15_16(testdir, monkeypatch):
     source = power.link(power.BACHELOR076_PDF)
     tests.textflow_.run(
         f'-i {source} --blockquote --pages=8:17',
