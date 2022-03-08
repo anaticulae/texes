@@ -154,11 +154,11 @@ def feed_left(navigator, left):
     return diff
 
 
-def feed_right(navigator, right):
+def feed_right(navigator: texmex.PTN, right: float) -> list:
     """Determine distance to right pagefeed(distance to right paper border).
 
     Args:
-        navigator: content of one page
+        navigator(PTN): content of one page
         right(float): distance to the right paper side
     Returns:
         List of distances to paper page feed for every line.
