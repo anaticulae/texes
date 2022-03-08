@@ -26,66 +26,23 @@ Style
 """
 
 import dataclasses
-import enum
-import typing
 
 import configo
 import texmex
 import utila
 
 
-class TextAlignment(enum.Enum):
-    # TODO: Think about smart sorting order
-    LEFT = 0
-    CENTER = 1
-    RIGHT = 2
-    BLOCK = 4
-    BLOCK_CENTER = 8
-    BLOCK_END = 16
-    UNDEFINED = -1
-
-    def __lt__(self, item):
-        """Support sorting TextAlignment, this is required, causes
-        `modes` computation of used alignments requires to sort them to
-        solve ambigious results."""
-        # TODO: REPLACE pylint disable with correct one
-        return self.value < item.value  # pylint:disable=all
-
-    def __str__(self):
-        """\
-        >>> str(TextAlignment.RIGHT)
-        'rechts'
-        """
-        if self == TextAlignment.LEFT:
-            return 'links'
-        if self == TextAlignment.CENTER:
-            return 'zentriert'
-        if self == TextAlignment.RIGHT:
-            return 'rechts'
-        if self == TextAlignment.BLOCK:
-            return 'Blocksatz'
-        if self == TextAlignment.BLOCK_CENTER:
-            return 'Blocksatz zentriert'
-        if self == TextAlignment.BLOCK_END:
-            # TODO: VERIFY THIS
-            return 'Blocksatz ?'
-        return 'undefiniert'
-
-
-TextAlignments = typing.List[TextAlignment]
-
-
 @dataclasses.dataclass
 class LineStyleInfo:
     feed_left: float = None
     feed_right: float = None
-    alignment: TextAlignment = None
+    alignment: texmex.TextAlignment = None
 
 
 BLOCK_TEXT_DIFF = configo.HV_FLOAT_PLUS(default=10.0)
 
 
-def document_alignment(navigators: texmex.PageTextNavigators) -> TextAlignment:
+def document_alignment(navigators: texmex.PTNs) -> texmex.TextAlignment:
     result = []
     left, right = document_textfeed(navigators)
     for page in navigators:
@@ -115,7 +72,7 @@ def page_linealignments(
     navigator,
     left_alignment,
     right_alignment,
-) -> TextAlignments:
+) -> texmex.TextAlignments:
     result = []
     border_left, border_right = leftright(
         navigator,
@@ -126,25 +83,25 @@ def page_linealignments(
         width = navigator.width - left - right
         if utila.near(right, 0.0, diff=PAGE_LINEALIGNMENTS_DIFF_MAX):
             if left > 100:
-                result.append(TextAlignment.RIGHT)
+                result.append(texmex.TextAlignment.RIGHT)
             elif left <= 50:
-                result.append(TextAlignment.BLOCK)
+                result.append(texmex.TextAlignment.BLOCK)
         elif right >= 20:
             if left >= 20:
                 if utila.near(right, left, BLOCK_EUQAL_BORDER_DIFF_MAX)\
                    and width >= BLOCK_CENTER_WIDTH_MIN:
                     # left and right textfeed is equal
-                    result.append(TextAlignment.BLOCK_CENTER)
+                    result.append(texmex.TextAlignment.BLOCK_CENTER)
                 else:
-                    result.append(TextAlignment.CENTER)
+                    result.append(texmex.TextAlignment.CENTER)
             else:
-                result.append(TextAlignment.LEFT)
+                result.append(texmex.TextAlignment.LEFT)
         else:
             if left <= 50:
-                result.append(TextAlignment.LEFT)
+                result.append(texmex.TextAlignment.LEFT)
             else:
                 # ?
-                result.append(TextAlignment.BLOCK)
+                result.append(texmex.TextAlignment.BLOCK)
     return result
 
 

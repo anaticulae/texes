@@ -9,10 +9,10 @@
 
 import power
 import serializeraw
+import texmex
 import utilatest
 
 import textflow.alignment.info
-import textflow.alignment.style
 import textflow.features.alignment
 
 
@@ -42,6 +42,6 @@ def test_info_adapter():
     item = first_page[5]
 
     selected = adapter.alignment(first_page.page, item.bounding)
-    expected = [textflow.alignment.style.TextAlignment.BLOCK]
+    expected = [texmex.TextAlignment.BLOCK]
     assert selected, selected
     assert selected == expected, selected

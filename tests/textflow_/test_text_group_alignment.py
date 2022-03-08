@@ -10,6 +10,7 @@
 import power
 import pytest
 import serializeraw
+import texmex
 import utila
 import utilatest
 
@@ -29,10 +30,10 @@ def test_page_linealignments_expected_master72_page4():
     page4 = navigators[0]
     current = textflow.alignment.style.page_linealignments_expected(page4)
     expected = [
-        textflow.alignment.style.TextAlignment.BLOCK,
-        textflow.alignment.style.TextAlignment.LEFT,
-        textflow.alignment.style.TextAlignment.BLOCK,
-        textflow.alignment.style.TextAlignment.RIGHT,
+        texmex.TextAlignment.BLOCK,
+        texmex.TextAlignment.LEFT,
+        texmex.TextAlignment.BLOCK,
+        texmex.TextAlignment.RIGHT,
     ]
     assert current == expected, expected
 
@@ -51,18 +52,18 @@ def test_page_linealignments_expected_master72_page6():
     current = textflow.alignment.style.page_linealignments_expected(page6)
     expected = [
         [
-            textflow.alignment.style.TextAlignment.LEFT,
-            textflow.alignment.style.TextAlignment.CENTER,
-            textflow.alignment.style.TextAlignment.BLOCK,
+            texmex.TextAlignment.LEFT,
+            texmex.TextAlignment.CENTER,
+            texmex.TextAlignment.BLOCK,
         ],
-        textflow.alignment.style.TextAlignment.BLOCK,
+        texmex.TextAlignment.BLOCK,
         [
-            textflow.alignment.style.TextAlignment.CENTER,
-            textflow.alignment.style.TextAlignment.BLOCK,
+            texmex.TextAlignment.CENTER,
+            texmex.TextAlignment.BLOCK,
         ],
-        textflow.alignment.style.TextAlignment.BLOCK,
-        textflow.alignment.style.TextAlignment.BLOCK,
-        textflow.alignment.style.TextAlignment.RIGHT,
+        texmex.TextAlignment.BLOCK,
+        texmex.TextAlignment.BLOCK,
+        texmex.TextAlignment.RIGHT,
     ]
     assert current == expected, expected
 
@@ -79,15 +80,15 @@ def test_page_linealignments_expected_homework40_page3():
     )
 
     expected = [
-        textflow.alignment.style.TextAlignment.CENTER,
-        textflow.alignment.style.TextAlignment.LEFT,
-        textflow.alignment.style.TextAlignment.LEFT,
-        textflow.alignment.style.TextAlignment.LEFT,
-        textflow.alignment.style.TextAlignment.LEFT,
-        textflow.alignment.style.TextAlignment.BLOCK,
-        textflow.alignment.style.TextAlignment.LEFT,
-        textflow.alignment.style.TextAlignment.LEFT,
-        textflow.alignment.style.TextAlignment.BLOCK,
+        texmex.TextAlignment.CENTER,
+        texmex.TextAlignment.LEFT,
+        texmex.TextAlignment.LEFT,
+        texmex.TextAlignment.LEFT,
+        texmex.TextAlignment.LEFT,
+        texmex.TextAlignment.BLOCK,
+        texmex.TextAlignment.LEFT,
+        texmex.TextAlignment.LEFT,
+        texmex.TextAlignment.BLOCK,
     ]
     assert current[0:9] == expected, expected
 
@@ -104,11 +105,11 @@ def test_page_linealignments_expected_homework40_page4():
     )
 
     expected = [
-        textflow.alignment.style.TextAlignment.CENTER,
-        textflow.alignment.style.TextAlignment.LEFT,
-        textflow.alignment.style.TextAlignment.LEFT,
-        textflow.alignment.style.TextAlignment.LEFT,
-        textflow.alignment.style.TextAlignment.LEFT,
-        textflow.alignment.style.TextAlignment.LEFT,
+        texmex.TextAlignment.CENTER,
+        texmex.TextAlignment.LEFT,
+        texmex.TextAlignment.LEFT,
+        texmex.TextAlignment.LEFT,
+        texmex.TextAlignment.LEFT,
+        texmex.TextAlignment.LEFT,
     ]
     assert current[0:6] == expected, expected

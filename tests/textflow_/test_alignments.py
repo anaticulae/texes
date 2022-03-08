@@ -9,6 +9,7 @@
 
 import power
 import pytest
+import texmex
 import utila
 import utilatest
 
@@ -41,4 +42,4 @@ def test_alignment_master98_page2(testdir, monkeypatch):
     source = textflow.path.alignment(testdir.tmpdir)
     current = textflow.features.alignment.load_alignment(source)
     content = utila.select_content(current, 2)
-    assert content[4] == textflow.alignment.style.TextAlignment.BLOCK_END
+    assert content[4] == texmex.TextAlignment.BLOCK_END

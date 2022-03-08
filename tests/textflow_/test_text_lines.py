@@ -10,11 +10,12 @@
 import power
 import pytest
 import serializeraw
+import texmex
 import utilatest
 
 import textflow.alignment.style
 
-TextAlignment = textflow.alignment.style.TextAlignment
+TextAlignment = texmex.TextAlignment
 
 
 @pytest.mark.parametrize('source, expected', [
