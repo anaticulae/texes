@@ -15,13 +15,11 @@ import tests.weblink_
 import weblink
 
 
-@utilatest.requires(power.MASTER075_PDF)
 def test_links_master75(testdir, monkeypatch):
     loaded = hyperlinks(power.MASTER075_PDF, testdir, monkeypatch)
     assert len(loaded) == 11
 
 
-@utilatest.requires(power.MASTER075_PDF)
 def test_links_master75pages15(testdir, monkeypatch):
     loaded = hyperlinks(power.MASTER075_PDF, testdir, monkeypatch, 15)
     assert len(loaded) == 1
@@ -32,6 +30,7 @@ def test_links_master75pages15(testdir, monkeypatch):
 
 
 def hyperlinks(source, testdir, monkeypatch, pages=':'):
+    utilatest.fixture_requires(source)
     cmd = f'-i {power.link(source)} --sentence --pages={pages}'
     tests.weblink_.run(cmd, monkeypatch=monkeypatch)
     linkpath = weblink.path.weblink_sentence(testdir.tmpdir)
