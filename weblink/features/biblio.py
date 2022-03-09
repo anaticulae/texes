@@ -24,18 +24,18 @@ def work(bibliography: str) -> str:
 
 
 def load_bibliography(bibliography: str) -> iamraw.PageContentTexts:
-    # TODO: STRANGE DATA STRUCTURE AS A RESULT OF REUSING CODE
+    """Convert bib table in existing data structure to reuse code."""
     bibliography = serializeraw.load_bibliography_reference(bibliography)
     result = []
-    for item in bibliography:
+    for reference in bibliography.references:
         result.append(
             iamraw.PageContentText(
                 content=[
                     iamraw.TextSection(
-                        content=[item.raw],
-                        pages=[item.raw_pdfpage],
+                        content=[reference.raw],
+                        pages=[reference.raw_pdfpage],
                     )
                 ],
-                page=item.raw_pdfpage,
+                page=reference.raw_pdfpage,
             ))
     return result
