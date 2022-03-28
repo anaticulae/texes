@@ -50,10 +50,13 @@ def sentences(word) -> iamraw.ExtractedQuotations:
         sentence_index = 0
         for _, content in pagecontent:
             for sentence in content:
-                sentence = texmex.list_split(sentence)
-                if isinstance(sentence, tuple):
+                if texmex.is_list(sentence):
+                    sentence = texmex.list_split(sentence)
                     # list
                     sentence = sentence[0]
+                elif texmex.is_formula(sentence):
+                    # skip formula
+                    continue
                 splitted = german.word_tokenize(
                     sentence,
                     validate_sentences=False,
