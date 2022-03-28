@@ -2,6 +2,13 @@
 
 Every noteable change is logged here.
 
+## v0.9.1
+
+### Fix
+
+* do not fail on formula split (9841c7bbda00)
+* adjust bib table loader (898569f7728f)
+
 ## v0.9.0
 
 ### Feature
