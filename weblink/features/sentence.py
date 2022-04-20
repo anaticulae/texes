@@ -35,7 +35,7 @@ def process_sentences(texts):
 
 def process_chunk(sentence):
     result = []
-    hyperlinks = german.hyperlink(sentence, position=True)
+    hyperlinks = german.links(sentence, position=True)
     if hyperlinks:
         hyperlinks = try_merge(sentence)
     for hyperlink, starting in hyperlinks:
@@ -82,7 +82,7 @@ def try_merge(sentence: str) -> list:
     """
     # TODO: SUPPORT MORE THAN ONE FORWARD MERGE
     result = []
-    hyperlinks = german.hyperlink(sentence, position=True)
+    hyperlinks = german.links(sentence, position=True)
     for hyperlink, starting in hyperlinks:
         index = starting + len(hyperlink)
         raw_sentence = sentence[index:]
@@ -106,11 +106,11 @@ def merge_forward(before, text) -> list:
     current = None
     joined = before
     for item in splitted:
-        current = german.hyperlink(joined)
+        current = german.links(joined)
         if item == '-':
             break
         joined = joined + item
-        parsed = german.hyperlink(joined)
+        parsed = german.links(joined)
         if not parsed:
             break
         if parsed[0] != joined:
