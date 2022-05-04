@@ -27,15 +27,15 @@ BLOCK_QUOTE_LINE_LENGTH_MAX = configo.HV_FLOAT_PLUS(default=15)
 def work(
     text: str,
     textpositions: str,
-    sizeandborderpath: str,
-    headerfooterpath: str,
+    sizeandborder: str,
+    headerfooter: str,
     pages: tuple,
 ) -> str:
     ptcns = serializeraw.ptcn_fromfile(
         text,
         textpositions,
-        sizeandborderpath,
-        headerfooterpath,
+        sizeandborder,
+        headerfooter,
         pages=pages,
     )
     textsize = texmex.document_textsize(ptcns)

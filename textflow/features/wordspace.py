@@ -16,8 +16,8 @@ import textflow.wordspace
 def work(
     text: str,
     textpositions: str,
-    sizeandborderpath: str,
-    headerfooterpath: str,
+    sizeandborder: str,
+    headerfooter: str,
     magic: str,
     wordspaces: str,
     pages: tuple,
@@ -28,8 +28,8 @@ def work(
     ptcns = serializeraw.ptcn_fromfile(
         text,
         textpositions,
-        sizeandborderpath,
-        headerfooterpath,
+        sizeandborder,
+        headerfooter,
         pages=pages,
     )
     magic = serializeraw.load_types(
