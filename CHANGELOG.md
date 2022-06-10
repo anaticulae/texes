@@ -2,6 +2,12 @@
 
 Every noteable change is logged here.
 
+## v0.9.2
+
+### Feature
+
+* add more general parser (76fc8c31db97)
+
 ## v0.9.1
 
 ### Fix
