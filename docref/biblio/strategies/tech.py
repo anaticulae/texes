@@ -7,15 +7,15 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import detector.bibliography.label
+import bibliography.label
 import iamraw
 
 
 def parse(item: str) -> iamraw.BibliographyReference:
-    parsed = detector.bibliography.label.parses(item)
+    parsed = bibliography.label.parses(item)
     if parsed:
         return parsed
-    parsed = detector.bibliography.label.numbers(item)
+    parsed = bibliography.label.numbers(item)
     if parsed:
         return parsed
     return None
