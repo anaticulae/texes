@@ -21,23 +21,23 @@ PACKAGE = texas.PACKAGE
 power.setup(texas.ROOT)
 
 RESOURCES = [
-    power.MASTER116_PDF,
-    power.MASTER098_PDF,
-    power.MASTER083_PDF,
-    power.BACHELOR076_PDF,
-    power.BACHELOR075_PDF,
-    power.MASTER075_PDF,
-    power.MASTER072_PDF,
     (power.BACHELOR051_PDF, '15:30'),
-    (power.DISS172_PDF, '30:70'),
-    power.HOME040_PDF,
-    power.BACHELOR037_PDF,
-    power.DOCU027_PDF,
     (power.DISS143_PDF, '0:50'),
+    (power.DISS172_PDF, '30:70'),
     (power.MASTER091B_PDF, '0:20'),
-    power.todo(power.BACHELOR056_PDF, '0:20', spacestation=True),
-    power.DOCU009_PDF,
+    power.BACHELOR037_PDF,
+    power.BACHELOR075_PDF,
+    power.BACHELOR076_PDF,
     power.DOCU007_PDF,
+    power.DOCU009_PDF,
+    power.DOCU027_PDF,
+    power.HOME040_PDF,
+    power.MASTER072_PDF,
+    power.MASTER075_PDF,
+    power.MASTER083_PDF,
+    power.MASTER098_PDF,
+    power.MASTER116_PDF,
+    power.todo(power.BACHELOR056_PDF, '0:20', spacestation=True),
 ]
 WORKER = 4
 
