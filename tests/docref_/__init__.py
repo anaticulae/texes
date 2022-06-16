@@ -7,24 +7,8 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import functools
-
 import utilatest
 
 import docref
-import docref.cli
 
-#pylint:disable=C0103
-run = functools.partial(
-    utilatest.run_command,
-    main=docref.cli.main,
-    process=docref.PROCESS,
-    success=True,
-)
-
-fail = functools.partial(
-    utilatest.run_command,
-    main=docref.cli.main,
-    process=docref.PROCESS,
-    success=False,
-)
+run, fail = utilatest.create_cli_runner(docref)
