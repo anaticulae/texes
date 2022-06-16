@@ -55,6 +55,8 @@ def extract(resources):
         base=power.REPOSITORY,
         detector=True,
         groupme=True,
+        headlines=True,
+        lists=True,
         magic=True,
         sections=True,
         words=True,
