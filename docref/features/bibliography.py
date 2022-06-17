@@ -165,6 +165,11 @@ PATTERN = utila.splitlines("""
 (vgl. HEINRITZ, KLEIN und POPP (2003), S. 29)
 (vgl. BEHRENS 1965, S. 41ff)
 (vgl. BEHRENS 1965, S. 138)
+(Schnabel, 2011)
+(vgl. Statistisches Bundesamt, Verkehrsunfälle 2013)
+(Vollrath & Krems, 2011)
+(Krüger et al., 2005, S. 59)
+(Zylman, 1972, zit. nach Krüger et al., 2005, Seite 59)
 [1]
 [25]
 [123]
