@@ -60,8 +60,6 @@ TODO: FOOTER
 TODO: TECHNICAL
 """
 
-import functools
-
 import iamraw
 import serializeraw
 import utila
@@ -124,7 +122,7 @@ NUMBERED_REFERENCE = utila.compiles(r"""
 """)
 
 
-@functools.lru_cache(maxsize=4096)
+@utila.cacheme
 def valid(item: str):
     """\
     >>> valid('[ 28 ]')
