@@ -27,19 +27,22 @@ ARCHIVE = utila.join(
 )
 
 RESOURCES = [
-    (power.BACHELOR075_PDF, '14:70'),
-    (power.BACHELOR076_PDF, '4:67'),
-    (power.DISS143_PDF, '19:131'),
-    (power.DISS172_PDF, '15:152'),
-    (power.MASTER072_PDF, '3:65'),
-    (power.MASTER075_PDF, '4:70'),
-    (power.MASTER083_PDF, '4:74'),
-    (power.MASTER098_PDF, '2:88'),
-    (power.MASTER116_PDF, '7:88'),
+    power.BACHELOR075_PDF,
+    power.BACHELOR076_PDF,
+    power.DISS143_PDF,
+    power.DISS172_PDF,
+    power.MASTER072_PDF,
+    power.MASTER075_PDF,
+    power.MASTER083_PDF,
+    power.MASTER098_PDF,
+    power.MASTER116_PDF,
 ]
 RESOURCES = [
-    pytest.param(source, page, id=utila.file_name(source))
-    for source, page in RESOURCES
+    pytest.param(
+        source,
+        power.ctext(source, default=':'),
+        id=utila.file_name(source),
+    ) for source in RESOURCES
 ]
 
 
@@ -53,7 +56,6 @@ def test_bibref_validate(source, pages, testdir, monkeypatch):
         workdir=testdir.tmpdir,
         monkeypatch=monkeypatch,
     ).evaluate()
-    # TODO: USE SECTIONS TO SELECT PAGES
 
 
 class Evaluate(utilatest.BaseLiner):
