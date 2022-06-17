@@ -15,11 +15,6 @@ import tests.weblink_
 import weblink
 
 
-def test_links_master75(testdir, monkeypatch):
-    loaded = hyperlinks(power.MASTER075_PDF, testdir, monkeypatch)
-    assert len(loaded) == 11
-
-
 def test_links_master75pages15(testdir, monkeypatch):
     loaded = hyperlinks(power.MASTER075_PDF, testdir, monkeypatch, 15)
     assert len(loaded) == 1
