@@ -53,6 +53,7 @@ def extract(resources):
         files=resources,
         destination=power.generated(),
         base=power.REPOSITORY,
+        bibliography=True,
         detector=True,
         groupme=True,
         headlines=True,
