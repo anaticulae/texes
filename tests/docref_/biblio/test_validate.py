@@ -26,25 +26,30 @@ ARCHIVE = utila.join(
     exist=True,
 )
 
+RESOURCES = [
+    (power.BACHELOR075_PDF, '14:70'),
+    (power.BACHELOR076_PDF, ':'),
+    (power.DISS143_PDF, '15:30'),
+    (power.DISS172_PDF, '30:70'),
+    (power.MASTER072_PDF, ':'),
+    (power.MASTER075_PDF, ':'),
+    (power.MASTER083_PDF, ':'),
+    (power.MASTER098_PDF, ':'),
+    (power.MASTER116_PDF, ':'),
+]
+RESOURCES = [
+    pytest.param(source, page, id=utila.file_name(source))
+    for source, page in RESOURCES
+]
+
 
 @utilatest.nightly
-@pytest.mark.parametrize('source, pages, expected', [
-    pytest.param(power.BACHELOR075_PDF, ':', 'bachelor075', id='bachelor075'),
-    pytest.param(power.BACHELOR076_PDF, ':', 'bachelor076', id='bachelor076'),
-    pytest.param(power.DISS143_PDF, '15:30', 'diss143', id='diss143'),
-    pytest.param(power.DISS172_PDF, '30:70', 'diss172', id='diss172'),
-    pytest.param(power.MASTER072_PDF, ':', 'master072', id='master072'),
-    pytest.param(power.MASTER075_PDF, ':', 'master075', id='master075'),
-    pytest.param(power.MASTER083_PDF, ':', 'master083', id='master083'),
-    pytest.param(power.MASTER098_PDF, ':', 'master098', id='master098'),
-    pytest.param(power.MASTER116_PDF, ':', 'master116', id='master116'),
-])
-def test_bibref_validate(source, pages, expected, testdir, monkeypatch):
+@pytest.mark.parametrize('source, pages', RESOURCES)
+def test_bibref_validate(source, pages, testdir, monkeypatch):
     utilatest.fixture_requires(source)
     Evaluate(
         source=source,
         pages=pages,
-        expected=expected,
         workdir=testdir.tmpdir,
         monkeypatch=monkeypatch,
     ).evaluate()
@@ -53,7 +58,7 @@ def test_bibref_validate(source, pages, expected, testdir, monkeypatch):
 
 class Evaluate(utilatest.BaseLiner):
 
-    def __init__(self, source, pages, expected, workdir, monkeypatch):
+    def __init__(self, source, pages, workdir, monkeypatch):
         super().__init__(
             program=functools.partial(
                 tests.docref_.run,
@@ -66,7 +71,6 @@ class Evaluate(utilatest.BaseLiner):
             archive=ARCHIVE,
             loader=self.frompath,
             convert_source=False,
-            index=expected,
         )
         self.headlines = power.link(source)
 
