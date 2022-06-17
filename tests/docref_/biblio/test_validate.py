@@ -28,14 +28,14 @@ ARCHIVE = utila.join(
 
 RESOURCES = [
     (power.BACHELOR075_PDF, '14:70'),
-    (power.BACHELOR076_PDF, ':'),
-    (power.DISS143_PDF, '15:30'),
-    (power.DISS172_PDF, '30:70'),
-    (power.MASTER072_PDF, ':'),
-    (power.MASTER075_PDF, ':'),
-    (power.MASTER083_PDF, ':'),
-    (power.MASTER098_PDF, ':'),
-    (power.MASTER116_PDF, ':'),
+    (power.BACHELOR076_PDF, '4:67'),
+    (power.DISS143_PDF, '19:131'),
+    (power.DISS172_PDF, '15:152'),
+    (power.MASTER072_PDF, '3:65'),
+    (power.MASTER075_PDF, '4:70'),
+    (power.MASTER083_PDF, '4:74'),
+    (power.MASTER098_PDF, '2:88'),
+    (power.MASTER116_PDF, '7:88'),
 ]
 RESOURCES = [
     pytest.param(source, page, id=utila.file_name(source))
