@@ -18,6 +18,7 @@ import utilatest
 import docref
 import docref.path
 import tests
+import tests.conftest
 import tests.docref_
 
 ARCHIVE = utila.join(
@@ -42,7 +43,7 @@ RESOURCES = [
         source,
         power.ctext(power.pdf(source), default=':'),
         id=utila.file_name(power.pdf(source)),
-    ) for source in RESOURCES
+    ) for source in tests.conftest.RESOURCES
 ]
 
 
