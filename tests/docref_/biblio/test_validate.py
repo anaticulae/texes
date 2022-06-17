@@ -40,8 +40,8 @@ RESOURCES = [
 RESOURCES = [
     pytest.param(
         source,
-        power.ctext(source, default=':'),
-        id=utila.file_name(source),
+        power.ctext(power.pdf(source), default=':'),
+        id=utila.file_name(power.pdf(source)),
     ) for source in RESOURCES
 ]
 
@@ -49,6 +49,7 @@ RESOURCES = [
 @utilatest.nightly
 @pytest.mark.parametrize('source, pages', RESOURCES)
 def test_bibref_validate(source, pages, testdir, monkeypatch):
+    source = power.pdf(source)
     utilatest.fixture_requires(source)
     Evaluate(
         source=source,
