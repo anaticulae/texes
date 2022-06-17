@@ -49,7 +49,7 @@ RESOURCES = [
 
 @utilatest.nightly
 @pytest.mark.parametrize('source, pages', RESOURCES)
-def test_bibref_validate(source, pages, testdir, monkeypatch):
+def test_validate_bibref(source, pages, testdir, monkeypatch):
     source = power.pdf(source)
     utilatest.fixture_requires(source)
     Evaluate(
