@@ -26,7 +26,6 @@ def test_page_linealignments_expected_master72p4():
         source,
         pages=pages,
     )
-
     page4 = navigators[0]
     current = textflow.alignment.style.page_linealignments_expected(page4)
     expected = [
@@ -73,12 +72,11 @@ def test_page_linealignments_expected_homework40p3():
     source = power.link(power.HOME040_PDF)
     navigators = serializeraw.ptn_frompath(source)
     border = textflow.alignment.style.document_textfeed(navigators)
-
+    # alignment
     current = textflow.alignment.style.page_linealignments_expected(
         utila.select_page(navigators, 3),
         border=border,
     )
-
     expected = [
         texmex.TextAlignment.CENTER,
         texmex.TextAlignment.LEFT,
@@ -98,12 +96,11 @@ def test_page_linealignments_expected_homework40p4():
     source = power.link(power.HOME040_PDF)
     navigators = serializeraw.ptn_frompath(source)
     border = textflow.alignment.style.document_textfeed(navigators)
-
+    # alignment
     current = textflow.alignment.style.page_linealignments_expected(
         utila.select_page(navigators, page=4),
         border=border,
     )
-
     expected = [
         texmex.TextAlignment.CENTER,
         texmex.TextAlignment.LEFT,
