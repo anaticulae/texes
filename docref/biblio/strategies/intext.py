@@ -19,7 +19,7 @@ PATTERN = utila.compiles(r"""
         )
     )
     [ ]?
-    (?P<year>\d{4})?
+    (?P<year>(20[012]\d|1[789]\d\d))?
     (
         # if year matches : and , is possible, if no year matches : is possible
         (?(year)[:,]|[:])           # optional collon between author and year
@@ -41,7 +41,7 @@ AUTHOR_AND_YEAR = utila.compiles(r"""
     [ ]
     (?P<author>\b[\w/]+?)
     [ ]
-    (?P<year>\d{4})
+    (?P<year>(20[012]\d|1[789]\d\d))
 \)
 """)
 
