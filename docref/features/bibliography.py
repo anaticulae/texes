@@ -95,7 +95,7 @@ def remove_invalid(items, text):
         plain = docref.utils.sentence_plain(sentence, item.marked)
         for reference, mark in zip(plain, item.marked):
             if not valid(reference):
-                utila.error(f'docref:bib:invalid reference: {reference}')
+                utila.debug(f'docref:bib:invalid reference: {reference}')
                 continue
             result.append(
                 iamraw.DocRef(
