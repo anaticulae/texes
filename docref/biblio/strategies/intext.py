@@ -64,7 +64,11 @@ REFERENCE_LONG = utila.compiles(r"""
 \)
 """)
 
-PATTERNS = (PATTERN, AUTHOR_AND_YEAR, REFERENCE_LONG)
+PATTERNS = (
+    PATTERN,
+    AUTHOR_AND_YEAR,
+    REFERENCE_LONG,
+)
 
 
 def parse(raw: str) -> iamraw.BibliographyReferences:
