@@ -66,11 +66,28 @@ REFERENCE_LONG = utila.compiles(r"""
 
 AUTHOR_COMMA_YEAR = utila.compiles(r"""
 \(
+    [ ]{0,2}
     (?P<author>\b.{5,120}?)
     [ ]{0,2}
     [,]
     [ ]{0,2}
     (?P<year>(20[012]\d|1[789]\d\d))
+    (
+        [ ]{0,2}
+        [,]?
+        [ ]{0,2}
+        (S\.)?
+        [ ]{0,2}
+        (?P<pages>
+            (
+                \d+(a|b|c|d)[-]\d+(a|b|c|d)| # from x till y
+                \d+[-]\d+|                   # from x till y
+                \d+ff[.]|                    # single page with following
+                \d+                          # single page
+            )
+        )
+    ){0,1}
+    [ ]{0,2}
 \)
 """)
 
