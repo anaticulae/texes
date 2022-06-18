@@ -64,10 +64,21 @@ REFERENCE_LONG = utila.compiles(r"""
 \)
 """)
 
+AUTHOR_COMMA_YEAR = utila.compiles(r"""
+\(
+    (?P<author>\b.{5,120}?)
+    [ ]{0,2}
+    [,]
+    [ ]{0,2}
+    (?P<year>(20[012]\d|1[789]\d\d))
+\)
+""")
+
 PATTERNS = (
     PATTERN,
     AUTHOR_AND_YEAR,
     REFERENCE_LONG,
+    AUTHOR_COMMA_YEAR,
 )
 
 

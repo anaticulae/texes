@@ -129,6 +129,8 @@ def valid(item: str):
     True
     >>> valid('[28, 76, 59]')
     True
+    >>> valid('(Bradley & Lang, 1994)')
+    True
     """
     if docref.biblio.parser.parse(item):
         return True
