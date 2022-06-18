@@ -131,6 +131,8 @@ def valid(item: str):
     True
     >>> valid('(Bradley & Lang, 1994)')
     True
+    >>> valid('(Irwin et al., 1996)')
+    True
     """
     if docref.biblio.parser.parse(item):
         return True
@@ -170,6 +172,7 @@ PATTERN = utila.splitlines("""
 (Schnabel, 2011)
 (vgl. Statistisches Bundesamt, Verkehrsunfälle 2013)
 (Vollrath & Krems, 2011)
+(Irwin et al., 1996)
 (Krüger et al., 2005, S. 59)
 (Zylman, 1972, zit. nach Krüger et al., 2005, Seite 59)
 [1]
