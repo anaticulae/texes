@@ -37,6 +37,7 @@ def work(sentences: str, headlines: str, pages: tuple = None) -> str:
 VALID = utila.compiles(r"""
     (
         Abschnitt|
+        Anhang|
         Bereich|
         Chapter|
         Kapitel|
