@@ -7,7 +7,6 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import iamraw
 import serializeraw
 import utila
 
@@ -22,7 +21,10 @@ def work(sentences: str, headlines: str, pages: tuple = None) -> str:
         headlines=headlines,
         pages=pages,
     )
-    parsed = parse_text(sentences)
+    parsed = docref.reference.parse_text(
+        sentences,
+        pattern=PATTERN,
+    )
     validated = docref.features.bibliography.remove_invalid(
         parsed,
         sentences,
@@ -79,7 +81,3 @@ in section 3.1.2
 in section 2
 in section 1.1
 """)
-
-
-def parse_text(text) -> iamraw.DocRefs:
-    return docref.reference.parse_text(text, pattern=PATTERN)
