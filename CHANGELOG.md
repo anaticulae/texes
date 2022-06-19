@@ -2,6 +2,30 @@
 
 Every noteable change is logged here.
 
+## v0.10.0
+
+### Feature
+
+* extend pattern (d45db82047c6)
+* unite author pattern (7680bc01a897)
+* make parser more flexible (c59c6959d7a3)
+* add ebd (4335f42ea7e1)
+* add highnote inside bib ref (3ded028ef36d)
+* add optional brackets (bf5745353468)
+* make pattern more flexible (e9580ad9b5df)
+* align pages regex (7c83e2030c3b)
+* extend valid author parser (20a514c224e9)
+* extend valid bib parser (cf2b6e76851b)
+* decrease verbosity (65da25be275e)
+* extend author parser (5d303dc1a20e)
+* extend intext parser (dec639b4b55e)
+* make year parser more strict (cc05fe174596)
+* use improve headlines (d6d7e6400c17)
+
+### Fix
+
+* do not generate ghost pattern (9888669a3526)
+
 ## v0.9.2
 
 ### Feature
