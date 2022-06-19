@@ -181,6 +181,8 @@ PATTERN = utila.splitlines("""
 (Irwin et al., 1996)
 (Krüger et al., 2005, S. 59)
 (Zylman, 1972, zit. nach Krüger et al., 2005, Seite 59)
+(Techniker, 2013, S. 8)
+(Techniker Krankenkasse, 2013, S. 8)
 [1]
 [25]
 [123]
