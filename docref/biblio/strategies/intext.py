@@ -40,6 +40,16 @@ YEAR = r"""
 )
 """
 
+AUTHOR = r"""
+(
+    (?P<author>
+        (
+            \b.{8,100}?
+        )
+    )
+)
+"""
+
 PATTERN = utila.compiles(r"""
     (vgl[.][ ])?
     (?P<author>
@@ -72,12 +82,12 @@ REFERENCE_LONG = utila.compiles(r"""
 \(
     vgl\.
     [ ]
-    (?P<author>.{8,100})
+    %(author)s
     [,:]
     [ ]
     %(pages)s
 \)
-""" % dict(pages=PAGES))
+""" % dict(author=AUTHOR, pages=PAGES))
 
 AUTHOR_COMMA_YEAR = utila.compiles(r"""
 \(
