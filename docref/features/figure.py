@@ -10,6 +10,7 @@
 import serializeraw
 import utila
 
+import docref.features.bibliography
 import docref.reference
 
 
@@ -20,9 +21,40 @@ def work(sentences: str, headlines: str, pages: tuple = None) -> str:
         headlines=headlines,
         pages=pages,
     )
-    parsed = docref.reference.parse_text(sentences, pattern=PATTERN)
-    dumped = serializeraw.dump_docref(parsed)
+    parsed = docref.reference.parse_text(
+        sentences,
+        pattern=PATTERN,
+    )
+    validated = docref.features.bibliography.remove_invalid(
+        parsed,
+        sentences,
+        validator=valid,
+    )
+    dumped = serializeraw.dump_docref(validated)
     return dumped
+
+
+VALID = utila.compiles(r"""
+    (
+        Abb\.|
+        Abbildung|
+        Figure|
+        Fig\.|
+        Image|
+        Img\.
+    )
+""")
+
+
+@utila.cacheme
+def valid(item: str) -> bool:
+    """\
+    >>> valid('Industrie 4.0')
+    False
+    """
+    if VALID.search(item):
+        return True
+    return False
 
 
 PATTERN = utila.splitlines("""

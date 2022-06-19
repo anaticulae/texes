@@ -1,70 +1,71 @@
-13 12 (sieheAbbildung2.4)
-16 5 (sieheAbbildung2.6)
-18 14 sieheAbbildung2.8
-18 19 (sieheAbbildung2.10)
-20 5 Abbildung2.11
-20 12 (sieheAbbildung2.12)
-21 2 (sieheAbbildung2.12)
-22 0 Abbildung2.13.
-22 10 Abbildung2.14
-26 1 Abbildung2.15
-26 10 (sieheAbbildung2.16)
-27 5 Abbildung2.17
-29 15 Abbildung2.19
-29 21 Abbildung2.19
-31 14 Abbildung2.20
-33 1 Abbildung3.1
-34 1 Abbildung3.2
-34 3 Abbildung3.2
-35 4 Abbildung3.4
-35 7 Abbildung3.5
-35 16 Abbildung3.6
-36 2 Abbildung3.7
-36 16 (sieheAbbildung3.11)
-37 8 Abbildung3.12
-39 10 Abbildung3.13
-39 18 Abbildung3.14
-41 1 Abbildung3.16
-42 3 Abbildung4.1
-42 5 Abbildung4.3
-47 6 (sieheAbbildung4.4)
-48 3 Abbildung4.5.
-49 6 (sieheAbbildung4.6)
-52 0 Abbildung4.7
-52 9 Abbildung4.8
-54 5 (sieheAbbildung5.1)
-55 39 Abbildung5.2
-57 15 Abbildung5.3
-57 18 (sieheAbbildung5.3)
-59 14 Abbildung5.6
-60 1 Abbildung5.7
-61 19 (sieheAbbildung5.8)
-63 15 Abbildung5.9   Abbildung5.10
-64 3 Abbildung5.9
-64 5 Abbildung5.10
-64 7 Abbildung5.9
-64 10 (sieheAbbildung5.11)
-64 11 Abbildung5.11
-66 14 (sieheAbbildung5.12)
-67 4 (sieheAbbildung5.13)
-68 0 Abbildung5.14
-68 6 Abbildung5.14
-69 15 (sieheAbbildung6.1)
-70 0 Abbildung6.2
-71 5 (sieheAbbildung6.3)
-72 5 (sieheAbbildung6.4)
-73 1 Abbildung6.5
-73 3 Abbildung6.6
-75 10 Abbildung4.4
-75 11 (sieheAbbildung6.8)
-76 8 Abbildung6.7
-77 6 Abbildung2.12
-77 10 Abbildung6.2
-80 1 Abbildung6.11
-81 9 Abbildung6.12
-81 12 Abbildung6.13
-82 4 Abbildung6.15
-83 3 Abbildung6.16
-83 6 (sieheAbbildung6.17)
-83 8 (sieheAbbildung6.18)
-84 4 Abbildung6.19
+13 12 (siehe Abbildung 2.4)
+16 5 (siehe Abbildung 2.6)
+18 14 siehe Abbildung 2.8
+18 19 (siehe Abbildung 2.10)
+20 5 Abbildung 2.11
+20 12 (siehe Abbildung 2.12)
+21 2 (siehe Abbildung 2.12)
+22 0 Abbildung 2.13.
+22 10 Abbildung 2.14
+26 1 Abbildung 2.15
+26 10 (siehe Abbildung 2.16)
+27 5 Abbildung 2.17
+29 15 Abbildung 2.19
+29 21 Abbildung 2.19
+31 14 Abbildung 2.20
+33 1 Abbildung 3.1
+34 1 Abbildung 3.2
+34 3 Abbildung 3.2
+35 4 Abbildung 3.4
+35 7 Abbildung 3.5
+35 16 Abbildung 3.6
+36 2 Abbildung 3.7
+36 16 (siehe Abbildung 3.11)
+37 8 Abbildung 3.12
+39 10 Abbildung 3.13
+39 18 Abbildung 3.14
+41 1 Abbildung 3.16
+42 3 Abbildung 4.1
+42 5 Abbildung 4.3
+47 6 (siehe Abbildung 4.4)
+48 3 Abbildung 4.5.
+49 6 (siehe Abbildung 4.6)
+52 0 Abbildung 4.7
+52 9 Abbildung 4.8
+54 5 (siehe Abbildung 5.1)
+55 39 Abbildung 5.2
+57 15 Abbildung 5.3
+57 18 (siehe Abbildung 5.3)
+59 14 Abbildung 5.6
+60 1 Abbildung 5.7
+61 19 (siehe Abbildung 5.8)
+63 15 Abbildung 5.9
+63 15 Abbildung 5.10
+64 3 Abbildung 5.9
+64 5 Abbildung 5.10
+64 7 Abbildung 5.9
+64 10 (siehe Abbildung 5.11)
+64 11 Abbildung 5.11
+66 14 (siehe Abbildung 5.12)
+67 4 (siehe Abbildung 5.13)
+68 0 Abbildung 5.14
+68 6 Abbildung 5.14
+69 15 (siehe Abbildung 6.1)
+70 0 Abbildung 6.2
+71 5 (siehe Abbildung 6.3)
+72 5 (siehe Abbildung 6.4)
+73 1 Abbildung 6.5
+73 3 Abbildung 6.6
+75 10 Abbildung 4.4
+75 11 (siehe Abbildung 6.8)
+76 8 Abbildung 6.7
+77 6 Abbildung 2.12
+77 10 Abbildung 6.2
+80 1 Abbildung 6.11
+81 9 Abbildung 6.12
+81 12 Abbildung 6.13
+82 4 Abbildung 6.15
+83 3 Abbildung 6.16
+83 6 (siehe Abbildung 6.17)
+83 8 (siehe Abbildung 6.18)
+84 4 Abbildung 6.19
