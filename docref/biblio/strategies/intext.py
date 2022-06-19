@@ -26,10 +26,10 @@ PATTERN = utila.compiles(r"""
         [ ]{0,3}                    # space between collon and pages
         (?P<pages>
             (
-                \d+(a|b|c|d)[-]\d+(a|b|c|d)| # from x till y
-                \d+[-]\d+|                   # from x till y
-                \d+ff[.]|                    # single page with following
-                \d+                          # single page
+                \d{1,4}(a|b|c|d)[-]\d{1,4}(a|b|c|d)|        # from x till y
+                \d{1,4}[-]\d{1,4}|                          # from x till y
+                \d{1,4}[ ]{0,2}(ff|f)[ ]{0,2}\.?|           # single page with following
+                \d{1,4}                                     # single page
             )
         )
     )
@@ -56,9 +56,10 @@ REFERENCE_LONG = utila.compiles(r"""
         (S\.)?
         [ ]
         (
-            \d+|                # single page
-            \d+[ ]?ff\.?|       # single page with following
-            \d+\-\d+            # from x till y
+            \d{1,4}(a|b|c|d)[-]\d{1,4}(a|b|c|d)|        # from x till y
+            \d{1,4}[-]\d{1,4}|                          # from x till y
+            \d{1,4}[ ]{0,2}(ff|f)[ ]{0,2}\.?|           # single page with following
+            \d{1,4}                                     # single page
         )
     )
 \)
@@ -80,10 +81,10 @@ AUTHOR_COMMA_YEAR = utila.compiles(r"""
         [ ]{0,2}
         (?P<pages>
             (
-                \d+(a|b|c|d)[-]\d+(a|b|c|d)| # from x till y
-                \d+[-]\d+|                   # from x till y
-                \d+ff[.]|                    # single page with following
-                \d+                          # single page
+                \d{1,4}(a|b|c|d)[-]\d{1,4}(a|b|c|d)|        # from x till y
+                \d{1,4}[-]\d{1,4}|                          # from x till y
+                \d{1,4}[ ]{0,2}(ff|f)[ ]{0,2}\.?|           # single page with following
+                \d{1,4}                                     # single page
             )
         )
     ){0,1}
