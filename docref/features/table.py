@@ -8,6 +8,7 @@
 # =============================================================================
 
 import serializeraw
+import utila
 
 import docref.reference
 
@@ -19,15 +20,18 @@ def work(sentences: str, headlines: str, pages: tuple = None) -> str:
         headlines=headlines,
         pages=pages,
     )
-    parsed = docref.reference.parse_text(sentences, pattern=PATTERN)
+    parsed = docref.reference.parse_text(
+        sentences,
+        pattern=PATTERN,
+    )
     dumped = serializeraw.dump_docref(parsed)
     return dumped
 
 
-PATTERN = (
-    '(s. Tab. 1)',
-    '(siehe Tab. 5)',
-    '(siehe Tabelle 2.2)'
-    'siehe Tab. 5',
-    'siehe Tabelle 2.2',
-)
+PATTERN = utila.splitlines("""
+(s. Tab. 1)
+(siehe Tab. 5)
+(siehe Tabelle 2.2)
+siehe Tab. 5
+siehe Tabelle 2.2
+""")
