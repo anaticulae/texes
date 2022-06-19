@@ -108,7 +108,14 @@ AUTHOR_COMMA_YEAR = utila.compiles(r"""
 \)
 """ % dict(author=AUTHOR, year=YEAR, pages=PAGES))
 
+HIGHNOTE = utila.compiles(r"""
+    (?P<author>
+        \{\{hn\:\d{1,4}\:nh\}\}
+    )
+""")
+
 PATTERNS = (
+    HIGHNOTE,
     PATTERN,
     AUTHOR_AND_YEAR,
     REFERENCE_LONG,
