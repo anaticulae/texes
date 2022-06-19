@@ -44,6 +44,7 @@ AUTHOR = r"""
 (
     (?P<author>
         (
+            ebd\.|
             \b.{8,100}?
         )
     )
