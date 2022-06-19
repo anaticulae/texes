@@ -34,18 +34,24 @@ def work(sentences: str, headlines: str, pages: tuple = None) -> str:
     return dumped
 
 
+VALID = utila.compiles(r"""
+    (
+        Tabelle|
+        Tab\.|
+        Table
+    )
+""")
+
+
 @utila.cacheme
 def valid(item: str) -> bool:
     """\
-    >>> valid('(sieheKapitel3.1)')
+    >>> valid('(siehe Kapitel 3.1)')
     False
     """
-    item = item.lower()
-    if 'kapitel' in item:
-        return False
-    if 'punkt' in item:
-        return False
-    return True
+    if VALID.search(item):
+        return True
+    return False
 
 
 PATTERN = utila.splitlines("""
@@ -53,5 +59,7 @@ PATTERN = utila.splitlines("""
 (siehe Tab. 5)
 (siehe Tabelle 2.2)
 siehe Tab. 5
+siehe Tabelle 1-4
 siehe Tabelle 2.2
+Tabelle 3.1
 """)
