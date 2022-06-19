@@ -21,11 +21,11 @@ PACKAGE = texas.PACKAGE
 power.setup(texas.ROOT)
 
 RESOURCES = [
-    (power.BACHELOR051_PDF, '15:30'),
     (power.DISS143_PDF, '0:50'),
     (power.DISS172_PDF, '30:70'),
     (power.MASTER091B_PDF, '0:20'),
     power.BACHELOR037_PDF,
+    power.BACHELOR051_PDF,
     power.BACHELOR075_PDF,
     power.BACHELOR076_PDF,
     power.DOCU007_PDF,
