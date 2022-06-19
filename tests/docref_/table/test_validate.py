@@ -27,15 +27,14 @@ ARCHIVE = utila.join(
 
 
 @utilatest.nightly
-@pytest.mark.parametrize('source, pages, expected', [
-    pytest.param(power.BACHELOR037_PDF, ':', 'bachelor037', id='bachelor037'),
+@pytest.mark.parametrize('source, pages', [
+    pytest.param(power.BACHELOR037_PDF, ':', id='bachelor037'),
 ])
-def test_tableref_validate(source, pages, expected, testdir, monkeypatch):
+def test_validate_tableref(source, pages, testdir, monkeypatch):
     utilatest.fixture_requires(source)
     Evaluate(
         source=source,
         pages=pages,
-        expected=expected,
         workdir=testdir.tmpdir,
         monkeypatch=monkeypatch,
     ).evaluate()
@@ -43,7 +42,7 @@ def test_tableref_validate(source, pages, expected, testdir, monkeypatch):
 
 class Evaluate(utilatest.BaseLiner):
 
-    def __init__(self, source, pages, expected, workdir, monkeypatch):
+    def __init__(self, source, pages, workdir, monkeypatch):
         super().__init__(
             program=functools.partial(
                 tests.docref_.run,
@@ -56,7 +55,6 @@ class Evaluate(utilatest.BaseLiner):
             archive=ARCHIVE,
             loader=self.frompath,
             convert_source=False,
-            index=expected,
         )
         self.headlines = power.link(source)
 
