@@ -29,7 +29,7 @@ ARCHIVE = utila.join(
 
 RESOURCES = [
     pytest.param(
-        source,
+        power.pdf(source),
         power.ctext(power.pdf(source), default=':'),
         id=utila.file_name(power.pdf(source)),
     ) for source in tests.conftest.RESOURCES
@@ -39,7 +39,6 @@ RESOURCES = [
 @utilatest.nightly
 @pytest.mark.parametrize('source, pages', RESOURCES)
 def test_validate_bibref(source, pages, testdir, monkeypatch):
-    source = power.pdf(source)
     utilatest.fixture_requires(source)
     Evaluate(
         source=source,
