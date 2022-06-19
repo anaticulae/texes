@@ -10,6 +10,19 @@
 import iamraw
 import utila
 
+PAGES = r"""
+    (S\.)?
+    [ ]{0,2}
+    (?P<pages>
+        (
+            \d{1,4}(a|b|c|d)[-]\d{1,4}(a|b|c|d)|        # from x till y
+            \d{1,4}[-]\d{1,4}|                          # from x till y
+            \d{1,4}[ ]{0,2}(ff|f)[ ]{0,2}\.?|           # single page with following
+            \d{1,4}                                     # single page
+        )
+    )
+"""
+
 PATTERN = utila.compiles(r"""
     (vgl[.][ ])?
     (?P<author>
@@ -24,16 +37,9 @@ PATTERN = utila.compiles(r"""
         # if year matches : and , is possible, if no year matches : is possible
         (?(year)[:,]|[:])           # optional collon between author and year
         [ ]{0,3}                    # space between collon and pages
-        (?P<pages>
-            (
-                \d{1,4}(a|b|c|d)[-]\d{1,4}(a|b|c|d)|        # from x till y
-                \d{1,4}[-]\d{1,4}|                          # from x till y
-                \d{1,4}[ ]{0,2}(ff|f)[ ]{0,2}\.?|           # single page with following
-                \d{1,4}                                     # single page
-            )
-        )
+        %(pages)s
     )
-""")
+""" % dict(pages=PAGES))
 
 AUTHOR_AND_YEAR = utila.compiles(r"""
 \(
@@ -52,18 +58,9 @@ REFERENCE_LONG = utila.compiles(r"""
     (?P<author>.{8,100})
     [,:]
     [ ]
-    (?P<pages>
-        (S\.)?
-        [ ]
-        (
-            \d{1,4}(a|b|c|d)[-]\d{1,4}(a|b|c|d)|        # from x till y
-            \d{1,4}[-]\d{1,4}|                          # from x till y
-            \d{1,4}[ ]{0,2}(ff|f)[ ]{0,2}\.?|           # single page with following
-            \d{1,4}                                     # single page
-        )
-    )
+    %(pages)s
 \)
-""")
+""" % dict(pages=PAGES))
 
 AUTHOR_COMMA_YEAR = utila.compiles(r"""
 \(
@@ -77,20 +74,11 @@ AUTHOR_COMMA_YEAR = utila.compiles(r"""
         [ ]{0,2}
         [,]?
         [ ]{0,2}
-        (S\.)?
-        [ ]{0,2}
-        (?P<pages>
-            (
-                \d{1,4}(a|b|c|d)[-]\d{1,4}(a|b|c|d)|        # from x till y
-                \d{1,4}[-]\d{1,4}|                          # from x till y
-                \d{1,4}[ ]{0,2}(ff|f)[ ]{0,2}\.?|           # single page with following
-                \d{1,4}                                     # single page
-            )
-        )
+        %(pages)s
     ){0,1}
     [ ]{0,2}
 \)
-""")
+""" % dict(pages=PAGES))
 
 PATTERNS = (
     PATTERN,
