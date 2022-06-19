@@ -17,6 +17,7 @@ import utilatest
 
 import docref
 import docref.path
+import tests.conftest
 import tests.docref_
 
 ARCHIVE = utila.join(
@@ -25,11 +26,17 @@ ARCHIVE = utila.join(
     exist=True,
 )
 
+RESOURCES = [
+    pytest.param(
+        power.pdf(source),
+        power.ctext(power.pdf(source), default=':'),
+        id=utila.file_name(power.pdf(source)),
+    ) for source in tests.conftest.RESOURCES
+]
+
 
 @utilatest.nightly
-@pytest.mark.parametrize('source, pages', [
-    pytest.param(power.BACHELOR037_PDF, ':', id='bachelor037'),
-])
+@pytest.mark.parametrize('source, pages', RESOURCES)
 def test_validate_tableref(source, pages, testdir, monkeypatch):
     utilatest.fixture_requires(source)
     Evaluate(
