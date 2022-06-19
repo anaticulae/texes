@@ -173,6 +173,7 @@ PATTERN = utila.splitlines("""
 (vgl. BEHRENS 1965, S. 138)
 (vgl. BOUS (1933), S. 3 ff)
 (vgl. BOUS (1933), S. 3)
+(vgl. KAMENZ 2001{{hn:2:nh}}, S. 137ff)
 (Schnabel, 2011)
 (vgl. Statistisches Bundesamt, Verkehrsunfälle 2013)
 (Vollrath & Krems, 2011)
