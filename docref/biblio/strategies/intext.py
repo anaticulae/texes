@@ -15,8 +15,12 @@ PAGES = r"""
     [ ]{0,2}
     (?P<pages>
         (
-            \d{1,4}(a|b|c|d)[-]\d{1,4}(a|b|c|d)|        # from x till y
-            \d{1,4}[-]\d{1,4}|                          # from x till y
+            (                                           # from x till y
+                \d{1,4}[ ]{0,2}(a|b|c|d)
+                [ ]{0,2}[-][ ]{0,2}
+                \d{1,4}[ ]{0,2}(a|b|c|d)
+            )|
+            \d{1,4}[ ]{0,2}[-][ ]{0,2}\d{1,4}|          # from x till y
             \d{1,4}[ ]{0,2}(ff|f)[ ]{0,2}\.?|           # single page with following
             \d{1,4}                                     # single page
         )
