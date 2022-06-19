@@ -52,14 +52,14 @@ AUTHOR = r"""
 """
 
 PATTERN = utila.compiles(r"""
-    (vgl[.][ ])?
+    (vgl[.][ ]{0,2})?
     (?P<author>
         (
             ebd\.|
             \b[\w\ /\.]+?
         )
     )
-    [ ]?
+    [ ]{0,2}
     %(year)s?
     (
         # if year matches : and , is possible, if no year matches : is possible
@@ -72,9 +72,9 @@ PATTERN = utila.compiles(r"""
 AUTHOR_AND_YEAR = utila.compiles(r"""
 \(
     vgl\.
-    [ ]
+    [ ]{0,2}
     (?P<author>\b[\w/]+?)
-    [ ]
+    [ ]{0,2}
     %(year)s
 \)
 """ % dict(year=YEAR))
@@ -82,10 +82,10 @@ AUTHOR_AND_YEAR = utila.compiles(r"""
 REFERENCE_LONG = utila.compiles(r"""
 \(
     vgl\.
-    [ ]
+    [ ]{0,2}
     %(author)s
     [,:]
-    [ ]
+    [ ]{0,2}
     %(pages)s
 \)
 """ % dict(author=AUTHOR, pages=PAGES))
