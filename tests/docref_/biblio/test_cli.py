@@ -16,17 +16,6 @@ import docref.utils
 import tests.docref_
 
 
-def extract_label(source, testdir, monkeypatch, pages=':'):
-    source = power.link(source)
-    tests.docref_.run(
-        f'-i {source} --bibliography --pages={pages}',
-        monkeypatch=monkeypatch,
-    )
-    bibliography = docref.path.docref_bibliography(testdir.tmpdir)
-    bibliography = serializeraw.load_docref(bibliography)
-    return bibliography
-
-
 @utilatest.requires(power.MASTER091B_PDF)
 def test_docref_bibliography_master91b(testdir, monkeypatch):
     """Do not parse overlapping words.
@@ -41,3 +30,14 @@ def test_docref_bibliography_master91b(testdir, monkeypatch):
         pages='9',
     )
     assert len(bibliography) == 2
+
+
+def extract_label(source, testdir, monkeypatch, pages=':'):
+    source = power.link(source)
+    tests.docref_.run(
+        f'-i {source} --bibliography --pages={pages}',
+        monkeypatch=monkeypatch,
+    )
+    bibliography = docref.path.docref_bibliography(testdir.tmpdir)
+    bibliography = serializeraw.load_docref(bibliography)
+    return bibliography
