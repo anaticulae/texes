@@ -28,12 +28,16 @@ PAGES = r"""
 """
 
 YEAR = r"""
-    (?P<year>
-        (
-            20[012]\d|
-            1[789]\d\d
+(
+    \(?
+        (?P<year>
+            (
+                20[012]\d|
+                1[789]\d\d
+            )
         )
-    )
+    \)?
+)
 """
 
 PATTERN = utila.compiles(r"""
