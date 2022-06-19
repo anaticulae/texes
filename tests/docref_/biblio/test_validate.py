@@ -28,17 +28,6 @@ ARCHIVE = utila.join(
 )
 
 RESOURCES = [
-    power.BACHELOR075_PDF,
-    power.BACHELOR076_PDF,
-    power.DISS143_PDF,
-    power.DISS172_PDF,
-    power.MASTER072_PDF,
-    power.MASTER075_PDF,
-    power.MASTER083_PDF,
-    power.MASTER098_PDF,
-    power.MASTER116_PDF,
-]
-RESOURCES = [
     pytest.param(
         source,
         power.ctext(power.pdf(source), default=':'),
