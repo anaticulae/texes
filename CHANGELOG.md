@@ -2,6 +2,19 @@
 
 Every noteable change is logged here.
 
+## v0.11.0
+
+### Feature
+
+* extend section reference parser (3188f7cf124c)
+* extend table ref parser (de1c7e74faba)
+* improve figure references (ccb14658dc4a)
+* extend section reference parser (09b52c840c2b)
+* validate section references (c69c5bd8f4d5)
+* skip invalid table references (982394152c39)
+* make validator more flexible (6f597032310f)
+* add highnote validator (faaf9bf93dd0)
+
 ## v0.10.0
 
 ### Feature
