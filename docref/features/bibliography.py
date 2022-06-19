@@ -86,7 +86,9 @@ def work(sentences: str, headlines: str, pages: tuple = None) -> str:
     return dumped
 
 
-def remove_invalid(items, text):
+def remove_invalid(items, text, validator: callable = None):
+    if not validator:
+        validator = valid
     lookup = docref.utils.sentence_lookup(text)
     result = []
     for item in items:
@@ -94,7 +96,7 @@ def remove_invalid(items, text):
         # TODO: NOT REALY REQUIRED, SEE PARSE_TEXT()
         plain = docref.utils.sentence_plain(sentence, item.marked)
         for reference, mark in zip(plain, item.marked):
-            if not valid(reference):
+            if not validator(reference):
                 utila.debug(f'docref:bib:invalid reference: {reference}')
                 continue
             result.append(
