@@ -10,6 +10,7 @@
 import serializeraw
 import utila
 
+import docref.features.bibliography
 import docref.reference
 
 
@@ -24,8 +25,27 @@ def work(sentences: str, headlines: str, pages: tuple = None) -> str:
         sentences,
         pattern=PATTERN,
     )
-    dumped = serializeraw.dump_docref(parsed)
+    validated = docref.features.bibliography.remove_invalid(
+        parsed,
+        sentences,
+        validator=valid,
+    )
+    dumped = serializeraw.dump_docref(validated)
     return dumped
+
+
+@utila.cacheme
+def valid(item: str) -> bool:
+    """\
+    >>> valid('(sieheKapitel3.1)')
+    False
+    """
+    item = item.lower()
+    if 'kapitel' in item:
+        return False
+    if 'punkt' in item:
+        return False
+    return True
 
 
 PATTERN = utila.splitlines("""
