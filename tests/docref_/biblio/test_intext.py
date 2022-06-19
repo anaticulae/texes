@@ -7,8 +7,6 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import pytest
-
 import docref.biblio.strategies.intext
 
 RAW = """\
@@ -19,10 +17,10 @@ RAW = """\
 (Koreik 2010:1482)
 (Seydoux de Clausonne 1968:20)
 (vgl. Darilek 2014)
+(vgl. Defrance ; Pfeil 2014 ; vgl. Frank 2005)
 """
 
 TODO = """\
-(vgl. Defrance ; Pfeil 2014 ; vgl. Frank 2005)
 """
 
 
@@ -32,7 +30,6 @@ def test_parse_label():
     assert len(parsed) == expected
 
 
-@pytest.mark.xfail(reason='improve collector')
 def test_parse_not_working_yet():
     parsed = docref.biblio.strategies.intext.parse(TODO)
     expected = len(TODO.splitlines())

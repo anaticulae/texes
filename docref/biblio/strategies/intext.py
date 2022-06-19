@@ -45,7 +45,7 @@ AUTHOR = r"""
     (?P<author>
         (
             ebd\.|
-            \b.{8,100}?
+            \b.{4,100}?
         )
     )
 )
@@ -73,11 +73,11 @@ AUTHOR_AND_YEAR = utila.compiles(r"""
 \(
     vgl\.
     [ ]{0,2}
-    (?P<author>\b[\w/]+?)
+    %(author)s
     [ ]{0,2}
     %(year)s
 \)
-""" % dict(year=YEAR))
+""" % dict(author=AUTHOR, year=YEAR))
 
 REFERENCE_LONG = utila.compiles(r"""
 \(
@@ -93,7 +93,7 @@ REFERENCE_LONG = utila.compiles(r"""
 AUTHOR_COMMA_YEAR = utila.compiles(r"""
 \(
     [ ]{0,2}
-    (?P<author>\b.{5,120}?)
+    %(author)s
     [ ]{0,2}
     [,]
     [ ]{0,2}
@@ -106,7 +106,7 @@ AUTHOR_COMMA_YEAR = utila.compiles(r"""
     ){0,1}
     [ ]{0,2}
 \)
-""" % dict(year=YEAR, pages=PAGES))
+""" % dict(author=AUTHOR, year=YEAR, pages=PAGES))
 
 PATTERNS = (
     PATTERN,
