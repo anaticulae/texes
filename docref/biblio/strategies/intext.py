@@ -27,6 +27,15 @@ PAGES = r"""
     )
 """
 
+YEAR = r"""
+    (?P<year>
+        (
+            20[012]\d|
+            1[789]\d\d
+        )
+    )
+"""
+
 PATTERN = utila.compiles(r"""
     (vgl[.][ ])?
     (?P<author>
@@ -36,14 +45,14 @@ PATTERN = utila.compiles(r"""
         )
     )
     [ ]?
-    (?P<year>(20[012]\d|1[789]\d\d))?
+    %(year)s?
     (
         # if year matches : and , is possible, if no year matches : is possible
         (?(year)[:,]|[:])           # optional collon between author and year
         [ ]{0,3}                    # space between collon and pages
         %(pages)s
     )
-""" % dict(pages=PAGES))
+""" % dict(year=YEAR, pages=PAGES))
 
 AUTHOR_AND_YEAR = utila.compiles(r"""
 \(
@@ -51,9 +60,9 @@ AUTHOR_AND_YEAR = utila.compiles(r"""
     [ ]
     (?P<author>\b[\w/]+?)
     [ ]
-    (?P<year>(20[012]\d|1[789]\d\d))
+    %(year)s
 \)
-""")
+""" % dict(year=YEAR))
 
 REFERENCE_LONG = utila.compiles(r"""
 \(
@@ -73,7 +82,7 @@ AUTHOR_COMMA_YEAR = utila.compiles(r"""
     [ ]{0,2}
     [,]
     [ ]{0,2}
-    (?P<year>(20[012]\d|1[789]\d\d))
+    %(year)s
     (
         [ ]{0,2}
         [,]?
@@ -82,7 +91,7 @@ AUTHOR_COMMA_YEAR = utila.compiles(r"""
     ){0,1}
     [ ]{0,2}
 \)
-""" % dict(pages=PAGES))
+""" % dict(year=YEAR, pages=PAGES))
 
 PATTERNS = (
     PATTERN,
