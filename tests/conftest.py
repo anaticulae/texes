@@ -23,7 +23,6 @@ power.setup(texas.ROOT)
 RESOURCES = [
     (power.DISS143_PDF, '0:50'),
     (power.DISS172_PDF, '30:70'),
-    (power.MASTER091B_PDF, '0:20'),
     power.BACHELOR037_PDF,
     power.BACHELOR051_PDF,
     power.BACHELOR075_PDF,
@@ -35,6 +34,7 @@ RESOURCES = [
     power.MASTER072_PDF,
     power.MASTER075_PDF,
     power.MASTER083_PDF,
+    power.MASTER091B_PDF,
     power.MASTER098_PDF,
     power.MASTER116_PDF,
     power.todo(power.BACHELOR056_PDF, '0:20', spacestation=True),

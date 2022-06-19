@@ -8,7 +8,6 @@
 # =============================================================================
 
 import power
-import pytest
 import serializeraw
 import utilatest
 
@@ -28,7 +27,6 @@ def extract_label(source, testdir, monkeypatch, pages=':'):
     return bibliography
 
 
-@pytest.mark.xfail(reason='dont know why')
 @utilatest.requires(power.MASTER091B_PDF)
 def test_docref_bibliography_master91b(testdir, monkeypatch):
     """Do not parse overlapping words.
