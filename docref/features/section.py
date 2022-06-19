@@ -39,6 +39,7 @@ VALID = utila.compiles(r"""
         Chapter|
         Kapitel|
         Link|
+        Paragraph|
         Part|
         Point|
         Punkt|
@@ -74,6 +75,9 @@ siehe Kapitel 2.
 siehe Punkt 4.2.2.
 siehe Punkt 4.7
 siehe auch Punkt 4.3.2.
+in section 3.1.2
+in section 2
+in section 1.1
 """)
 
 
