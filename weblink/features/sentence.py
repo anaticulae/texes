@@ -80,6 +80,7 @@ def try_merge(sentence: str) -> list:
     ... ' bevoelkerung/_geschlecht/index.html - aufgerufen am 15.03.2017)')
     [('https://www.menschen_und_gesellschaft/bevoelkerung/_geschlecht/index.html', 9)]
     """
+    # TODO: MOVE TO GERMAN MERGE METHOD
     # TODO: SUPPORT MORE THAN ONE FORWARD MERGE
     result = []
     hyperlinks = german.links(sentence, position=True)
