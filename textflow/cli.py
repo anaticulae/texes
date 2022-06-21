@@ -7,8 +7,6 @@
 # be prosecuted under federal law. Its content is company confidential.
 #==============================================================================
 
-import functools
-
 import utila
 
 import textflow
@@ -66,17 +64,17 @@ WORKPLAN = [
     ),
 ]
 
-# pylint:disable=C0103
-main = functools.partial(
-    utila.featurepack,
-    root=textflow.ROOT,
-    workplan=WORKPLAN,
-    featurepackage='textflow.features',
-    config=utila.FeaturePackConfig(
-        description=DESCRIPTION,
-        multiprocessed=True,
-        name=textflow.PROCESS,
-        pages=True,
-        version=textflow.__version__,
-    ),
-)
+
+def main():
+    utila.featurepack(
+        root=textflow.ROOT,
+        workplan=WORKPLAN,
+        featurepackage='textflow.features',
+        config=utila.FeaturePackConfig(
+            description=DESCRIPTION,
+            multiprocessed=True,
+            name=textflow.PROCESS,
+            pages=True,
+            version=textflow.__version__,
+        ),
+    )

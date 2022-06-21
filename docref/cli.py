@@ -7,8 +7,6 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import functools
-
 import utila
 
 import docref
@@ -53,17 +51,17 @@ WORKPLAN = [
     ),
 ]
 
-# pylint:disable=C0103
-main = functools.partial(
-    utila.featurepack,
-    root=docref.ROOT,
-    workplan=WORKPLAN,
-    featurepackage='docref.features',
-    config=utila.FeaturePackConfig(
-        description=DESCRIPTION,
-        multiprocessed=True,
-        name=docref.PROCESS,
-        pages=True,
-        version=docref.__version__,
-    ),
-)
+
+def main():
+    utila.featurepack(
+        root=docref.ROOT,
+        workplan=WORKPLAN,
+        featurepackage='docref.features',
+        config=utila.FeaturePackConfig(
+            description=DESCRIPTION,
+            multiprocessed=True,
+            name=docref.PROCESS,
+            pages=True,
+            version=docref.__version__,
+        ),
+    )

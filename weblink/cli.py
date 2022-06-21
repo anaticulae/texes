@@ -7,8 +7,6 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import functools
-
 import utila
 
 import weblink
@@ -39,17 +37,17 @@ WORKPLAN = [
     ),
 ]
 
-# pylint:disable=C0103
-main = functools.partial(
-    utila.featurepack,
-    root=weblink.ROOT,
-    workplan=WORKPLAN,
-    featurepackage='weblink.features',
-    config=utila.FeaturePackConfig(
-        description=DESCRIPTION,
-        multiprocessed=True,
-        name=weblink.PROCESS,
-        pages=True,
-        version=weblink.__version__,
-    ),
-)
+
+def main():
+    utila.featurepack(
+        root=weblink.ROOT,
+        workplan=WORKPLAN,
+        featurepackage='weblink.features',
+        config=utila.FeaturePackConfig(
+            description=DESCRIPTION,
+            multiprocessed=True,
+            name=weblink.PROCESS,
+            pages=True,
+            version=weblink.__version__,
+        ),
+    )
