@@ -41,6 +41,7 @@ VALID = utila.compiles(r"""
         Bereich|
         Chapter|
         Kapitel|
+        Kap\.|
         Link|
         Paragraph|
         Part|
@@ -67,6 +68,9 @@ PATTERN = utila.splitlines("""
 (siehe Abs. 5)
 (siehe Abschnitt 7.1.1)
 (siehe Kapitel 2.2)
+(siehe Kap. 2)
+(Abschnitte 1.4 bis 1.7)
+(Abschnitte 1 bis 5)
 Abs. 5
 Abschnitt 1
 Abschnitt 1.
@@ -81,4 +85,5 @@ siehe auch Punkt 4.3.2.
 in section 3.1.2
 in section 2
 in section 1.1
+(vgl. Kap. 1.2)
 """)
