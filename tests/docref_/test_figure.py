@@ -23,4 +23,4 @@ def test_figure_master75page6(testdir, monkeypatch):
 
     path = docref.path.docref_figure(testdir.tmpdir)
     loaded = serializeraw.load_docref(path)
-    assert len(loaded) == 5
+    assert len(loaded) == 10
