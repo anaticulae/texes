@@ -35,12 +35,10 @@ ARCHIVE = utila.join(weblink.ROOT, 'tests/weblink_/expected', exist=True)
     pytest.param(power.MASTER098_PDF, id='master098'),
     pytest.param(power.MASTER116_PDF, id='master116'),
 ])
-def test_hyperlink_sentence_validate(source, testdir, monkeypatch):
+def test_validate_hyperlink_insentence(source, testdir, monkeypatch):
     utilatest.fixture_requires(source)
     Evaluate(
         source=source,
-        pages=':',
-        expected=utila.file_name(source),
         workdir=testdir.tmpdir,
         monkeypatch=monkeypatch,
     ).evaluate()
@@ -48,20 +46,19 @@ def test_hyperlink_sentence_validate(source, testdir, monkeypatch):
 
 class Evaluate(utilatest.BaseLiner):
 
-    def __init__(self, source, pages, expected, workdir, monkeypatch):
+    def __init__(self, source, workdir, monkeypatch):
         super().__init__(
             program=functools.partial(
                 tests.weblink_.run,
                 monkeypatch=monkeypatch,
             ),
             step='',
-            pages=pages,
+            pages=':',
             source=power.link(source),
             workdir=workdir,
             archive=ARCHIVE,
             loader=self.frompath,
             convert_source=False,
-            index=expected,
         )
 
     def frompath(self, workdir):  # pylint:disable=R0201
