@@ -79,4 +79,7 @@ Abbildung 2.1
 Abbildungen 100 und 1001
 Abb. 3
 in Abb. 3
+nachfolgenden Abbildung
+folgenden Abbildung
+folgende Abbildung
 """)
