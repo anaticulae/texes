@@ -2,6 +2,14 @@
 
 Every noteable change is logged here.
 
+## v0.12.0
+
+### Feature
+
+* extend table ref parser (d93cbcb28aeb)
+* extend figure ref parser (b9893e131ee9)
+* extend figure ref parser (882e2bdfb39b)
+
 ## v0.11.0
 
 ### Feature
