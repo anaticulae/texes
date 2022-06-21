@@ -62,4 +62,11 @@ siehe Tab. 5
 siehe Tabelle 1-4
 siehe Tabelle 2.2
 Tabelle 3.1
+folgende Tabelle 3.1
+folgende Tabelle 5
+nachfolgende Tabelle 3.1
+nachfolgende Tabelle 5
+folgende Tabelle
+unten stehende Tabelle
+stehende Tabelle
 """)
