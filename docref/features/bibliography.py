@@ -112,7 +112,7 @@ def select(parsed: list) -> list:
         return complexs
     rate = utila.rate_rel(len(simple), len(parsed))
     if rate < SIMPLE_RATE_MIN:
-        utila.debug(f'too few: {len(simple)}, {len(parsed)} disable simple')
+        utila.debug(f'rate: {rate} {len(simple)}, {len(parsed)} disable simple')
         return complexs
     return parsed
 
