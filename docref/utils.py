@@ -8,6 +8,7 @@
 # =============================================================================
 
 import collections
+import re
 
 import german
 import konrad
@@ -50,6 +51,12 @@ def sentence_plain(sentence, marks) -> list:
 
 
 def selection_plain(items: list) -> str:
+    """\
+    >>> selection_plain('A. 5 . 2)'.split())
+    'A.5.2)'
+    >>> selection_plain('A. 5 .)'.split())
+    'A.5.)'
+    """
     items = [konrad.mark2str(item) for item in items]
     raw = ' '.join(items)
     raw = raw.replace('( ', '(')
@@ -60,6 +67,18 @@ def selection_plain(items: list) -> str:
     raw = raw.replace(' ; ', '; ')
     raw = raw.replace(' - ', '-')
     raw = raw.replace(' : ', ': ')
+    raw = raw.replace(' .', '.')
+    # TODO: VERY BAD
+    raw = re.sub(
+        r'([A-Z]\.)[ ](\d{1,2})[ ]?\.[ ]?(\d{1,2})',
+        r'\1\2.\3',
+        raw,
+    )
+    raw = re.sub(
+        r'([A-Z]\.)[ ](\d{1,2})[ ]?\.',
+        r'\1\2.',
+        raw,
+    )
     return raw
 
 
