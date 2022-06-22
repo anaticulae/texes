@@ -126,7 +126,7 @@ NUMBERED_REFERENCE = utila.compiles(r"""
         \,
         [ ]{0,2}
         \d{1,3}
-    )+
+    ){0,5}
     [ ]{0,2}
 \]
 """)
