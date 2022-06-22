@@ -10,7 +10,6 @@
 import serializeraw
 import utila
 
-import docref.features.bibliography
 import docref.reference
 
 
@@ -25,7 +24,7 @@ def work(sentences: str, headlines: str, pages: tuple = None) -> str:
         sentences,
         pattern=PATTERN,
     )
-    validated = docref.features.bibliography.remove_invalid(
+    validated = docref.reference.remove_invalid(
         parsed,
         sentences,
         validator=valid,

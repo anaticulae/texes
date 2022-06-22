@@ -10,6 +10,7 @@
 import german
 import iamraw
 import konrad
+import utila
 
 import docref.utils
 
@@ -33,4 +34,25 @@ def parse_text(
         parsed, raws = parsed
         raws = [''.join(konrad.mark2str(item) for item in raw) for raw in raws]
         result.append(iamraw.DocRef(page, number, parsed, raw=raws))
+    return result
+
+
+def remove_invalid(items, text, validator: callable):
+    lookup = docref.utils.sentence_lookup(text)
+    result = []
+    for item in items:
+        sentence = lookup[item.page][item.sentence]
+        # TODO: NOT REALY REQUIRED, SEE PARSE_TEXT()
+        plain = docref.utils.sentence_plain(sentence, item.marked)
+        for reference, mark in zip(plain, item.marked):
+            if not validator(reference):
+                utila.debug(f'docref:bib:invalid reference: {reference}')
+                continue
+            result.append(
+                iamraw.DocRef(
+                    item.page,
+                    item.sentence,
+                    [mark],
+                    raw=[reference],
+                ))
     return result

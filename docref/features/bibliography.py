@@ -60,13 +60,12 @@ TODO: FOOTER
 TODO: TECHNICAL
 """
 
-import iamraw
 import serializeraw
 import utila
 
 import docref.biblio.parser
+import docref.features
 import docref.reference
-import docref.utils
 
 
 def work(sentences: str, headlines: str, pages: tuple = None) -> str:
@@ -81,32 +80,13 @@ def work(sentences: str, headlines: str, pages: tuple = None) -> str:
         pattern=PATTERN,
         compare_content=False,
     )
-    parsed = remove_invalid(parsed, sentences)
+    parsed = docref.reference.remove_invalid(
+        parsed,
+        sentences,
+        validator=valid,
+    )
     dumped = serializeraw.dump_docref(parsed)
     return dumped
-
-
-def remove_invalid(items, text, validator: callable = None):
-    if not validator:
-        validator = valid
-    lookup = docref.utils.sentence_lookup(text)
-    result = []
-    for item in items:
-        sentence = lookup[item.page][item.sentence]
-        # TODO: NOT REALY REQUIRED, SEE PARSE_TEXT()
-        plain = docref.utils.sentence_plain(sentence, item.marked)
-        for reference, mark in zip(plain, item.marked):
-            if not validator(reference):
-                utila.debug(f'docref:bib:invalid reference: {reference}')
-                continue
-            result.append(
-                iamraw.DocRef(
-                    item.page,
-                    item.sentence,
-                    [mark],
-                    raw=[reference],
-                ))
-    return result
 
 
 NUMBERED_REFERENCE = utila.compiles(r"""
