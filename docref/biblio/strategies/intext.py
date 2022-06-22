@@ -136,11 +136,8 @@ def parse(raw: str) -> iamraw.BibliographyReferences:
 
 
 def parse_pattern(raw: str, pattern: str) -> iamraw.BibliographyReferences:
-    matched = pattern.finditer(raw)
-    if not matched:
-        return []
     result = []
-    for item in matched:
+    for item in pattern.finditer(raw):
         raw = utila.extract_match(item)
         author = item['author']
         try:
