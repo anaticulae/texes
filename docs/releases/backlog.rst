@@ -2,3 +2,5 @@
 
 backlog
 =======
+
+* add formula intext parser
