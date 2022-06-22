@@ -10,6 +10,19 @@
 import iamraw
 import utila
 
+
+def parse(raw: str) -> iamraw.BibliographyReferences:
+    result = []
+    for pattern in PATTERNS:
+        parsed = parse_pattern(raw, pattern)
+        raw = utila.ghost_replace(
+            text=raw,
+            pattern=[item.raw for item in parsed],
+        )
+        result.extend(parsed)
+    return result
+
+
 PAGES = r"""
     (S\.)?
     [ ]{0,2}
@@ -121,18 +134,6 @@ PATTERNS = (
     REFERENCE_LONG,
     AUTHOR_COMMA_YEAR,
 )
-
-
-def parse(raw: str) -> iamraw.BibliographyReferences:
-    result = []
-    for pattern in PATTERNS:
-        parsed = parse_pattern(raw, pattern)
-        raw = utila.ghost_replace(
-            text=raw,
-            pattern=[item.raw for item in parsed],
-        )
-        result.extend(parsed)
-    return result
 
 
 def parse_pattern(raw: str, pattern: str) -> iamraw.BibliographyReferences:
