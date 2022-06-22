@@ -54,6 +54,8 @@ def valid(item: str) -> bool:
 
 
 PATTERN = utila.splitlines("""
+(Tabelle 1)
+(Tab. 1)
 (s. Tab. 1)
 (siehe Tab. 5)
 (siehe Tabelle 2.2)
