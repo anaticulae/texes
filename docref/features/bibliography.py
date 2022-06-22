@@ -60,6 +60,7 @@ TODO: FOOTER
 TODO: TECHNICAL
 """
 
+import configo
 import serializeraw
 import utila
 
@@ -85,8 +86,35 @@ def work(sentences: str, headlines: str, pages: tuple = None) -> str:
         sentences,
         validator=valid,
     )
-    dumped = serializeraw.dump_docref(parsed)
+    result = select(parsed)
+    dumped = serializeraw.dump_docref(result)
     return dumped
+
+
+SIMPLE_COUNT_MIN = configo.HV_INT_PLUS(default=10)
+
+SIMPLE_RATE_MIN = configo.HV_PERCENT_PLUS(default=50)
+
+
+def select(parsed: list) -> list:
+    """Do not select COLON_SIMPLE if only a few items are parsed.
+
+    If there are too few, this colons are no references, there are often
+    part of math or something else.
+    """
+    complexs, simple = utila.partition(
+        items=parsed,
+        key=lambda x: not any(item for item in x.raw
+                              if COLON_SIMPLE.match(item)),
+    )
+    if len(simple) < SIMPLE_COUNT_MIN:
+        utila.debug(f'too few: {len(simple)}, {len(parsed)} disable simple')
+        return complexs
+    rate = utila.rate_rel(len(simple), len(parsed))
+    if rate < SIMPLE_RATE_MIN:
+        utila.debug(f'too few: {len(simple)}, {len(parsed)} disable simple')
+        return complexs
+    return parsed
 
 
 NUMBERED_REFERENCE = utila.compiles(r"""
@@ -103,6 +131,21 @@ NUMBERED_REFERENCE = utila.compiles(r"""
 \]
 """)
 
+COLON_SIMPLE = utila.compiles(r"""
+\(
+    [ ]{0,2}
+    \d{1,3}
+    [ ]{0,2}
+    (
+        [ ]{0,2}
+        \,
+        [ ]{0,2}
+        \d{1,3}
+        [ ]{0,2}
+    ){0,5}
+\)
+""")
+
 
 @utila.cacheme
 def valid(item: str):
@@ -117,10 +160,14 @@ def valid(item: str):
     True
     >>> valid('(Wimmer & Hartmann, 2014, S. 11-12)')
     True
+    >>> valid('(10)')
+    True
     """
     if docref.biblio.parser.parse(item):
         return True
     if NUMBERED_REFERENCE.match(item):
+        return True
+    if COLON_SIMPLE.match(item):
         return True
     return False
 
@@ -170,5 +217,10 @@ PATTERN = utila.splitlines("""
 [123]
 [11, 22]
 [11, 22, 33]
+(1)
+(11, 22)
+(11, 22, 33)
+(11, 22, 33, 44)
+(11, 22, 33, 44, 55)
 """)
 PATTERN |= {utila.compiles(r'\{\{hn\:\d{1,4}\:nh\}\}')}
