@@ -2,6 +2,23 @@
 
 Every noteable change is logged here.
 
+## v0.13.0
+
+### Feature
+
+* extend table reference parser (5fb14061bd17)
+* improve sentence merger (53af2d75bbad)
+* extend section parser (b962abc83cd5)
+* extend colon pattern (c7983c65a813)
+* add simple colon parser and judgement (7c2491b35e0d)
+* create structure on runtime (caa9aacd0285)
+* extend valid section pattern (2edf4feb727f)
+
+### Fix
+
+* adjust error message (b0b8b5549c69)
+* reduce runtime of bracket pattern (47c62497ca1a)
+
 ## v0.12.0
 
 ### Feature
