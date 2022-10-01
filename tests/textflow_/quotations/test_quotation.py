@@ -107,6 +107,7 @@ def extract_quotations(
     td,
     mp,
 ) -> iamraw.ExtractedQuotations:
+    utilatest.fixture_requires(source)
     source = power.link(source)
     tests.textflow_.run(
         f'-i {source} -i {td.tmpdir} --pages={pages} --quotation',

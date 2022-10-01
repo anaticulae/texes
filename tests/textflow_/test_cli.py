@@ -21,6 +21,7 @@ def test_textflow_cli(mp):
 
 
 @utilatest.nightly
+@utilatest.requires(power.DOCU027_PDF)
 def test_textflow_alignments_docu027(td, mp):
     """Ensure that document with empty page is parsed correctly."""
     source = power.link(power.DOCU027_PDF)
@@ -37,6 +38,7 @@ def test_textflow_alignments_docu027(td, mp):
 @utilatest.nightly
 def test_textflow_alignments(source, td, mp):
     """Ensure that document with empty page is parsed correctly."""
+    utilatest.fixture_requires(source)
     source = power.link(source)
     tests.textflow_.run(
         f'-i {source} -o {td.tmpdir}',
@@ -45,6 +47,7 @@ def test_textflow_alignments(source, td, mp):
 
 
 @utilatest.longrun
+@utilatest.requires(power.BACHELOR056_PDF)
 def test_textflow_wordspace_bachelor56page4(td, mp):
     source = power.link(power.BACHELOR056_PDF)
     tests.textflow_.run(

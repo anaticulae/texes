@@ -16,6 +16,7 @@ import textflow.path
 
 
 @utilatest.longrun
+@utilatest.requires(power.MASTER072_PDF)
 def test_blockquote_master72():
     source = power.link(power.MASTER072_PDF)
     pages = (15,)
@@ -32,6 +33,7 @@ def test_blockquote_master72():
 
 
 @utilatest.nightly
+@utilatest.requires(power.MASTER072_PDF)
 def test_blockquote_validate_master72(td, mp):
     source = power.link(power.MASTER072_PDF)
     tests.textflow_.run(
@@ -46,6 +48,7 @@ def test_blockquote_validate_master72(td, mp):
 
 
 @utilatest.longrun
+@utilatest.requires(power.BACHELOR076_PDF)
 def test_blockquote_validate_bachelor76page8_11_13_15_16(td, mp):
     source = power.link(power.BACHELOR076_PDF)
     tests.textflow_.run(
@@ -60,6 +63,7 @@ def test_blockquote_validate_bachelor76page8_11_13_15_16(td, mp):
 
 
 @utilatest.longrun
+@utilatest.requires(power.MASTER098_PDF)
 def test_blockquote_validate_master98(td, mp):
     source = power.link(power.MASTER098_PDF)
     tests.textflow_.run(

@@ -19,6 +19,7 @@ import textflow.path
 
 
 @utilatest.longrun
+@utilatest.requires(power.MASTER072_PDF)
 def test_textflow_alignment_expected(td, mp):
     source = power.link(power.MASTER072_PDF)
     tests.textflow_.run(
@@ -33,6 +34,7 @@ def test_textflow_alignment_expected(td, mp):
 
 @pytest.mark.xfail(reason='unsupported block_end')
 @utilatest.longrun
+@utilatest.requires(power.MASTER098_PDF)
 def test_alignment_master98_page2(td, mp):
     source = power.link(power.MASTER098_PDF)
     tests.textflow_.run(

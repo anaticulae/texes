@@ -16,6 +16,7 @@ import textflow.path
 
 
 @utilatest.longrun
+@utilatest.requires(power.MASTER072_PDF)
 def test_textflow_lineendings(td, mp):
     source = power.link(power.MASTER072_PDF)
     tests.textflow_.run(
