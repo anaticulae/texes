@@ -15,23 +15,23 @@ import tests.textflow_
 import textflow.path
 
 
-def test_noblockquote_bachelor51page21(testdir, monkeypatch):
+def test_noblockquote_bachelor51page21(td, mp):
     detected = run_blockquote(
         power.BACHELOR051_PDF,
-        testdir,
-        monkeypatch,
+        td,
+        mp,
         pages='21',
     )
     assert not detected
 
 
-def run_blockquote(source, testdir, monkeypatch, pages=':'):
+def run_blockquote(source, td, mp, pages=':'):
     utilatest.fixture_requires(source)
     source = power.link(source)
     tests.textflow_.run(
         f'-i {source} --blockquote --pages={pages}',
-        monkeypatch=monkeypatch,
+        mp=mp,
     )
-    path = textflow.path.blockquote(testdir.tmpdir)
+    path = textflow.path.blockquote(td.tmpdir)
     loaded = serializeraw.load_blockquotes(path)
     return loaded

@@ -10,5 +10,5 @@
 import tests.docref_
 
 
-def test_docref_help(monkeypatch):
-    tests.docref_.run('--help', monkeypatch=monkeypatch)
+def test_docref_help(mp):
+    tests.docref_.run('--help', mp=mp)

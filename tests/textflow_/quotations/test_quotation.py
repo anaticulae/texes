@@ -18,12 +18,12 @@ import textflow.path
 
 
 @utilatest.nightly
-def test_textflow_quotation_master72p10t20(testdir, monkeypatch):
+def test_textflow_quotation_master72p10t20(td, mp):
     current = extract_quotations(
         power.MASTER072_PDF,
         '10:21',
-        testdir,
-        monkeypatch,
+        td,
+        mp,
     )
     assert current
     assert len(current) >= 30, str(current)
@@ -33,12 +33,12 @@ def test_textflow_quotation_master72p10t20(testdir, monkeypatch):
 
 
 @utilatest.longrun
-def test_textflow_quotation_bachelor76(testdir, monkeypatch):
+def test_textflow_quotation_bachelor76(td, mp):
     quotations = extract_quotations(
         power.BACHELOR076_PDF,
         '4,5',
-        testdir,
-        monkeypatch,
+        td,
+        mp,
     )
     expected = 5
     assert len(quotations) == expected
@@ -77,12 +77,12 @@ zur Reduktion von Schnittstellen , zur funktionsübergreifenden Vernetzung und\
 
 
 @utilatest.longrun
-def test_textflow_quotation_validate_bachelor76p4_10(testdir, monkeypatch):
+def test_textflow_quotation_validate_bachelor76p4_10(td, mp):
     quotations = extract_quotations(
         power.BACHELOR076_PDF,
         '4:10',
-        testdir,
-        monkeypatch,
+        td,
+        mp,
     )
     expected = utila.splitlines(BACHELOR76_EXPECTED, pattern='\n\n')
     assert len(quotations) == len(expected)
@@ -91,12 +91,12 @@ def test_textflow_quotation_validate_bachelor76p4_10(testdir, monkeypatch):
 
 
 @utilatest.longrun
-def test_textflow_quotation_validate_bachelor76p8(testdir, monkeypatch):
+def test_textflow_quotation_validate_bachelor76p8(td, mp):
     quotations = extract_quotations(
         power.BACHELOR076_PDF,
         '8',
-        testdir,
-        monkeypatch,
+        td,
+        mp,
     )
     assert len(quotations) == 2  # VALIDATED
 
@@ -104,14 +104,14 @@ def test_textflow_quotation_validate_bachelor76p8(testdir, monkeypatch):
 def extract_quotations(
     source,
     pages: str,
-    testdir,
-    monkeypatch,
+    td,
+    mp,
 ) -> iamraw.ExtractedQuotations:
     source = power.link(source)
     tests.textflow_.run(
-        f'-i {source} -i {testdir.tmpdir} --pages={pages} --quotation',
-        monkeypatch=monkeypatch,
+        f'-i {source} -i {td.tmpdir} --pages={pages} --quotation',
+        mp=mp,
     )
-    path = textflow.path.quotation(testdir.tmpdir)
+    path = textflow.path.quotation(td.tmpdir)
     result = serializeraw.load_quotations(path)
     return result

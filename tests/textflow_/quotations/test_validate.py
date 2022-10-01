@@ -31,28 +31,28 @@ ARCHIVE = utila.join(
     pytest.param(power.MASTER083_PDF, 'master083', id='master083'),
 ])
 @utilatest.nightly
-def test_validate_quotations_x(source, expected, testdir, monkeypatch):
+def test_validate_quotations_x(source, expected, td, mp):
     QuotationValidate(
         source,
         pages=':',
         expected=expected,
-        testdir=testdir,
-        monkeypatch=monkeypatch,
+        td=td,
+        mp=mp,
     ).evaluate()
 
 
 class QuotationValidate(utilatest.BaseLiner):
 
-    def __init__(self, source, pages, expected, testdir, monkeypatch):
+    def __init__(self, source, pages, expected, td, mp):
         super().__init__(
             program=functools.partial(
                 tests.textflow_.run,
-                monkeypatch=monkeypatch,
+                mp=mp,
             ),
             step='quotation',
             source=source,
             pages=pages,
-            workdir=testdir.tmpdir,
+            workdir=td.tmpdir,
             index=expected,
             archive=ARCHIVE,
             loader=self.load_quotations,

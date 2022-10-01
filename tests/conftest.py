@@ -12,6 +12,8 @@ import power
 import pytest
 import utila
 import utilatest
+from utilatest import mp  # pylint:disable=W0611
+from utilatest import td  # pylint:disable=W0611
 
 import texas
 

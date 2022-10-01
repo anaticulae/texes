@@ -16,11 +16,11 @@ import tests.docref_
 
 
 @utilatest.requires(power.MASTER075_PDF)
-def test_section_master75page25_50(testdir, monkeypatch):
+def test_section_master75page25_50(td, mp):
     source = power.link(power.MASTER075_PDF)
     cmd = f'-i {source} --section --pages=25:50'
-    tests.docref_.run(cmd, monkeypatch=monkeypatch)
+    tests.docref_.run(cmd, mp=mp)
 
-    path = docref.path.docref_section(testdir.tmpdir)
+    path = docref.path.docref_section(td.tmpdir)
     loaded = serializeraw.load_docref(path)
     assert len(loaded) in (8, 9, 10, 12, 13)  # TODO: VALIDATE LATER

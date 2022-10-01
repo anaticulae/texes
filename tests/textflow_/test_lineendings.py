@@ -16,13 +16,13 @@ import textflow.path
 
 
 @utilatest.longrun
-def test_textflow_lineendings(testdir, monkeypatch):
+def test_textflow_lineendings(td, mp):
     source = power.link(power.MASTER072_PDF)
     tests.textflow_.run(
         f'-i {source} --pages=0:10 --lineending',
-        monkeypatch=monkeypatch,
+        mp=mp,
     )
-    source = textflow.path.lineending(testdir.tmpdir)
+    source = textflow.path.lineending(td.tmpdir)
 
     endings = textflow.features.lineending.load_lineendings(source)
     assert len(endings) == 10

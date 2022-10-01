@@ -38,23 +38,23 @@ RESOURCES = [
 
 @utilatest.nightly
 @pytest.mark.parametrize('source, pages', RESOURCES)
-def test_validate_bibref(source, pages, testdir, monkeypatch):
+def test_validate_bibref(source, pages, td, mp):
     utilatest.fixture_requires(source)
     Evaluate(
         source=source,
         pages=pages,
-        workdir=testdir.tmpdir,
-        monkeypatch=monkeypatch,
+        workdir=td.tmpdir,
+        mp=mp,
     ).evaluate()
 
 
 class Evaluate(utilatest.BaseLiner):
 
-    def __init__(self, source, pages, workdir, monkeypatch):
+    def __init__(self, source, pages, workdir, mp):
         super().__init__(
             program=functools.partial(
                 tests.docref_.run,
-                monkeypatch=monkeypatch,
+                mp=mp,
             ),
             step='bibliography',
             pages=pages,

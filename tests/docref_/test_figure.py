@@ -16,11 +16,11 @@ import tests.docref_
 
 
 @utilatest.requires(power.MASTER075_PDF)
-def test_figure_master75page6(testdir, monkeypatch):
+def test_figure_master75page6(td, mp):
     source = power.link(power.MASTER075_PDF)
     cmd = f'-i {source} --figure --pages=7:21'
-    tests.docref_.run(cmd, monkeypatch=monkeypatch)
+    tests.docref_.run(cmd, mp=mp)
 
-    path = docref.path.docref_figure(testdir.tmpdir)
+    path = docref.path.docref_figure(td.tmpdir)
     loaded = serializeraw.load_docref(path)
     assert len(loaded) == 10

@@ -10,5 +10,5 @@
 import tests.weblink_
 
 
-def test_weblink_help(monkeypatch):
-    tests.weblink_.run('--help', monkeypatch=monkeypatch)
+def test_weblink_help(mp):
+    tests.weblink_.run('--help', mp=mp)

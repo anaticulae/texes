@@ -16,17 +16,17 @@ import tests
 import tests.textflow_
 
 
-def test_textflow_cli(monkeypatch):
-    tests.textflow_.run('--help', monkeypatch=monkeypatch)
+def test_textflow_cli(mp):
+    tests.textflow_.run('--help', mp=mp)
 
 
 @utilatest.nightly
-def test_textflow_alignments_docu027(testdir, monkeypatch):
+def test_textflow_alignments_docu027(td, mp):
     """Ensure that document with empty page is parsed correctly."""
     source = power.link(power.DOCU027_PDF)
     tests.textflow_.run(
-        f'-i {source} -o {testdir.tmpdir}',
-        monkeypatch=monkeypatch,
+        f'-i {source} -o {td.tmpdir}',
+        mp=mp,
     )
 
 
@@ -35,23 +35,23 @@ def test_textflow_alignments_docu027(testdir, monkeypatch):
     pytest.param(power.DOCU009_PDF, id='docu009'),
 ])
 @utilatest.nightly
-def test_textflow_alignments(source, testdir, monkeypatch):
+def test_textflow_alignments(source, td, mp):
     """Ensure that document with empty page is parsed correctly."""
     source = power.link(source)
     tests.textflow_.run(
-        f'-i {source} -o {testdir.tmpdir}',
-        monkeypatch=monkeypatch,
+        f'-i {source} -o {td.tmpdir}',
+        mp=mp,
     )
 
 
 @utilatest.longrun
-def test_textflow_wordspace_bachelor56page4(testdir, monkeypatch):
+def test_textflow_wordspace_bachelor56page4(td, mp):
     source = power.link(power.BACHELOR056_PDF)
     tests.textflow_.run(
         f'-i {source} --wordspace --pages=4',
-        monkeypatch=monkeypatch,
+        mp=mp,
     )
-    loaded = serializeraw.load_wordspaces(testdir.tmpdir)
+    loaded = serializeraw.load_wordspaces(td.tmpdir)
     dumped = serializeraw.dump_wordspaces(loaded)
     again = serializeraw.load_wordspaces(dumped)
     assert again == loaded

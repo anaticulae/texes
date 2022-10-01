@@ -17,7 +17,7 @@ import tests.docref_
 
 
 @utilatest.requires(power.MASTER091B_PDF)
-def test_docref_bibliography_master91b(testdir, monkeypatch):
+def test_docref_bibliography_master91b(td, mp):
     """Do not parse overlapping words.
 
     Do not detect overlapping words twice. Some pattern are part of
@@ -25,19 +25,19 @@ def test_docref_bibliography_master91b(testdir, monkeypatch):
     """
     bibliography = extract_label(
         power.MASTER091B_PDF,
-        testdir,
-        monkeypatch,
+        td,
+        mp,
         pages='9',
     )
     assert len(bibliography) == 2
 
 
-def extract_label(source, testdir, monkeypatch, pages=':'):
+def extract_label(source, td, mp, pages=':'):
     source = power.link(source)
     tests.docref_.run(
         f'-i {source} --bibliography --pages={pages}',
-        monkeypatch=monkeypatch,
+        mp=mp,
     )
-    bibliography = docref.path.docref_bibliography(testdir.tmpdir)
+    bibliography = docref.path.docref_bibliography(td.tmpdir)
     bibliography = serializeraw.load_docref(bibliography)
     return bibliography

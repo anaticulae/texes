@@ -32,13 +32,13 @@ def test_blockquote_master72():
 
 
 @utilatest.nightly
-def test_blockquote_validate_master72(testdir, monkeypatch):
+def test_blockquote_validate_master72(td, mp):
     source = power.link(power.MASTER072_PDF)
     tests.textflow_.run(
         f'-i {source} --blockquote --pages=0:65',
-        monkeypatch=monkeypatch,
+        mp=mp,
     )
-    path = textflow.path.blockquote(testdir.tmpdir)
+    path = textflow.path.blockquote(td.tmpdir)
     loaded = serializeraw.load_blockquotes(path)
     current = [(item.page, len(item.content)) for item in loaded]
     expected = [(14, 1), (15, 2), (17, 1), (24, 1), (25, 1), (26, 1), (38, 1)]
@@ -46,13 +46,13 @@ def test_blockquote_validate_master72(testdir, monkeypatch):
 
 
 @utilatest.longrun
-def test_blockquote_validate_bachelor76page8_11_13_15_16(testdir, monkeypatch):
+def test_blockquote_validate_bachelor76page8_11_13_15_16(td, mp):
     source = power.link(power.BACHELOR076_PDF)
     tests.textflow_.run(
         f'-i {source} --blockquote --pages=8:17',
-        monkeypatch=monkeypatch,
+        mp=mp,
     )
-    path = textflow.path.blockquote(testdir.tmpdir)
+    path = textflow.path.blockquote(td.tmpdir)
     loaded = serializeraw.load_blockquotes(path)
     expected = [(8, 1), (11, 1), (13, 1), (15, 1), (16, 2)]
     current = [(item.page, len(item.content)) for item in loaded]
@@ -60,13 +60,13 @@ def test_blockquote_validate_bachelor76page8_11_13_15_16(testdir, monkeypatch):
 
 
 @utilatest.longrun
-def test_blockquote_validate_master98(testdir, monkeypatch):
+def test_blockquote_validate_master98(td, mp):
     source = power.link(power.MASTER098_PDF)
     tests.textflow_.run(
         f'-i {source} --blockquote --pages=0:17',
-        monkeypatch=monkeypatch,
+        mp=mp,
     )
-    path = textflow.path.blockquote(testdir.tmpdir)
+    path = textflow.path.blockquote(td.tmpdir)
     loaded = serializeraw.load_blockquotes(path)
     # expected = [(3, 1), (7, 1), (7, 2), (8, 2), (11, 1), (12, 1), (13, 1),
     #             (15, 1)]

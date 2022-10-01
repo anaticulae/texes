@@ -35,22 +35,22 @@ ARCHIVE = utila.join(weblink.ROOT, 'tests/weblink_/expected', exist=True)
     pytest.param(power.MASTER098_PDF, id='master098'),
     pytest.param(power.MASTER116_PDF, id='master116'),
 ])
-def test_validate_hyperlink_insentence(source, testdir, monkeypatch):
+def test_validate_hyperlink_insentence(source, td, mp):
     utilatest.fixture_requires(source)
     Evaluate(
         source=source,
-        workdir=testdir.tmpdir,
-        monkeypatch=monkeypatch,
+        workdir=td.tmpdir,
+        mp=mp,
     ).evaluate()
 
 
 class Evaluate(utilatest.BaseLiner):
 
-    def __init__(self, source, workdir, monkeypatch):
+    def __init__(self, source, workdir, mp):
         super().__init__(
             program=functools.partial(
                 tests.weblink_.run,
-                monkeypatch=monkeypatch,
+                mp=mp,
             ),
             step='',
             pages=':',
