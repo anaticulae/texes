@@ -64,6 +64,10 @@ def extract(resources):
         magic=True,
         sections=True,
         words=True,
+        pagenumber=True,
+        footnote=True,
+        headnote=True,
+        cleanup=True,
         worker=WORKER,
         rawmaker=genex.CONFIG.replace('--char_margin=3.1', '--char_margin=5.0'),
     )
