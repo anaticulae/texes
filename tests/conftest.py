@@ -11,6 +11,7 @@ import genex
 import power
 import pytest
 import utila
+import utilatest
 
 import texas
 
@@ -40,7 +41,7 @@ RESOURCES = [
     power.MASTER116_PDF,
     power.todo(power.BACHELOR056_PDF, '0:20', spacestation=True),
 ]
-WORKER = 4
+WORKER = utilatest.worker_count(4, onci=len(RESOURCES))
 
 
 @pytest.mark.usefixtures('session')
