@@ -8,6 +8,7 @@
 # =============================================================================
 
 import power
+import pytest
 import serializeraw
 import utilatest
 
@@ -15,6 +16,7 @@ import tests.weblink_
 import weblink
 
 
+@pytest.mark.xfail(reason='softwareintegration')
 def test_links_master75pages15(td, mp):
     loaded = hyperlinks(power.MASTER075_PDF, td, mp, 15)
     assert len(loaded) == 1

@@ -8,6 +8,7 @@
 # =============================================================================
 
 import power
+import pytest
 import serializeraw
 import utilatest
 
@@ -15,6 +16,7 @@ import docref.path
 import tests.docref_
 
 
+@pytest.mark.xfail(reason='softwareintegration')
 @utilatest.requires(power.MASTER075_PDF)
 def test_figure_master75page6(td, mp):
     source = power.link(power.MASTER075_PDF)

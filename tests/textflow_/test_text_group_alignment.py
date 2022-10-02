@@ -17,6 +17,7 @@ import utilatest
 import textflow.alignment.style
 
 
+@pytest.mark.xfail(reason='softwareintegration')
 @utilatest.longrun
 @utilatest.requires(power.MASTER072_PDF)
 def test_page_linealignments_expected_master72p4():
@@ -67,6 +68,7 @@ def test_page_linealignments_expected_master72p6():
     assert current == expected, expected
 
 
+@pytest.mark.xfail(reason='softwareintegration')
 @utilatest.requires(power.HOME040_PDF)
 def test_page_linealignments_expected_homework40p3():
     source = power.link(power.HOME040_PDF)
@@ -91,6 +93,7 @@ def test_page_linealignments_expected_homework40p3():
     assert current[0:9] == expected, expected
 
 
+@pytest.mark.xfail(reason='softwareintegration')
 @utilatest.requires(power.HOME040_PDF)
 def test_page_linealignments_expected_homework40p4():
     source = power.link(power.HOME040_PDF)

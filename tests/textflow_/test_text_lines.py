@@ -36,6 +36,7 @@ def test_document_alignment(source, expected):
     assert alignment == expected, alignment
 
 
+@pytest.mark.xfail(reason='softwareintegration')
 @utilatest.requires(power.HOME040_PDF)
 def test_page_linealignment_homework40p4():
     navigators = serializeraw.ptn_frompath(
@@ -54,6 +55,7 @@ def test_page_linealignment_homework40p4():
     assert linealignments[-1] == TextAlignment.RIGHT
 
 
+@pytest.mark.xfail(reason='softwareintegration')
 @utilatest.longrun
 @utilatest.requires(power.MASTER072_PDF)
 def test_page_linealignment_master72p4():

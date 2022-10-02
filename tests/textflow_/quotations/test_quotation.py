@@ -9,6 +9,7 @@
 
 import iamraw
 import power
+import pytest
 import serializeraw
 import utila
 import utilatest
@@ -32,6 +33,7 @@ def test_textflow_quotation_master72p10t20(td, mp):
     assert loaded == current
 
 
+@pytest.mark.xfail(reason='softwareintegration')
 @utilatest.longrun
 def test_textflow_quotation_bachelor76(td, mp):
     quotations = extract_quotations(
@@ -76,6 +78,7 @@ zur Reduktion von Schnittstellen , zur funktionsübergreifenden Vernetzung und\
 # „ In - dustrie 4.0 ”"""
 
 
+@pytest.mark.xfail(reason='softwareintegration')
 @utilatest.longrun
 def test_textflow_quotation_validate_bachelor76p4_10(td, mp):
     quotations = extract_quotations(
@@ -90,6 +93,7 @@ def test_textflow_quotation_validate_bachelor76p4_10(td, mp):
     assert raw == BACHELOR76_EXPECTED
 
 
+@pytest.mark.xfail(reason='softwareintegration')
 @utilatest.longrun
 def test_textflow_quotation_validate_bachelor76p8(td, mp):
     quotations = extract_quotations(
