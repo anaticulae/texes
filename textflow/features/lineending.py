@@ -8,7 +8,6 @@
 # =============================================================================
 
 import collections
-import typing
 
 import serializeraw
 import texmex
@@ -20,7 +19,7 @@ PageContentLineEnding = collections.namedtuple(
     'PageContentLineEnding',
     'content, page',
 )
-PageContentLineEndings = typing.List[PageContentLineEnding]
+PageContentLineEndings = list[PageContentLineEnding]
 
 
 def work(text: str, textpositions: str, pages: tuple = None) -> str:
@@ -28,7 +27,7 @@ def work(text: str, textpositions: str, pages: tuple = None) -> str:
         text,
         textpositions,
         pages=pages,
-        mode=texmex.PageTextNavigatorMode.HORIZONTAL,
+        mode=texmex.PTNMode.HORIZONTAL,
     )
     result = []
     for navigator in navigators:

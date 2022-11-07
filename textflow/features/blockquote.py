@@ -49,7 +49,7 @@ def work(
 
 
 def analyze_page(
-    ptcn: texmex.PageTextContentNavigator,
+    ptcn: texmex.PTCN,
     textsize: float,
 ) -> iamraw.PageContentBlockQuotes:
     grouped = texmex.group_linedistances_complex(ptcn)
@@ -125,7 +125,7 @@ def iscitation_group_intention(bounds) -> bool:
         for item in bounds
     ]
     marks = [word for word in lines if german.contain_quotation_marks(word)]
-    marks = utila.flatten(marks)
+    marks = utila.flat(marks)
     # TODO: COUNT QUOTATION SIGNS?
     contains_quotation = any(marks)
     return contains_quotation

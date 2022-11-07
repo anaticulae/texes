@@ -48,7 +48,7 @@ class PageTextAdapter:
             return None
         result = [(index, item)
                   for index, item in enumerate(selected)
-                  if utila.rectangle_inside(item.bounding, bounding)]
+                  if utila.rect_inside(item.bounding, bounding)]
         return result
 
 

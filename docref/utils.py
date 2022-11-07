@@ -44,7 +44,7 @@ def sentence_plain(sentence, marks) -> list:
     result = []
     splitted = german.word_tokenize(sentence, validate_sentences=False)
     for start, end in marks:
-        selected = [splitted[item] for item in utila.ranged_tuple(start, end)]
+        selected = [splitted[item] for item in utila.rtuple(start, end)]
         selected = selection_plain(selected)
         result.append(selected)
     return result

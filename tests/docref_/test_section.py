@@ -25,4 +25,4 @@ def test_section_master75page25_50(td, mp):
 
     path = docref.path.docref_section(td.tmpdir)
     loaded = serializeraw.load_docref(path)
-    assert len(loaded) in (8, 9, 10, 12, 13)  # TODO: VALIDATE LATER
+    assert len(loaded) in {8, 9, 10, 12, 13}  # TODO: VALIDATE LATER

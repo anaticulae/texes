@@ -113,7 +113,7 @@ def page_linealignments_expected(navigator, border=None):
     result = []
     for group in content:
         # TODO: MOVE TO SEPARATE METHOD
-        nav = texmex.PageTextNavigator(pagesize=(
+        nav = texmex.PTN(pagesize=(
             navigator.width,
             navigator.height,
         ))

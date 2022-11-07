@@ -7,8 +7,6 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import typing
-
 import iamraw
 import serializeraw
 import texmex
@@ -21,12 +19,12 @@ def work(
     text: str,
     textpositions: str,
     pages: tuple = None,
-) -> typing.Tuple[str, str]:
+) -> tuple[str, str]:
     navigators = serializeraw.ptn_fromfile(
         text,
         textpositions,
         pages=pages,
-        mode=texmex.PageTextNavigatorMode.HORIZONTAL,
+        mode=texmex.PTNMode.HORIZONTAL,
     )
 
     expected = extract_expected(navigators)

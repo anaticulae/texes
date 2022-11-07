@@ -16,7 +16,7 @@ Exclude:
 
 Source:
 
-* PageTextContentNavigator
+* PTCN
 * Magic content
 """
 
@@ -26,7 +26,7 @@ import utila
 
 
 def extract(
-    ptcns: texmex.PageTextContentNavigators,
+    ptcns: texmex.PTCNs,
     magics: iamraw.PageContentContentTypes,
     wordspaces,
 ) -> iamraw.PageContents:
@@ -54,8 +54,7 @@ def extract_page(ptcn, magic, wordspace) -> list:
             continue
         bounding = line.bounding
         inline = [
-            item for item in wordspace
-            if utila.rectangle_inside(bounding, item)
+            item for item in wordspace if utila.rect_inside(bounding, item)
         ]
         if not inline:
             continue
