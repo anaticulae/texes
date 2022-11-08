@@ -8,7 +8,6 @@
 # =============================================================================
 
 import power
-import pytest
 import serializeraw
 import utilatest
 
@@ -34,7 +33,6 @@ def test_blockquote_master72():
     assert len(extracted.content) == 2
 
 
-@pytest.mark.xfail(reason='softwareintegration')
 @utilatest.nightly
 @utilatest.requires(power.MASTER072_PDF)
 def test_blockquote_validate_master72(td, mp):
@@ -50,7 +48,6 @@ def test_blockquote_validate_master72(td, mp):
     assert current == expected
 
 
-@pytest.mark.xfail(reason='softwareintegration')
 @utilatest.longrun
 @utilatest.requires(power.BACHELOR076_PDF)
 def test_blockquote_validate_bachelor76page8_11_13_15_16(td, mp):
