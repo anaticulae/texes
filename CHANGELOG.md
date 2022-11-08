@@ -2,6 +2,18 @@
 
 Every noteable change is logged here.
 
+## v0.14.1 (2022-11-08)
+
+### Chore
+
+* convert nightly to all (c25f61d97dd6)
+* upgrade pipe library (f645791397c1)
+* add ghost (e3d4c62d8b2a)
+* upgrade environment (5d2e5b474b9f)
+* do not run in privileged mode (a04db8d6dd25)
+* adjust for automation tool (eb2bb88ac08a)
+* upgrade requirements.txt (f1fc998f23a2)
+
 ## v0.13.0
 
 ### Feature
