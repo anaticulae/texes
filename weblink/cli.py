@@ -24,7 +24,7 @@ WORKPLAN = [
     utila.create_step(
         'footer',
         inputs=[
-            utila.ResultFile('groupme', 'footer_footerheader'),
+            utila.ResultFile('groupme', 'hefopa_result'),
         ],
         output=('footer',),
     ),
