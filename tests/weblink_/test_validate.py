@@ -16,25 +16,17 @@ import utila
 import utilatest
 
 import tests
+import tests.conftest
 import tests.weblink_
 import weblink
 import weblink.path
 
 ARCHIVE = utila.join(weblink.ROOT, 'tests/weblink_/expected', exist=True)
 
+RESOURCES = utilatest.test_resources(tests.conftest.RESOURCES)
 
-@pytest.mark.parametrize('source', [
-    pytest.param(power.BACHELOR037_PDF, id='bachelor037'),
-    pytest.param(power.BACHELOR075_PDF, id='bachelor075'),
-    pytest.param(power.BACHELOR076_PDF, id='bachelor076'),
-    pytest.param(power.DOCU027_PDF, id='docu027'),
-    pytest.param(power.HOME043_PDF, id='home043'),
-    pytest.param(power.MASTER072_PDF, id='master072'),
-    pytest.param(power.MASTER075_PDF, id='master075'),
-    pytest.param(power.MASTER083_PDF, id='master083'),
-    pytest.param(power.MASTER098_PDF, id='master098'),
-    pytest.param(power.MASTER116_PDF, id='master116'),
-])
+
+@pytest.mark.parametrize('source', RESOURCES)
 def test_validate_hyperlink_insentence(source, td, mp):
     utilatest.fixture_requires(source)
     Evaluate(
