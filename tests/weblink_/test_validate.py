@@ -27,7 +27,7 @@ RESOURCES = utilatest.test_resources(tests.conftest.RESOURCES)
 
 
 @pytest.mark.parametrize('source', RESOURCES)
-def test_validate_hyperlink_insentence(source, td, mp):
+def test_validate_hyperlinks(source, td, mp):
     utilatest.fixture_requires(source)
     Evaluate(
         source=source,
