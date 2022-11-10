@@ -17,7 +17,7 @@ WORKPLAN = [
     utila.create_step(
         'biblio',
         inputs=[
-            utila.ResultFile('detector', 'bibliography_detected'),
+            utila.ResultFile('bibliography', 'result_result'),
         ],
         output=('biblio',),
     ),
