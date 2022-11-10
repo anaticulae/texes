@@ -61,7 +61,8 @@ class Evaluate(utilatest.BaseLiner):
                 weblink.path.weblink_sentence,
         ]:
             path = loader(workdir)
-            result.extend(serializeraw.load_hyperlinks(path))
+            loaded = serializeraw.load_hyperlinks(path)
+            result.extend(loaded)
         return result
 
     def raw(self, value) -> str:
