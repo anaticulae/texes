@@ -17,11 +17,11 @@ import weblink.features.sentence
 def work(footers: str, pages: tuple = None) -> str:
     if not utila.exists(footers):
         return '[]'
-    loadeded = load_footnotes(
+    loaded = load_footnotes(
         footers,
         pages=pages,
     )
-    processed = weblink.features.sentence.process_sentences(loadeded)
+    processed = weblink.features.sentence.process_sentences(loaded)
     dumped = serializeraw.dump_hyperlinks(processed)
     return dumped
 
