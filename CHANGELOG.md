@@ -2,6 +2,21 @@
 
 Every noteable change is logged here.
 
+## v0.15.0 (2022-11-10)
+
+### Feature
+
+* use new hefopa result (da553459d457)
+
+### Fix
+
+* do not use legacy resource (0b5db6f8fd79)
+
+### Chore
+
+* extend test data generator (2dac42248525)
+* upgrade requirements.txt (2ca74b984f92)
+
 ## v0.14.1 (2022-11-08)
 
 ### Chore
