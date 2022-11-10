@@ -22,7 +22,7 @@ TextAlignment = texmex.TextAlignment
     pytest.param(power.MASTER072_PDF, TextAlignment.BLOCK, id='master72'),
     pytest.param(power.BACHELOR037_PDF, TextAlignment.BLOCK, id='bachelor37'),
     pytest.param(power.DOCU007_PDF, TextAlignment.BLOCK, id='docu009'),
-    pytest.param(power.HOME040_PDF, TextAlignment.LEFT, id='home040'),
+    pytest.param(power.HOME043_PDF, TextAlignment.LEFT, id='home043'),
 ])
 @utilatest.nightly
 def test_document_alignment(source, expected):
@@ -37,10 +37,10 @@ def test_document_alignment(source, expected):
 
 
 @pytest.mark.xfail(reason='softwareintegration')
-@utilatest.requires(power.HOME040_PDF)
+@utilatest.requires(power.HOME043_PDF)
 def test_page_linealignment_homework40p4():
     navigators = serializeraw.ptn_frompath(
-        power.link(power.HOME040_PDF),
+        power.link(power.HOME043_PDF),
         prefix='oneline',
     )
     left, right = textflow.alignment.style.document_textfeed(navigators)

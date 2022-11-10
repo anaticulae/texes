@@ -34,7 +34,7 @@ RESOURCES = [
     power.DOCU007_PDF,
     power.DOCU009_PDF,
     power.DOCU027_PDF,
-    power.HOME040_PDF,
+    power.HOME043_PDF,
     power.MASTER072_PDF,
     power.MASTER075_PDF,
     power.MASTER083_PDF,

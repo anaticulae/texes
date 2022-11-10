@@ -69,9 +69,9 @@ def test_page_linealignments_expected_master72p6():
 
 
 @pytest.mark.xfail(reason='softwareintegration')
-@utilatest.requires(power.HOME040_PDF)
+@utilatest.requires(power.HOME043_PDF)
 def test_page_linealignments_expected_homework40p3():
-    source = power.link(power.HOME040_PDF)
+    source = power.link(power.HOME043_PDF)
     navigators = serializeraw.ptn_frompath(source)
     border = textflow.alignment.style.document_textfeed(navigators)
     # alignment
@@ -94,9 +94,9 @@ def test_page_linealignments_expected_homework40p3():
 
 
 @pytest.mark.xfail(reason='softwareintegration')
-@utilatest.requires(power.HOME040_PDF)
+@utilatest.requires(power.HOME043_PDF)
 def test_page_linealignments_expected_homework40p4():
-    source = power.link(power.HOME040_PDF)
+    source = power.link(power.HOME043_PDF)
     navigators = serializeraw.ptn_frompath(source)
     border = textflow.alignment.style.document_textfeed(navigators)
     # alignment

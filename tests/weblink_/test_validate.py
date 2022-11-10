@@ -28,7 +28,7 @@ ARCHIVE = utila.join(weblink.ROOT, 'tests/weblink_/expected', exist=True)
     pytest.param(power.BACHELOR075_PDF, id='bachelor075'),
     pytest.param(power.BACHELOR076_PDF, id='bachelor076'),
     pytest.param(power.DOCU027_PDF, id='docu027'),
-    pytest.param(power.HOME040_PDF, id='home040'),
+    pytest.param(power.HOME043_PDF, id='home043'),
     pytest.param(power.MASTER072_PDF, id='master072'),
     pytest.param(power.MASTER075_PDF, id='master075'),
     pytest.param(power.MASTER083_PDF, id='master083'),
