@@ -7,6 +7,7 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
+import configo
 import german
 import iamraw
 import serializeraw
@@ -33,6 +34,9 @@ def process_sentences(texts):
     return result
 
 
+LOOK_FORWARD = configo.HV_INT_PLUS(default=30)
+
+
 def process_chunk(sentence):
     result = []
     hyperlinks = german.links(sentence, position=True)
@@ -44,7 +48,7 @@ def process_chunk(sentence):
             start=starting,
             end=starting + len(hyperlink),
             collector=german.dates,
-            after=30,
+            after=LOOK_FORWARD,
         )
         date = date[0] if date else None
         result.append(iamraw.ExtractedHyperLink(href=hyperlink, visited=date))
