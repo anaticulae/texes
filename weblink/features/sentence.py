@@ -11,12 +11,12 @@ import configo
 import german
 import iamraw
 import serializeraw
-import utila
+import utilo
 
 
 def work(sentences: str, pages: tuple = None) -> str:
-    if not utila.exists(sentences):
-        utila.log(f'skip weblink sentences, missing: {sentences}')
+    if not utilo.exists(sentences):
+        utilo.log(f'skip weblink sentences, missing: {sentences}')
         return '[]'
     sentences = serializeraw.load_text(content=sentences, pages=pages)
     processed = process_sentences(sentences)

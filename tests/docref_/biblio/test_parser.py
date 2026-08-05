@@ -9,13 +9,13 @@
 
 import iamraw
 import pytest
-import utila
+import utilo
 
 import docref.biblio.strategies.intext
 
 BibRef = iamraw.BibliographyReference
 
-TEXT = utila.splitlines("""\
+TEXT = utilo.splitlines("""\
 (vgl. Abels 2010: 94ff.).
 (vgl. ebd.: 85).
 (vgl. ebd.: 161ff.).

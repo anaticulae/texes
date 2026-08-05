@@ -7,17 +7,17 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import power
+import hoverpower
 import serializeraw
-import utilatest
+import utilotest
 
 import docref.path
 import tests.docref_
 
 
-@utilatest.requires(power.MASTER075_PDF)
+@utilotest.requires(hoverpower.MASTER075_PDF)
 def test_figure_master75page6(td, mp):
-    source = power.link(power.MASTER075_PDF)
+    source = hoverpower.link(hoverpower.MASTER075_PDF)
     cmd = f'-i {source} --figure --pages=7:21'
     tests.docref_.run(cmd, mp=mp)
 

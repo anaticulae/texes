@@ -7,9 +7,9 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import power
+import hoverpower
 import serializeraw
-import utilatest
+import utilotest
 
 import tests.textflow_
 import textflow.path
@@ -17,7 +17,7 @@ import textflow.path
 
 def test_noblockquote_bachelor51page21(td, mp):
     detected = run_blockquote(
-        power.BACHELOR051_PDF,
+        hoverpower.BACHELOR051_PDF,
         td,
         mp,
         pages='21',
@@ -26,8 +26,8 @@ def test_noblockquote_bachelor51page21(td, mp):
 
 
 def run_blockquote(source, td, mp, pages=':'):
-    utilatest.fixture_requires(source)
-    source = power.link(source)
+    utilotest.fixture_requires(source)
+    source = hoverpower.link(source)
     tests.textflow_.run(
         f'-i {source} --blockquote --pages={pages}',
         mp=mp,

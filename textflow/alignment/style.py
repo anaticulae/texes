@@ -27,7 +27,7 @@ Style
 
 import configo
 import texmex
-import utila
+import utilo
 
 BLOCK_TEXT_DIFF = configo.HV_FLOAT_PLUS(default=10.0)
 
@@ -39,7 +39,7 @@ def document_alignment(navigators: texmex.PTNs) -> texmex.TextAlignment:
         # left, right = page.content.left, page.content.right
         style = page_linealignments(page, left, right)
         result.extend(style)
-    return utila.modes(result)
+    return utilo.modes(result)
 
 
 def document_textfeed(navigators):
@@ -71,7 +71,7 @@ def page_linealignments(
     )
     for left, right in zip(border_left, border_right):
         width = navigator.width - left - right
-        if utila.near(right, 0.0, diff=PAGE_LINEALIGNMENTS_DIFF_MAX):
+        if utilo.near(right, 0.0, diff=PAGE_LINEALIGNMENTS_DIFF_MAX):
             if left > 100:
                 result.append(texmex.TextAlignment.RIGHT)
             elif left <= 50:
@@ -79,7 +79,7 @@ def page_linealignments(
             continue
         if right >= 20:
             if left >= 20:
-                if utila.near(right, left, BLOCK_EUQAL_BORDER_DIFF_MAX)\
+                if utilo.near(right, left, BLOCK_EUQAL_BORDER_DIFF_MAX)\
                    and width >= BLOCK_CENTER_WIDTH_MIN:
                     # left and right textfeed is equal
                     result.append(texmex.TextAlignment.BLOCK_CENTER)
@@ -121,7 +121,7 @@ def page_linealignments_expected(navigator, border=None):
         alignments = page_linealignments(nav, *border)
         if not alignments:
             continue
-        alignment = utila.modes(alignments)
+        alignment = utilo.modes(alignments)
         result.append(alignment)
     return result
 
@@ -133,15 +133,15 @@ def groupby(navigator, grouped):
 
 def leftright(navigator, left, right):
     left = feed_left(navigator, left)
-    left = [utila.threshold(item, diff=TEXT_BORDER_NOISE) for item in left]
+    left = [utilo.threshold(item, diff=TEXT_BORDER_NOISE) for item in left]
     right = feed_right(navigator, right)
-    right = [utila.threshold(item, diff=TEXT_BORDER_NOISE) for item in right]
+    right = [utilo.threshold(item, diff=TEXT_BORDER_NOISE) for item in right]
     return left, right
 
 
 def feed_left(navigator, left):
     diff = [item.bounding[0] - left for item in navigator]
-    diff = utila.roundme(diff, convert=False)
+    diff = utilo.roundme(diff, convert=False)
     return diff
 
 
@@ -157,5 +157,5 @@ def feed_right(navigator: texmex.PTN, right: float) -> list:
     # absolute coordinate measured from left paper as origin
     expected = navigator.width - right
     diff = [expected - item.bounding[2] for item in navigator]
-    diff = utila.roundme(diff, convert=False)
+    diff = utilo.roundme(diff, convert=False)
     return diff

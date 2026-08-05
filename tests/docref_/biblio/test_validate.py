@@ -9,11 +9,11 @@
 
 import functools
 
-import power
+import hoverpower
 import pytest
 import serializeraw
-import utila
-import utilatest
+import utilo
+import utilotest
 
 import docref
 import docref.path
@@ -21,7 +21,7 @@ import tests
 import tests.conftest
 import tests.docref_
 
-ARCHIVE = utila.join(
+ARCHIVE = utilo.join(
     docref.ROOT,
     'tests/docref_/biblio/expected',
     exist=True,
@@ -29,17 +29,17 @@ ARCHIVE = utila.join(
 
 RESOURCES = [
     pytest.param(
-        power.pdf(source),
-        power.ctext(power.pdf(source), default=':'),
-        id=utila.file_name(power.pdf(source)),
+        hoverpower.pdf(source),
+        hoverpower.ctext(hoverpower.pdf(source), default=':'),
+        id=utilo.file_name(hoverpower.pdf(source)),
     ) for source in tests.conftest.RESOURCES
 ]
 
 
-@utilatest.nightly
+@utilotest.nightly
 @pytest.mark.parametrize('source, pages', RESOURCES)
 def test_validate_bibref(source, pages, td, mp):
-    utilatest.fixture_requires(source)
+    utilotest.fixture_requires(source)
     Evaluate(
         source=source,
         pages=pages,
@@ -48,7 +48,7 @@ def test_validate_bibref(source, pages, td, mp):
     ).evaluate()
 
 
-class Evaluate(utilatest.BaseLiner):
+class Evaluate(utilotest.BaseLiner):
 
     def __init__(self, source, pages, workdir, mp):
         super().__init__(
@@ -58,13 +58,13 @@ class Evaluate(utilatest.BaseLiner):
             ),
             step='bibliography',
             pages=pages,
-            source=power.link(source),
+            source=hoverpower.link(source),
             workdir=workdir,
             archive=ARCHIVE,
             loader=self.frompath,
             convert_source=False,
         )
-        self.headlines = power.link(source)
+        self.headlines = hoverpower.link(source)
 
     def frompath(self, path):  # pylint:disable=R0201
         path = docref.path.docref_bibliography(path)
@@ -76,5 +76,5 @@ class Evaluate(utilatest.BaseLiner):
             f'{item.page} {item.sentence} {"   ".join(item.raw)}'
             for item in value
         ]
-        result = utila.NEWLINE.join(collected)
+        result = utilo.NEWLINE.join(collected)
         return result

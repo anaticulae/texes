@@ -8,7 +8,7 @@
 # =============================================================================
 
 import serializeraw
-import utila
+import utilo
 
 import docref.reference
 
@@ -33,7 +33,7 @@ def work(sentences: str, headlines: str, pages: tuple = None) -> str:
     return dumped
 
 
-VALID = utila.compiles(r"""
+VALID = utilo.compiles(r"""
     (
         Tabelle|
         Tab\.|
@@ -42,7 +42,7 @@ VALID = utila.compiles(r"""
 """)
 
 
-@utila.cacheme
+@utilo.cacheme
 def valid(item: str) -> bool:
     """\
     >>> valid('(siehe Kapitel 3.1)')
@@ -53,7 +53,7 @@ def valid(item: str) -> bool:
     return False
 
 
-PATTERN = utila.splitlines("""
+PATTERN = utilo.splitlines("""
 (Tabelle 1)
 (Tab. 1)
 (s. Tab. 1)

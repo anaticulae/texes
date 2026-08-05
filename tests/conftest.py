@@ -7,13 +7,13 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import genex
-import power
+import gennex
+import hoverpower
 import pytest
-import utila
-import utilatest
-from utilatest import mp  # pylint:disable=W0611
-from utilatest import td  # pylint:disable=W0611
+import utilo
+import utilotest
+from utilotest import mp  # pylint:disable=W0611
+from utilotest import td  # pylint:disable=W0611
 
 import texas
 
@@ -21,42 +21,42 @@ pytest_plugins = ['pytester', 'xdist']  # pylint: disable=invalid-name
 
 PACKAGE = texas.PACKAGE
 
-power.setup(texas.ROOT)
+hoverpower.setup(texas.ROOT)
 
 RESOURCES = [
-    (power.DISS143_PDF, '0:50'),
-    (power.DISS144_PDF, '0:50'),
-    (power.DISS172_PDF, '30:70'),
-    power.BACHELOR028_PDF,
-    power.BACHELOR037_PDF,
-    power.BACHELOR051_PDF,
-    power.BACHELOR075_PDF,
-    power.BACHELOR076_PDF,
-    power.DOCU007_PDF,
-    power.DOCU009_PDF,
-    power.DOCU027_PDF,
-    power.HOME043_PDF,
-    power.MASTER072_PDF,
-    power.MASTER075_PDF,
-    power.MASTER083_PDF,
-    power.MASTER091B_PDF,
-    power.MASTER098_PDF,
-    power.MASTER116_PDF,
-    power.todo(power.BACHELOR056_PDF, '0:20', spacestation=True),
+    (hoverpower.DISS143_PDF, '0:50'),
+    (hoverpower.DISS144_PDF, '0:50'),
+    (hoverpower.DISS172_PDF, '30:70'),
+    hoverpower.BACHELOR028_PDF,
+    hoverpower.BACHELOR037_PDF,
+    hoverpower.BACHELOR051_PDF,
+    hoverpower.BACHELOR075_PDF,
+    hoverpower.BACHELOR076_PDF,
+    hoverpower.DOCU007_PDF,
+    hoverpower.DOCU009_PDF,
+    hoverpower.DOCU027_PDF,
+    hoverpower.HOME043_PDF,
+    hoverpower.MASTER072_PDF,
+    hoverpower.MASTER075_PDF,
+    hoverpower.MASTER083_PDF,
+    hoverpower.MASTER091B_PDF,
+    hoverpower.MASTER098_PDF,
+    hoverpower.MASTER116_PDF,
+    hoverpower.todo(hoverpower.BACHELOR056_PDF, '0:20', spacestation=True),
 ]
-WORKER = utilatest.worker_count(4, onci=len(RESOURCES))
+WORKER = utilotest.worker_count(4, onci=len(RESOURCES))
 
 
 @pytest.mark.usefixtures('session')
 def pytest_sessionstart():
-    power.run()
+    hoverpower.run()
 
 
 def extract(resources):
-    utila.log(f'root: {power.REPOSITORY}')
-    genex.extract(
+    utilo.log(f'root: {hoverpower.REPOSITORY}')
+    gennex.extract(
         files=resources,
-        base=power.REPOSITORY,
+        base=hoverpower.REPOSITORY,
         bibliography=True,
         detector=True,
         groupme=True,
@@ -70,5 +70,6 @@ def extract(resources):
         headnote=True,
         cleanup=True,
         worker=WORKER,
-        rawmaker=genex.CONFIG.replace('--char_margin=3.1', '--char_margin=5.0'),
+        rawmaker=gennex.CONFIG.replace('--char_margin=3.1',
+                                       '--char_margin=5.0'),
     )

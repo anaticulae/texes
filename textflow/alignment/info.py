@@ -7,7 +7,7 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import utila
+import utilo
 
 
 class AlignmentInfo:
@@ -24,14 +24,14 @@ class AlignmentInfo:
         inside = self.oneline.inside(page=page, bounding=centered)
         if not inside:
             return None
-        selected = utila.select_page(self.data, page=page)
+        selected = utilo.select_page(self.data, page=page)
         if not selected:
             return None
         try:
             result = [selected.content[index] for index, _ in inside]
         except IndexError:
             # TODO: INVESTIGATE HOW THIS CAN HAPPEN
-            utila.debug(f'alignment, out of bounds: {page}; {inside}')
+            utilo.debug(f'alignment, out of bounds: {page}; {inside}')
             return []
         return result
 
@@ -42,13 +42,13 @@ class PageTextAdapter:
         self.layout = layout
 
     def inside(self, page, bounding):
-        selected = utila.select_page(self.layout, page=page)
+        selected = utilo.select_page(self.layout, page=page)
         if not selected:
-            utila.error(f'adapter: could not select page {page}')
+            utilo.error(f'adapter: could not select page {page}')
             return None
         result = [(index, item)
                   for index, item in enumerate(selected)
-                  if utila.rect_inside(item.bounding, bounding)]
+                  if utilo.rect_inside(item.bounding, bounding)]
         return result
 
 

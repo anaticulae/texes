@@ -9,8 +9,8 @@
 
 import german
 import iamraw
-import konrad
-import utila
+import konradus
+import utilo
 
 import docref.utils
 
@@ -32,7 +32,9 @@ def parse_text(
         if not parsed:
             continue
         parsed, raws = parsed
-        raws = [''.join(konrad.mark2str(item) for item in raw) for raw in raws]
+        raws = [
+            ''.join(konradus.mark2str(item) for item in raw) for raw in raws
+        ]
         result.append(iamraw.DocRef(page, number, parsed, raw=raws))
     return result
 
@@ -46,7 +48,7 @@ def remove_invalid(items, text, validator: callable):
         plain = docref.utils.sentence_plain(sentence, item.marked)
         for reference, mark in zip(plain, item.marked):
             if not validator(reference):
-                utila.debug(f'docref:bib:invalid reference: {reference}')
+                utilo.debug(f'docref:bib:invalid reference: {reference}')
                 continue
             result.append(
                 iamraw.DocRef(

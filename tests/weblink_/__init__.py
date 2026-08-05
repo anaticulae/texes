@@ -7,9 +7,9 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import utilatest
+import utilotest
 
 import weblink
 
 #pylint:disable=C0103
-run, fail = utilatest.create_cli_runner(weblink)
+run, fail = utilotest.create_cli_runner(weblink)

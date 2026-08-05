@@ -8,14 +8,14 @@
 # =============================================================================
 
 import iamraw
-import utila
+import utilo
 
 
 def parse(raw: str) -> iamraw.BibliographyReferences:
     result = []
     for pattern in PATTERNS:
         parsed = parse_pattern(raw, pattern)
-        raw = utila.ghost_replace(
+        raw = utilo.ghost_replace(
             text=raw,
             pattern=[item.raw for item in parsed],
         )
@@ -64,7 +64,7 @@ AUTHOR = r"""
 )
 """
 
-PATTERN = utila.compiles(r"""
+PATTERN = utilo.compiles(r"""
     (vgl[.][ ]{0,2})?
     (?P<author>
         (
@@ -82,7 +82,7 @@ PATTERN = utila.compiles(r"""
     )
 """ % dict(year=YEAR, pages=PAGES))
 
-AUTHOR_AND_YEAR = utila.compiles(r"""
+AUTHOR_AND_YEAR = utilo.compiles(r"""
 \(
     vgl\.
     [ ]{0,2}
@@ -92,7 +92,7 @@ AUTHOR_AND_YEAR = utila.compiles(r"""
 \)
 """ % dict(author=AUTHOR, year=YEAR))
 
-REFERENCE_LONG = utila.compiles(r"""
+REFERENCE_LONG = utilo.compiles(r"""
 \(
     vgl\.
     [ ]{0,2}
@@ -103,7 +103,7 @@ REFERENCE_LONG = utila.compiles(r"""
 \)
 """ % dict(author=AUTHOR, pages=PAGES))
 
-AUTHOR_COMMA_YEAR = utila.compiles(r"""
+AUTHOR_COMMA_YEAR = utilo.compiles(r"""
 \(
     [ ]{0,2}
     %(author)s
@@ -121,7 +121,7 @@ AUTHOR_COMMA_YEAR = utila.compiles(r"""
 \)
 """ % dict(author=AUTHOR, year=YEAR, pages=PAGES))
 
-HIGHNOTE = utila.compiles(r"""
+HIGHNOTE = utilo.compiles(r"""
     (?P<author>
         \{\{hn\:\d{1,4}\:nh\}\}
     )
@@ -139,7 +139,7 @@ PATTERNS = (
 def parse_pattern(raw: str, pattern: str) -> iamraw.BibliographyReferences:
     result = []
     for item in pattern.finditer(raw):
-        raw = utila.extract_match(item)
+        raw = utilo.extract_match(item)
         author = item['author']
         try:
             year = int(item['year'])

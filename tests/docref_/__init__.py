@@ -7,8 +7,8 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import utilatest
+import utilotest
 
 import docref
 
-run, fail = utilatest.create_cli_runner(docref)
+run, fail = utilotest.create_cli_runner(docref)

@@ -7,10 +7,10 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import power
+import hoverpower
 import pytest
 import serializeraw
-import utilatest
+import utilotest
 
 import tests
 import tests.textflow_
@@ -20,11 +20,11 @@ def test_textflow_cli(mp):
     tests.textflow_.run('--help', mp=mp)
 
 
-@utilatest.nightly
-@utilatest.requires(power.DOCU027_PDF)
+@utilotest.nightly
+@utilotest.requires(hoverpower.DOCU027_PDF)
 def test_textflow_alignments_docu027(td, mp):
     """Ensure that document with empty page is parsed correctly."""
-    source = power.link(power.DOCU027_PDF)
+    source = hoverpower.link(hoverpower.DOCU027_PDF)
     tests.textflow_.run(
         f'-i {source} -o {td.tmpdir}',
         mp=mp,
@@ -32,24 +32,24 @@ def test_textflow_alignments_docu027(td, mp):
 
 
 @pytest.mark.parametrize('source', [
-    pytest.param(power.MASTER072_PDF, id='master072'),
-    pytest.param(power.DOCU009_PDF, id='docu009'),
+    pytest.param(hoverpower.MASTER072_PDF, id='master072'),
+    pytest.param(hoverpower.DOCU009_PDF, id='docu009'),
 ])
-@utilatest.nightly
+@utilotest.nightly
 def test_textflow_alignments(source, td, mp):
     """Ensure that document with empty page is parsed correctly."""
-    utilatest.fixture_requires(source)
-    source = power.link(source)
+    utilotest.fixture_requires(source)
+    source = hoverpower.link(source)
     tests.textflow_.run(
         f'-i {source} -o {td.tmpdir}',
         mp=mp,
     )
 
 
-@utilatest.longrun
-@utilatest.requires(power.BACHELOR056_PDF)
+@utilotest.longrun
+@utilotest.requires(hoverpower.BACHELOR056_PDF)
 def test_textflow_wordspace_bachelor56page4(td, mp):
-    source = power.link(power.BACHELOR056_PDF)
+    source = hoverpower.link(hoverpower.BACHELOR056_PDF)
     tests.textflow_.run(
         f'-i {source} --wordspace --pages=4',
         mp=mp,

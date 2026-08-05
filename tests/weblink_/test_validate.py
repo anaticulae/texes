@@ -9,11 +9,11 @@
 
 import functools
 
-import power
+import hoverpower
 import pytest
 import serializeraw
-import utila
-import utilatest
+import utilo
+import utilotest
 
 import tests
 import tests.conftest
@@ -21,14 +21,14 @@ import tests.weblink_
 import weblink
 import weblink.path
 
-ARCHIVE = utila.join(weblink.ROOT, 'tests/weblink_/expected', exist=True)
+ARCHIVE = utilo.join(weblink.ROOT, 'tests/weblink_/expected', exist=True)
 
-RESOURCES = utilatest.test_resources(tests.conftest.RESOURCES)
+RESOURCES = utilotest.test_resources(tests.conftest.RESOURCES)
 
 
 @pytest.mark.parametrize('source', RESOURCES)
 def test_validate_hyperlinks(source, td, mp):
-    utilatest.fixture_requires(source)
+    utilotest.fixture_requires(source)
     Evaluate(
         source=source,
         workdir=td.tmpdir,
@@ -36,7 +36,7 @@ def test_validate_hyperlinks(source, td, mp):
     ).evaluate()
 
 
-class Evaluate(utilatest.BaseLiner):
+class Evaluate(utilotest.BaseLiner):
 
     def __init__(self, source, workdir, mp):
         super().__init__(
@@ -46,7 +46,7 @@ class Evaluate(utilatest.BaseLiner):
             ),
             step='',
             pages=':',
-            source=power.link(source),
+            source=hoverpower.link(source),
             workdir=workdir,
             archive=ARCHIVE,
             loader=self.frompath,
@@ -73,5 +73,5 @@ class Evaluate(utilatest.BaseLiner):
             if hyperlink.visited:
                 raw = f'{raw} {hyperlink.visited}'
             result.append(raw)
-        raw = utila.NEWLINE.join(result)
+        raw = utilo.NEWLINE.join(result)
         return raw

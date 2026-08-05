@@ -8,7 +8,7 @@
 # =============================================================================
 
 import serializeraw
-import utila
+import utilo
 
 import textflow.wordspace
 
@@ -22,8 +22,8 @@ def work(
     wordspaces: str,
     pages: tuple,
 ) -> str:
-    if not utila.exists(wordspaces):
-        utila.error(f'wordspace does not exists: {wordspaces} skip --wordspace')
+    if not utilo.exists(wordspaces):
+        utilo.error(f'wordspace does not exists: {wordspaces} skip --wordspace')
         return NO_WORDSPACE
     ptcns = serializeraw.ptcn_fromfile(
         text,

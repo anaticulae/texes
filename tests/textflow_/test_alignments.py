@@ -7,21 +7,21 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import power
+import hoverpower
 import pytest
 import texmex
-import utila
-import utilatest
+import utilo
+import utilotest
 
 import tests.textflow_
 import textflow.features.alignment
 import textflow.path
 
 
-@utilatest.longrun
-@utilatest.requires(power.MASTER072_PDF)
+@utilotest.longrun
+@utilotest.requires(hoverpower.MASTER072_PDF)
 def test_textflow_alignment_expected(td, mp):
-    source = power.link(power.MASTER072_PDF)
+    source = hoverpower.link(hoverpower.MASTER072_PDF)
     tests.textflow_.run(
         f'-i {source} --pages=10:20 --alignment',
         mp=mp,
@@ -33,15 +33,15 @@ def test_textflow_alignment_expected(td, mp):
 
 
 @pytest.mark.xfail(reason='unsupported block_end')
-@utilatest.longrun
-@utilatest.requires(power.MASTER098_PDF)
+@utilotest.longrun
+@utilotest.requires(hoverpower.MASTER098_PDF)
 def test_alignment_master98_page2(td, mp):
-    source = power.link(power.MASTER098_PDF)
+    source = hoverpower.link(hoverpower.MASTER098_PDF)
     tests.textflow_.run(
         f'-i {source} --pages=2 --alignment',
         mp=mp,
     )
     source = textflow.path.alignment(td.tmpdir)
     current = textflow.features.alignment.load_alignment(source)
-    content = utila.select_content(current, 2)
+    content = utilo.select_content(current, 2)
     assert content[4] == texmex.TextAlignment.BLOCK_END

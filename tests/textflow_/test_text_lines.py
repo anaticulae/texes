@@ -7,11 +7,11 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import power
+import hoverpower
 import pytest
 import serializeraw
 import texmex
-import utilatest
+import utilotest
 
 import textflow.alignment.style
 
@@ -19,15 +19,16 @@ TextAlignment = texmex.TextAlignment
 
 
 @pytest.mark.parametrize('source, expected', [
-    pytest.param(power.MASTER072_PDF, TextAlignment.BLOCK, id='master72'),
-    pytest.param(power.BACHELOR037_PDF, TextAlignment.BLOCK, id='bachelor37'),
-    pytest.param(power.DOCU007_PDF, TextAlignment.BLOCK, id='docu009'),
-    pytest.param(power.HOME043_PDF, TextAlignment.LEFT, id='home043'),
+    pytest.param(hoverpower.MASTER072_PDF, TextAlignment.BLOCK, id='master72'),
+    pytest.param(
+        hoverpower.BACHELOR037_PDF, TextAlignment.BLOCK, id='bachelor37'),
+    pytest.param(hoverpower.DOCU007_PDF, TextAlignment.BLOCK, id='docu009'),
+    pytest.param(hoverpower.HOME043_PDF, TextAlignment.LEFT, id='home043'),
 ])
-@utilatest.nightly
+@utilotest.nightly
 def test_document_alignment(source, expected):
-    source = power.link(source)
-    utilatest.fixture_requires(source)
+    source = hoverpower.link(source)
+    utilotest.fixture_requires(source)
     content_navigators = serializeraw.ptn_frompath(
         source,
         prefix='oneline',
@@ -37,10 +38,10 @@ def test_document_alignment(source, expected):
 
 
 @pytest.mark.xfail(reason='softwareintegration')
-@utilatest.requires(power.HOME043_PDF)
+@utilotest.requires(hoverpower.HOME043_PDF)
 def test_page_linealignment_homework40p4():
     navigators = serializeraw.ptn_frompath(
-        power.link(power.HOME043_PDF),
+        hoverpower.link(hoverpower.HOME043_PDF),
         prefix='oneline',
     )
     left, right = textflow.alignment.style.document_textfeed(navigators)
@@ -56,11 +57,11 @@ def test_page_linealignment_homework40p4():
 
 
 @pytest.mark.xfail(reason='softwareintegration')
-@utilatest.longrun
-@utilatest.requires(power.MASTER072_PDF)
+@utilotest.longrun
+@utilotest.requires(hoverpower.MASTER072_PDF)
 def test_page_linealignment_master72p4():
     navigators = serializeraw.ptn_frompath(
-        power.link(power.MASTER072_PDF),
+        hoverpower.link(hoverpower.MASTER072_PDF),
         prefix='oneline',
     )
     left, right = textflow.alignment.style.document_textfeed(navigators)
@@ -77,11 +78,11 @@ def test_page_linealignment_master72p4():
     assert linealignments[-1] == TextAlignment.RIGHT
 
 
-@utilatest.longrun
-@utilatest.requires(power.MASTER072_PDF)
+@utilotest.longrun
+@utilotest.requires(hoverpower.MASTER072_PDF)
 def test_page_linealignment_master72p15():
     navigators = serializeraw.ptn_frompath(
-        power.link(power.MASTER072_PDF),
+        hoverpower.link(hoverpower.MASTER072_PDF),
         prefix='oneline',
     )
     left, right = textflow.alignment.style.document_textfeed(navigators)

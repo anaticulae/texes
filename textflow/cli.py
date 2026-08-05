@@ -7,7 +7,7 @@
 # be prosecuted under federal law. Its content is company confidential.
 #==============================================================================
 
-import utila
+import utilo
 
 import textflow
 
@@ -17,48 +17,48 @@ Textflow extracts the text alignment, spaces between words and line
 """
 
 WORKPLAN = [
-    utila.create_step(
+    utilo.create_step(
         'alignment',
         inputs=[
-            utila.ResultFile('rawmaker', 'oneline_text_text'),
-            utila.ResultFile('rawmaker', 'oneline_text_positions'),
+            utilo.ResultFile('rawmaker', 'oneline_text_text'),
+            utilo.ResultFile('rawmaker', 'oneline_text_positions'),
         ],
         output=('current', 'expected'),
     ),
-    utila.create_step(
+    utilo.create_step(
         'lineending',
         inputs=[
-            utila.ResultFile('rawmaker', 'oneline_text_text'),
-            utila.ResultFile('rawmaker', 'oneline_text_positions'),
+            utilo.ResultFile('rawmaker', 'oneline_text_text'),
+            utilo.ResultFile('rawmaker', 'oneline_text_positions'),
         ],
         output=('lastchar',),
     ),
-    utila.create_step(
+    utilo.create_step(
         'quotation',
         inputs=[
-            utila.ResultFile('words', 'sentences_sentences'),
+            utilo.ResultFile('words', 'sentences_sentences'),
         ],
         output=('quotation',),
     ),
-    utila.create_step(
+    utilo.create_step(
         'blockquote',
         inputs=[
-            utila.ResultFile('rawmaker', 'oneline_text_text'),
-            utila.ResultFile('rawmaker', 'oneline_text_positions'),
-            utila.ResultFile('rawmaker', 'border_pages'),
-            utila.ResultFile('groupme', 'footer_footerheader'),
+            utilo.ResultFile('rawmaker', 'oneline_text_text'),
+            utilo.ResultFile('rawmaker', 'oneline_text_positions'),
+            utilo.ResultFile('rawmaker', 'border_pages'),
+            utilo.ResultFile('groupme', 'footer_footerheader'),
         ],
         output=('blockquote',),
     ),
-    utila.create_step(
+    utilo.create_step(
         'wordspace',
         inputs=[
-            utila.ResultFile('rawmaker', 'oneline_text_text'),
-            utila.ResultFile('rawmaker', 'oneline_text_positions'),
-            utila.ResultFile('rawmaker', 'border_pages'),
-            utila.ResultFile('groupme', 'footer_footerheader'),
-            utila.ResultFile('magic', 'content_content'),
-            utila.ResultFile('spacestation', 'wspace_wspace', optional=True),
+            utilo.ResultFile('rawmaker', 'oneline_text_text'),
+            utilo.ResultFile('rawmaker', 'oneline_text_positions'),
+            utilo.ResultFile('rawmaker', 'border_pages'),
+            utilo.ResultFile('groupme', 'footer_footerheader'),
+            utilo.ResultFile('magic', 'content_content'),
+            utilo.ResultFile('spacestation', 'wspace_wspace', optional=True),
         ],
         output=('wordspace',),
     ),
@@ -66,11 +66,11 @@ WORKPLAN = [
 
 
 def main():
-    utila.featurepack(
+    utilo.featurepack(
         root=textflow.ROOT,
         workplan=WORKPLAN,
         featurepackage='textflow.features',
-        config=utila.FeaturePackConfig(
+        config=utilo.FeaturePackConfig(
             description=DESCRIPTION,
             multiprocessed=True,
             name=textflow.PROCESS,

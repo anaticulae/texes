@@ -7,13 +7,13 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import utila
+import utilo
 
 import textflow
 
 
 def expected(path: str, prefix: str = '') -> str:
-    return utila.pathconnector(
+    return utilo.pathconnector(
         path,
         textflow.PROCESS,
         'alignment_expected',
@@ -22,7 +22,7 @@ def expected(path: str, prefix: str = '') -> str:
 
 
 def alignment(path: str, prefix: str = '') -> str:
-    return utila.pathconnector(
+    return utilo.pathconnector(
         path,
         textflow.PROCESS,
         'alignment_current',
@@ -31,7 +31,7 @@ def alignment(path: str, prefix: str = '') -> str:
 
 
 def lineending(path: str, prefix: str = '') -> str:
-    return utila.pathconnector(
+    return utilo.pathconnector(
         path,
         textflow.PROCESS,
         'lineending_lastchar',
@@ -40,7 +40,7 @@ def lineending(path: str, prefix: str = '') -> str:
 
 
 def quotation(path: str, prefix: str = '') -> str:
-    return utila.pathconnector(
+    return utilo.pathconnector(
         path,
         textflow.PROCESS,
         'quotation_quotation',
@@ -49,7 +49,7 @@ def quotation(path: str, prefix: str = '') -> str:
 
 
 def blockquote(path: str, prefix: str = '') -> str:
-    return utila.pathconnector(
+    return utilo.pathconnector(
         path,
         textflow.PROCESS,
         'blockquote_blockquote',

@@ -11,7 +11,7 @@ import german
 import iamraw
 import serializeraw
 import texmex
-import utila
+import utilo
 
 
 def work(word: str, pages: tuple = None) -> str:
@@ -33,7 +33,7 @@ def collect_quotations(word) -> iamraw.ExtractedQuotations:
             continue
         for item in extracted:
             if item[0] is None or item[1] is None:
-                utila.error(f'not fully closed quotation {splitted}')
+                utilo.error(f'not fully closed quotation {splitted}')
         extracted = [
             item for item in extracted
             if item[0] is not None and item[1] is not None

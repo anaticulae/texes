@@ -22,7 +22,7 @@ Source:
 
 import iamraw
 import texmex
-import utila
+import utilo
 
 
 def extract(
@@ -31,7 +31,7 @@ def extract(
     wordspaces,
 ) -> iamraw.PageContents:
     result = []
-    for page, (ptcn, magic, wordspace) in utila.sync_pages(
+    for page, (ptcn, magic, wordspace) in utilo.sync_pages(
             iterators=[ptcns, magics, wordspaces],
             numbers=True,
     ):
@@ -54,7 +54,7 @@ def extract_page(ptcn, magic, wordspace) -> list:
             continue
         bounding = line.bounding
         inline = [
-            item for item in wordspace if utila.rect_inside(bounding, item)
+            item for item in wordspace if utilo.rect_inside(bounding, item)
         ]
         if not inline:
             continue

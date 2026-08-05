@@ -7,18 +7,18 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import power
-import utilatest
+import hoverpower
+import utilotest
 
 import tests.textflow_
 import textflow.features.lineending
 import textflow.path
 
 
-@utilatest.longrun
-@utilatest.requires(power.MASTER072_PDF)
+@utilotest.longrun
+@utilotest.requires(hoverpower.MASTER072_PDF)
 def test_textflow_lineendings(td, mp):
-    source = power.link(power.MASTER072_PDF)
+    source = hoverpower.link(hoverpower.MASTER072_PDF)
     tests.textflow_.run(
         f'-i {source} --pages=0:10 --lineending',
         mp=mp,

@@ -8,7 +8,7 @@
 # =============================================================================
 
 import iamraw
-import utila
+import utilo
 
 
 def dumpme(func):
@@ -22,7 +22,7 @@ def dumpme(func):
                 raw = func(line)
                 rawpage.append(raw)
             result.append({'page': page.page, 'content': rawpage})
-        dumped = utila.yaml_dump(result)
+        dumped = utilo.yaml_dump(result)
         return dumped
 
     return dumper
@@ -33,11 +33,11 @@ def loadme(func=None, ctor=iamraw.PageContent):
     def decorating_function(user_function):
 
         def loader(raw: str, pages: tuple = None):
-            loaded = utila.yaml_load(raw, safe=False)
+            loaded = utilo.yaml_load(raw, safe=False)
             result = []
             for page in loaded:
                 pagenumber = int(page['page'])
-                if utila.should_skip(pagenumber, pages):
+                if utilo.should_skip(pagenumber, pages):
                     continue
                 content = []
                 for line in page['content']:

@@ -7,20 +7,20 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
+import hoverpower
 import iamraw
-import power
 import serializeraw
-import utila
-import utilatest
+import utilo
+import utilotest
 
 import tests
 import textflow.path
 
 
-@utilatest.nightly
+@utilotest.nightly
 def test_textflow_quotation_master72p10t20(td, mp):
     current = extract_quotations(
-        power.MASTER072_PDF,
+        hoverpower.MASTER072_PDF,
         '10:21',
         td,
         mp,
@@ -32,10 +32,10 @@ def test_textflow_quotation_master72p10t20(td, mp):
     assert loaded == current
 
 
-@utilatest.longrun
+@utilotest.longrun
 def test_textflow_quotation_bachelor76(td, mp):
     quotations = extract_quotations(
-        power.BACHELOR076_PDF,
+        hoverpower.BACHELOR076_PDF,
         '4,5',
         td,
         mp,
@@ -76,24 +76,24 @@ zur Reduktion von Schnittstellen , zur funktionsübergreifenden Vernetzung und\
 # „ In - dustrie 4.0 ”"""
 
 
-@utilatest.longrun
+@utilotest.longrun
 def test_textflow_quotation_validate_bachelor76p4_10(td, mp):
     quotations = extract_quotations(
-        power.BACHELOR076_PDF,
+        hoverpower.BACHELOR076_PDF,
         '4:10',
         td,
         mp,
     )
-    expected = utila.splitlines(BACHELOR76_EXPECTED, pattern='\n\n')
+    expected = utilo.splitlines(BACHELOR76_EXPECTED, pattern='\n\n')
     assert len(quotations) == len(expected)
-    raw = (2 * utila.NEWLINE).join([item.sentence for item in quotations])
+    raw = (2 * utilo.NEWLINE).join([item.sentence for item in quotations])
     assert raw == BACHELOR76_EXPECTED
 
 
-@utilatest.longrun
+@utilotest.longrun
 def test_textflow_quotation_validate_bachelor76p8(td, mp):
     quotations = extract_quotations(
-        power.BACHELOR076_PDF,
+        hoverpower.BACHELOR076_PDF,
         '8',
         td,
         mp,
@@ -107,8 +107,8 @@ def extract_quotations(
     td,
     mp,
 ) -> iamraw.ExtractedQuotations:
-    utilatest.fixture_requires(source)
-    source = power.link(source)
+    utilotest.fixture_requires(source)
+    source = hoverpower.link(source)
     tests.textflow_.run(
         f'-i {source} -i {td.tmpdir} --pages={pages} --quotation',
         mp=mp,

@@ -7,31 +7,31 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import utila
+import utilo
 
 import weblink
 
 DESCRIPTION = ''
 
 WORKPLAN = [
-    utila.create_step(
+    utilo.create_step(
         'biblio',
         inputs=[
-            utila.ResultFile('bibliography', 'result_result'),
+            utilo.ResultFile('bibliography', 'result_result'),
         ],
         output=('biblio',),
     ),
-    utila.create_step(
+    utilo.create_step(
         'footer',
         inputs=[
-            utila.ResultFile('groupme', 'hefopa_result'),
+            utilo.ResultFile('groupme', 'hefopa_result'),
         ],
         output=('footer',),
     ),
-    utila.create_step(
+    utilo.create_step(
         'sentence',
         inputs=[
-            utila.ResultFile('words', 'sentences_sentences'),
+            utilo.ResultFile('words', 'sentences_sentences'),
         ],
         output=('sentence',),
     ),
@@ -39,11 +39,11 @@ WORKPLAN = [
 
 
 def main():
-    utila.featurepack(
+    utilo.featurepack(
         root=weblink.ROOT,
         workplan=WORKPLAN,
         featurepackage='weblink.features',
-        config=utila.FeaturePackConfig(
+        config=utilo.FeaturePackConfig(
             description=DESCRIPTION,
             multiprocessed=True,
             name=weblink.PROCESS,

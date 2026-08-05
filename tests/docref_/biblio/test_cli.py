@@ -7,16 +7,16 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import power
+import hoverpower
 import serializeraw
-import utilatest
+import utilotest
 
 import docref.path
 import docref.utils
 import tests.docref_
 
 
-@utilatest.requires(power.MASTER091B_PDF)
+@utilotest.requires(hoverpower.MASTER091B_PDF)
 def test_docref_bibliography_master91b(td, mp):
     """Do not parse overlapping words.
 
@@ -24,7 +24,7 @@ def test_docref_bibliography_master91b(td, mp):
     other pattern.
     """
     bibliography = extract_label(
-        power.MASTER091B_PDF,
+        hoverpower.MASTER091B_PDF,
         td,
         mp,
         pages='9',
@@ -33,7 +33,7 @@ def test_docref_bibliography_master91b(td, mp):
 
 
 def extract_label(source, td, mp, pages=':'):
-    source = power.link(source)
+    source = hoverpower.link(source)
     tests.docref_.run(
         f'-i {source} --bibliography --pages={pages}',
         mp=mp,

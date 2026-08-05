@@ -9,13 +9,13 @@
 
 import iamraw
 import serializeraw
-import utila
+import utilo
 
 import weblink.features.sentence
 
 
 def work(footers: str, pages: tuple = None) -> str:
-    if not utila.exists(footers):
+    if not utilo.exists(footers):
         return '[]'
     loaded = load_footnotes(
         footers,

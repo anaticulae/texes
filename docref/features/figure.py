@@ -8,7 +8,7 @@
 # =============================================================================
 
 import serializeraw
-import utila
+import utilo
 
 import docref.reference
 
@@ -33,7 +33,7 @@ def work(sentences: str, headlines: str, pages: tuple = None) -> str:
     return dumped
 
 
-VALID = utila.compiles(r"""
+VALID = utilo.compiles(r"""
     (
         Abb\.|
         Abbildung|
@@ -45,7 +45,7 @@ VALID = utila.compiles(r"""
 """)
 
 
-@utila.cacheme
+@utilo.cacheme
 def valid(item: str) -> bool:
     """\
     >>> valid('Industrie 4.0')
@@ -56,7 +56,7 @@ def valid(item: str) -> bool:
     return False
 
 
-PATTERN = utila.splitlines("""
+PATTERN = utilo.splitlines("""
 (Abb. 100 und 101)
 (s. Abb. 3a)
 (s. Abb. 3)

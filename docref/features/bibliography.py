@@ -62,7 +62,7 @@ TODO: TECHNICAL
 
 import configo
 import serializeraw
-import utila
+import utilo
 
 import docref.biblio.parser
 import docref.features
@@ -102,22 +102,22 @@ def select(parsed: list) -> list:
     If there are too few, this colons are no references, there are often
     part of math or something else.
     """
-    complexs, simple = utila.partition(
+    complexs, simple = utilo.partition(
         items=parsed,
         key=lambda x: not any(item for item in x.raw
                               if COLON_SIMPLE.match(item)),
     )
     if len(simple) < SIMPLE_COUNT_MIN:
-        utila.debug(f'too few: {len(simple)}, {len(parsed)} disable simple')
+        utilo.debug(f'too few: {len(simple)}, {len(parsed)} disable simple')
         return complexs
-    rate = utila.rate_rel(len(simple), len(parsed))
+    rate = utilo.rate_rel(len(simple), len(parsed))
     if rate < SIMPLE_RATE_MIN:
-        utila.debug(f'rate: {rate} {len(simple)}, {len(parsed)} disable simple')
+        utilo.debug(f'rate: {rate} {len(simple)}, {len(parsed)} disable simple')
         return complexs
     return parsed
 
 
-NUMBERED_REFERENCE = utila.compiles(r"""
+NUMBERED_REFERENCE = utilo.compiles(r"""
 \[
     [ ]{0,2}
     \d{1,3}
@@ -131,7 +131,7 @@ NUMBERED_REFERENCE = utila.compiles(r"""
 \]
 """)
 
-COLON_SIMPLE = utila.compiles(r"""
+COLON_SIMPLE = utilo.compiles(r"""
 \(
     [ ]{0,2}
     \d{1,3}
@@ -147,7 +147,7 @@ COLON_SIMPLE = utila.compiles(r"""
 """)
 
 
-@utila.cacheme
+@utilo.cacheme
 def valid(item: str):
     """\
     >>> valid('[ 28 ]')
@@ -172,7 +172,7 @@ def valid(item: str):
     return False
 
 
-PATTERN = utila.splitlines("""
+PATTERN = utilo.splitlines("""
 [Hof11, S. 309-311]
 [Hof11, S. 314f]
 [Mag13]
@@ -225,4 +225,4 @@ PATTERN = utila.splitlines("""
 (11, 22, 33, 44)
 (11, 22, 33, 44, 55)
 """)
-PATTERN |= {utila.compiles(r'\{\{hn\:\d{1,4}\:nh\}\}')}
+PATTERN |= {utilo.compiles(r'\{\{hn\:\d{1,4}\:nh\}\}')}

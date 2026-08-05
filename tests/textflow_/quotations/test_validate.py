@@ -9,17 +9,17 @@
 
 import functools
 
-import power
+import hoverpower
 import pytest
 import serializeraw
-import utila
-import utilatest
+import utilo
+import utilotest
 
 import tests.textflow_
 import texas
 import textflow.path
 
-ARCHIVE = utila.join(
+ARCHIVE = utilo.join(
     texas.ROOT,
     'tests/textflow_/quotations/expected',
     exist=True,
@@ -27,10 +27,10 @@ ARCHIVE = utila.join(
 
 
 @pytest.mark.parametrize('source, expected', [
-    pytest.param(power.MASTER072_PDF, 'master072', id='master072'),
-    pytest.param(power.MASTER083_PDF, 'master083', id='master083'),
+    pytest.param(hoverpower.MASTER072_PDF, 'master072', id='master072'),
+    pytest.param(hoverpower.MASTER083_PDF, 'master083', id='master083'),
 ])
-@utilatest.nightly
+@utilotest.nightly
 def test_validate_quotations_x(source, expected, td, mp):
     QuotationValidate(
         source,
@@ -41,7 +41,7 @@ def test_validate_quotations_x(source, expected, td, mp):
     ).evaluate()
 
 
-class QuotationValidate(utilatest.BaseLiner):
+class QuotationValidate(utilotest.BaseLiner):
 
     def __init__(self, source, pages, expected, td, mp):
         super().__init__(
@@ -67,5 +67,5 @@ class QuotationValidate(utilatest.BaseLiner):
         quotes = [
             f'{str(quote.page).zfill(3)} {quote.sentence}' for quote in value
         ]
-        raw = utila.NEWLINE.join(quotes).strip()
+        raw = utilo.NEWLINE.join(quotes).strip()
         return raw

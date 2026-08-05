@@ -11,8 +11,8 @@ import collections
 import re
 
 import german
-import konrad
-import utila
+import konradus
+import utilo
 
 # TODO: MOVED FROM WORDS REMOVE LATER
 
@@ -44,7 +44,7 @@ def sentence_plain(sentence, marks) -> list:
     result = []
     splitted = german.word_tokenize(sentence, validate_sentences=False)
     for start, end in marks:
-        selected = [splitted[item] for item in utila.rtuple(start, end)]
+        selected = [splitted[item] for item in utilo.rtuple(start, end)]
         selected = selection_plain(selected)
         result.append(selected)
     return result
@@ -57,7 +57,7 @@ def selection_plain(items: list) -> str:
     >>> selection_plain('A. 5 .)'.split())
     'A.5.)'
     """
-    items = [konrad.mark2str(item) for item in items]
+    items = [konradus.mark2str(item) for item in items]
     raw = ' '.join(items)
     raw = raw.replace('( ', '(')
     raw = raw.replace('[ ', '[')

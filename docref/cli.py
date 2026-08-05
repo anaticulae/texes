@@ -7,7 +7,7 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import utila
+import utilo
 
 import docref
 
@@ -17,35 +17,35 @@ Abbildung 5) with structure elements(figure, table, etc.).
 """
 
 WORKPLAN = [
-    utila.create_step(
+    utilo.create_step(
         'bibliography',
         inputs=[
-            utila.ResultFile('words', 'sentences_sentences'),
-            utila.ResultFile('headlines', 'result_result'),
+            utilo.ResultFile('words', 'sentences_sentences'),
+            utilo.ResultFile('headlines', 'result_result'),
         ],
         output=('parsed',),
     ),
-    utila.create_step(
+    utilo.create_step(
         'figure',
         inputs=[
-            utila.ResultFile('words', 'sentences_sentences'),
-            utila.ResultFile('headlines', 'result_result'),
+            utilo.ResultFile('words', 'sentences_sentences'),
+            utilo.ResultFile('headlines', 'result_result'),
         ],
         output=('parsed',),
     ),
-    utila.create_step(
+    utilo.create_step(
         'section',
         inputs=[
-            utila.ResultFile('words', 'sentences_sentences'),
-            utila.ResultFile('headlines', 'result_result'),
+            utilo.ResultFile('words', 'sentences_sentences'),
+            utilo.ResultFile('headlines', 'result_result'),
         ],
         output=('parsed',),
     ),
-    utila.create_step(
+    utilo.create_step(
         'table',
         inputs=[
-            utila.ResultFile('words', 'sentences_sentences'),
-            utila.ResultFile('headlines', 'result_result'),
+            utilo.ResultFile('words', 'sentences_sentences'),
+            utilo.ResultFile('headlines', 'result_result'),
         ],
         output=('parsed',),
     ),
@@ -53,11 +53,11 @@ WORKPLAN = [
 
 
 def main():
-    utila.featurepack(
+    utilo.featurepack(
         root=docref.ROOT,
         workplan=WORKPLAN,
         featurepackage='docref.features',
-        config=utila.FeaturePackConfig(
+        config=utilo.FeaturePackConfig(
             description=DESCRIPTION,
             multiprocessed=True,
             name=docref.PROCESS,

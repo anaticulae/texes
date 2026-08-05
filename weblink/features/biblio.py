@@ -9,13 +9,13 @@
 
 import iamraw
 import serializeraw
-import utila
+import utilo
 
 import weblink.features.sentence
 
 
 def work(bibliography: str) -> str:
-    if not utila.exists(bibliography):
+    if not utilo.exists(bibliography):
         return '[]'
     loaded = load_bibliography(bibliography)
     processed = weblink.features.sentence.process_sentences(loaded)

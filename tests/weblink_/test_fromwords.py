@@ -7,16 +7,16 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import power
+import hoverpower
 import serializeraw
-import utilatest
+import utilotest
 
 import tests.weblink_
 import weblink
 
 
 def test_links_master75pages15(td, mp):
-    loaded = hyperlinks(power.MASTER075_PDF, td, mp, 15)
+    loaded = hyperlinks(hoverpower.MASTER075_PDF, td, mp, 15)
     assert len(loaded) == 1
     hyperlink = loaded[0].href
     assert hyperlink.startswith('https')
@@ -25,8 +25,8 @@ def test_links_master75pages15(td, mp):
 
 
 def hyperlinks(source, td, mp, pages=':'):
-    utilatest.fixture_requires(source)
-    cmd = f'-i {power.link(source)} --sentence --pages={pages}'
+    utilotest.fixture_requires(source)
+    cmd = f'-i {hoverpower.link(source)} --sentence --pages={pages}'
     tests.weblink_.run(cmd, mp=mp)
     linkpath = weblink.path.weblink_sentence(td.tmpdir)
     loaded = serializeraw.load_hyperlinks(linkpath)

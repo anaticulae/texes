@@ -7,19 +7,19 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import power
+import hoverpower
 import serializeraw
-import utilatest
+import utilotest
 
 import tests.textflow_
 import textflow.features.blockquote
 import textflow.path
 
 
-@utilatest.longrun
-@utilatest.requires(power.MASTER072_PDF)
+@utilotest.longrun
+@utilotest.requires(hoverpower.MASTER072_PDF)
 def test_blockquote_master72():
-    source = power.link(power.MASTER072_PDF)
+    source = hoverpower.link(hoverpower.MASTER072_PDF)
     pages = (15,)
     textsize = 12.0  # TODO: NOT VALIDATED
     ptcn = serializeraw.ptcn_frompath(
@@ -33,10 +33,10 @@ def test_blockquote_master72():
     assert len(extracted.content) == 2
 
 
-@utilatest.nightly
-@utilatest.requires(power.MASTER072_PDF)
+@utilotest.nightly
+@utilotest.requires(hoverpower.MASTER072_PDF)
 def test_blockquote_validate_master72(td, mp):
-    source = power.link(power.MASTER072_PDF)
+    source = hoverpower.link(hoverpower.MASTER072_PDF)
     tests.textflow_.run(
         f'-i {source} --blockquote --pages=0:65',
         mp=mp,
@@ -48,10 +48,10 @@ def test_blockquote_validate_master72(td, mp):
     assert current == expected
 
 
-@utilatest.longrun
-@utilatest.requires(power.BACHELOR076_PDF)
+@utilotest.longrun
+@utilotest.requires(hoverpower.BACHELOR076_PDF)
 def test_blockquote_validate_bachelor76page8_11_13_15_16(td, mp):
-    source = power.link(power.BACHELOR076_PDF)
+    source = hoverpower.link(hoverpower.BACHELOR076_PDF)
     tests.textflow_.run(
         f'-i {source} --blockquote --pages=8:17',
         mp=mp,
@@ -63,10 +63,10 @@ def test_blockquote_validate_bachelor76page8_11_13_15_16(td, mp):
     assert current == expected
 
 
-@utilatest.longrun
-@utilatest.requires(power.MASTER098_PDF)
+@utilotest.longrun
+@utilotest.requires(hoverpower.MASTER098_PDF)
 def test_blockquote_validate_master98(td, mp):
-    source = power.link(power.MASTER098_PDF)
+    source = hoverpower.link(hoverpower.MASTER098_PDF)
     tests.textflow_.run(
         f'-i {source} --blockquote --pages=0:17',
         mp=mp,

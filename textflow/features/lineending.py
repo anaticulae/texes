@@ -11,7 +11,7 @@ import collections
 
 import serializeraw
 import texmex
-import utila
+import utilo
 
 import textflow.serialize
 
@@ -57,5 +57,5 @@ def dump_lineendings(item) -> str:
 @textflow.serialize.loadme(ctor=PageContentLineEnding)
 def load_lineendings(item):
     char, bounding = item.split(maxsplit=1)
-    parsed = utila.parse_tuple(bounding)
+    parsed = utilo.parse_tuple(bounding)
     return (char, parsed)

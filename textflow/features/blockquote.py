@@ -17,7 +17,7 @@ import german
 import iamraw
 import serializeraw
 import texmex
-import utila
+import utilo
 
 BLOCK_QUOTE_DIST_MIN = configo.HV_FLOAT_PLUS(default=5.0)
 
@@ -102,7 +102,7 @@ def iscitation_group_right_bounded(group, bounds, textsize) -> bool:
     if left <= LEFT_MAX:
         # left feeded text
         return False
-    left = utila.groupby_diff(
+    left = utilo.groupby_diff(
         [item.bounds.leftdist for item in bounds],
         maxdiff=1.5,
     )
@@ -125,7 +125,7 @@ def iscitation_group_intention(bounds) -> bool:
         for item in bounds
     ]
     marks = [word for word in lines if german.contain_quotation_marks(word)]
-    marks = utila.flat(marks)
+    marks = utilo.flat(marks)
     # TODO: COUNT QUOTATION SIGNS?
     contains_quotation = any(marks)
     return contains_quotation
@@ -150,7 +150,7 @@ def group_distance(group):
         return None
     left = [item.bounds.leftdist for item in group]
     right = [item.bounds.rightdist for item in group]
-    left = utila.roundme(left, digits=0, convert=False)
-    right = utila.roundme(right, digits=0, convert=False)
-    left, right = utila.mode(left), utila.mode(right)
+    left = utilo.roundme(left, digits=0, convert=False)
+    right = utilo.roundme(right, digits=0, convert=False)
+    left, right = utilo.mode(left), utilo.mode(right)
     return left, right
