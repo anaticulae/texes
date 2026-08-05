@@ -7,7 +7,7 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import configo
+import configos
 
 import texas
 
@@ -16,4 +16,4 @@ __version__ = texas.__version__
 PROCESS = 'docref'
 ROOT = texas.ROOT
 
-configo.cloud_lookup(PROCESS)
+configos.cloud_lookup(PROCESS)

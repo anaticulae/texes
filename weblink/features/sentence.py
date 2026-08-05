@@ -7,8 +7,8 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import configo
-import german
+import configos
+import germania
 import iamraw
 import serializeraw
 import utilo
@@ -34,12 +34,12 @@ def process_sentences(texts):
     return result
 
 
-LOOK_FORWARD = configo.HV_INT_PLUS(default=30)
+LOOK_FORWARD = configos.HV_INT_PLUS(default=30)
 
 
 def process_chunk(sentence):
     result = []
-    hyperlinks = german.links(sentence, position=True)
+    hyperlinks = germania.links(sentence, position=True)
     if hyperlinks:
         hyperlinks = try_merge(sentence)
     for hyperlink, starting in hyperlinks:
@@ -47,7 +47,7 @@ def process_chunk(sentence):
             sentence,
             start=starting,
             end=starting + len(hyperlink),
-            collector=german.dates,
+            collector=germania.dates,
             after=LOOK_FORWARD,
         )
         date = date[0] if date else None
@@ -87,7 +87,7 @@ def try_merge(sentence: str) -> list:
     # TODO: MOVE TO GERMAN MERGE METHOD
     # TODO: SUPPORT MORE THAN ONE FORWARD MERGE
     result = []
-    hyperlinks = german.links(sentence, position=True)
+    hyperlinks = germania.links(sentence, position=True)
     for hyperlink, starting in hyperlinks:
         index = starting + len(hyperlink)
         raw_sentence = sentence[index:]
@@ -111,11 +111,11 @@ def merge_forward(before, text) -> list:
     current = None
     joined = before
     for item in splitted:
-        current = german.links(joined)
+        current = germania.links(joined)
         if item == '-':
             break
         joined = joined + item
-        parsed = german.links(joined)
+        parsed = germania.links(joined)
         if not parsed:
             break
         if parsed[0] != joined:

@@ -10,7 +10,7 @@
 import collections
 import re
 
-import german
+import germania
 import konradus
 import utilo
 
@@ -42,7 +42,7 @@ def sentence_lookup(text) -> dict:
 
 def sentence_plain(sentence, marks) -> list:
     result = []
-    splitted = german.word_tokenize(sentence, validate_sentences=False)
+    splitted = germania.word_tokenize(sentence, validate_sentences=False)
     for start, end in marks:
         selected = [splitted[item] for item in utilo.rtuple(start, end)]
         selected = selection_plain(selected)

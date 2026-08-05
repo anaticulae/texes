@@ -12,16 +12,16 @@
 
 """
 
-import configo
-import german
+import configos
+import germania
 import iamraw
 import serializeraw
 import texmex
 import utilo
 
-BLOCK_QUOTE_DIST_MIN = configo.HV_FLOAT_PLUS(default=5.0)
+BLOCK_QUOTE_DIST_MIN = configos.HV_FLOAT_PLUS(default=5.0)
 
-BLOCK_QUOTE_LINE_LENGTH_MAX = configo.HV_FLOAT_PLUS(default=15)
+BLOCK_QUOTE_LINE_LENGTH_MAX = configos.HV_FLOAT_PLUS(default=15)
 
 
 def work(
@@ -84,9 +84,9 @@ def group_todata(index, navigator):
     return result
 
 
-RIGHT_MAX = configo.HV_FLOAT_PLUS(default=3.0)
+RIGHT_MAX = configos.HV_FLOAT_PLUS(default=3.0)
 
-LEFT_MAX = configo.HV_FLOAT_PLUS(default=20.0)
+LEFT_MAX = configos.HV_FLOAT_PLUS(default=20.0)
 
 
 def iscitation_group_right_bounded(group, bounds, textsize) -> bool:
@@ -121,10 +121,10 @@ def iscitation_group_intention(bounds) -> bool:
     if right < BLOCK_QUOTE_DIST_MIN:
         return False
     lines = [
-        german.word_tokenize(item.text, validate_sentences=False)
+        germania.word_tokenize(item.text, validate_sentences=False)
         for item in bounds
     ]
-    marks = [word for word in lines if german.contain_quotation_marks(word)]
+    marks = [word for word in lines if germania.contain_quotation_marks(word)]
     marks = utilo.flat(marks)
     # TODO: COUNT QUOTATION SIGNS?
     contains_quotation = any(marks)
@@ -134,13 +134,13 @@ def iscitation_group_intention(bounds) -> bool:
 def iscitation_group(bounds) -> bool:
     """Group starts and ends with quotation mark."""
     text = ' '.join([item.text.strip() for item in bounds])
-    marks = german.word_tokenize(text, validate_sentences=False)
+    marks = germania.word_tokenize(text, validate_sentences=False)
     if len(marks) < 2:
         return False
-    if not german.contain_quotation_marks([marks[0]]):
+    if not germania.contain_quotation_marks([marks[0]]):
         return False
     # 0:3 add some tolerance to ignore, dots or highnotes
-    if not german.contain_quotation_marks(marks[-3:]):
+    if not germania.contain_quotation_marks(marks[-3:]):
         return False
     return True
 

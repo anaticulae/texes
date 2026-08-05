@@ -7,7 +7,7 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import german
+import germania
 import iamraw
 import serializeraw
 import texmex
@@ -27,8 +27,8 @@ def work(word: str, pages: tuple = None) -> str:
 def collect_quotations(word) -> iamraw.ExtractedQuotations:
     result = []
     for page, index, sentence, splitted in sentences(word):
-        lang = german.lang(splitted).language
-        extracted = german.extract_quotes(sentence, lang=lang)
+        lang = germania.lang(splitted).language
+        extracted = germania.extract_quotes(sentence, lang=lang)
         if not extracted:
             continue
         for item in extracted:
@@ -38,7 +38,7 @@ def collect_quotations(word) -> iamraw.ExtractedQuotations:
             item for item in extracted
             if item[0] is not None and item[1] is not None
         ]
-        quote = german.raw_quotation(splitted, extracted)
+        quote = germania.raw_quotation(splitted, extracted)
         for item in quote:
             result.append((page, index, item))
     return result
@@ -57,7 +57,7 @@ def sentences(word) -> iamraw.ExtractedQuotations:
                 elif texmex.is_formula(sentence):
                     # skip formula
                     continue
-                splitted = german.word_tokenize(
+                splitted = germania.word_tokenize(
                     sentence,
                     validate_sentences=False,
                 )

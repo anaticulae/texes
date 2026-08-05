@@ -7,7 +7,7 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import german
+import germania
 import iamraw
 import konradus
 import utilo
@@ -22,7 +22,7 @@ def parse_text(
 ) -> iamraw.DocRefs:
     result = []
     for page, number, sentence in docref.utils.sentences(text, numbers=True):
-        parsed = german.searches(
+        parsed = germania.searches(
             pattern,
             sentence,
             compare_content=compare_content,

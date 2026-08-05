@@ -60,7 +60,7 @@ TODO: FOOTER
 TODO: TECHNICAL
 """
 
-import configo
+import configos
 import serializeraw
 import utilo
 
@@ -91,9 +91,9 @@ def work(sentences: str, headlines: str, pages: tuple = None) -> str:
     return dumped
 
 
-SIMPLE_COUNT_MIN = configo.HV_INT_PLUS(default=10)
+SIMPLE_COUNT_MIN = configos.HV_INT_PLUS(default=10)
 
-SIMPLE_RATE_MIN = configo.HV_PERCENT_PLUS(default=50)
+SIMPLE_RATE_MIN = configos.HV_PERCENT_PLUS(default=50)
 
 
 def select(parsed: list) -> list:
