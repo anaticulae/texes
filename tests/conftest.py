@@ -10,7 +10,6 @@
 import gennex
 import hoverpower
 import pytest
-import utilo
 import utilotest
 from utilotest import mp  # pylint:disable=W0611
 from utilotest import td  # pylint:disable=W0611
@@ -53,10 +52,8 @@ def pytest_sessionstart():
 
 
 def extract(resources):
-    utilo.log(f'root: {hoverpower.REPOSITORY}')
     gennex.extract(
         files=resources,
-        base=hoverpower.REPOSITORY,
         bibliography=True,
         detector=True,
         groupme=True,

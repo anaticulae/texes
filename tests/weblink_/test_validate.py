@@ -55,11 +55,11 @@ class Evaluate(utilotest.BaseLiner):
 
     def frompath(self, workdir):  # pylint:disable=R0201
         result = []
-        for loader in [
+        for loader in (
                 weblink.path.weblink_bibliography,
                 weblink.path.weblink_footer,
                 weblink.path.weblink_sentence,
-        ]:
+        ):
             path = loader(workdir)
             loaded = serializeraw.load_hyperlinks(path)
             result.extend(loaded)

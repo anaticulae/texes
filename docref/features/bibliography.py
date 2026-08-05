@@ -225,4 +225,4 @@ PATTERN = utilo.splitlines("""
 (11, 22, 33, 44)
 (11, 22, 33, 44, 55)
 """)
-PATTERN |= {utilo.compiles(r'\{\{hn\:\d{1,4}\:nh\}\}')}
+PATTERN += [utilo.compiles(r'\{\{hn\:\d{1,4}\:nh\}\}')]

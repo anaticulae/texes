@@ -80,7 +80,10 @@ PATTERN = utilo.compiles(r"""
         [ ]{0,3}                    # space between collon and pages
         %(pages)s
     )
-""" % dict(year=YEAR, pages=PAGES))
+""" % {
+    "year": YEAR,
+    "pages": PAGES
+})
 
 AUTHOR_AND_YEAR = utilo.compiles(r"""
 \(
@@ -90,7 +93,10 @@ AUTHOR_AND_YEAR = utilo.compiles(r"""
     [ ]{0,2}
     %(year)s
 \)
-""" % dict(author=AUTHOR, year=YEAR))
+""" % {
+    'author': AUTHOR,
+    'year': YEAR
+})
 
 REFERENCE_LONG = utilo.compiles(r"""
 \(
@@ -101,7 +107,10 @@ REFERENCE_LONG = utilo.compiles(r"""
     [ ]{0,2}
     %(pages)s
 \)
-""" % dict(author=AUTHOR, pages=PAGES))
+""" % {
+    'author': AUTHOR,
+    'pages': PAGES
+})
 
 AUTHOR_COMMA_YEAR = utilo.compiles(r"""
 \(
@@ -119,7 +128,11 @@ AUTHOR_COMMA_YEAR = utilo.compiles(r"""
     ){0,1}
     [ ]{0,2}
 \)
-""" % dict(author=AUTHOR, year=YEAR, pages=PAGES))
+""" % {
+    'author': AUTHOR,
+    'year': YEAR,
+    'pages': PAGES
+})
 
 HIGHNOTE = utilo.compiles(r"""
     (?P<author>
