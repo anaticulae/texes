@@ -14,12 +14,12 @@ authors = [
     { name = "Helmut Konrad Schewe", email = "helmutus@outlook.com" },
 ]
 dependencies = [
-    "utilo>=2.109.1,<3.0.0",
-    "iamraw>=4.93.0,<5.0.0",
-    "germania>=1.32.1,<2.0.0",
-    "verbo>=1.23.4,<2.0.0",
-    "configos>=1.0.4,<2.0.0",
     "bibliographia>=1.0.1,<2.0.0",
+    "configos>=1.0.4,<2.0.0",
+    "germania>=1.32.1,<2.0.0",
+    "iamraw>=4.93.0,<5.0.0",
+    "utilo>=2.109.1,<3.0.0",
+    "verbo>=1.23.4,<2.0.0",
 ]
 keywords = []
 classifiers = [
@@ -38,12 +38,12 @@ content-type = "text/markdown"
 
 [project.optional-dependencies]
 dev = [
-    "utilotest==1.0.5",
-    "hoverpower==1.6.0",
-    "rawmaker==2.40.5",
     "gennex==1.1.0",
-    "titulum==1.0.2",
+    "hoverpower==1.6.0",
     "indicibus==1.0.2",
+    "rawmaker==2.40.5",
+    "titulum==1.0.2",
+    "utilotest==1.0.5",
 ]
 
 [project.urls]
