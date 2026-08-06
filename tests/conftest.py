@@ -43,7 +43,7 @@ RESOURCES = [
     hoverpower.MASTER116_PDF,
     hoverpower.todo(hoverpower.BACHELOR056_PDF, '0:20', spacestation=True),
 ]
-WORKER = utilotest.worker_count(4, onci=len(RESOURCES))
+WORKER = utilotest.worker_count(12, onci=len(RESOURCES))
 
 
 @pytest.mark.usefixtures('session')
