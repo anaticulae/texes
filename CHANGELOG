@@ -1,227 +1,1033 @@
-# Changelog
+# CHANGELOG
 
-Every noteable change is logged here.
+
+## v1.0.0 (2026-08-06)
+
+### Chores
+
+- **github**: Add .github
+  ([`53d4b09`](https://github.com/anaticulae/texes/commit/53d4b0993ff26cc49939a1c3754ce1e66750ebc0))
+
+- **license**: Add LICENSE
+  ([`a902bfc`](https://github.com/anaticulae/texes/commit/a902bfcc9f48837a14f0e99a03a79fcccf5c5fa0))
+
+- **pyproject**: Add modern setup
+  ([`3d45522`](https://github.com/anaticulae/texes/commit/3d45522ec9bf3a939255d02cae8721d327181b28))
+
+- **pyproject**: Adjust project name to publish
+  ([`b87322b`](https://github.com/anaticulae/texes/commit/b87322b43e135c194deb6dead1901066edaf7965))
+
+- **pyproject**: Remove outdated files
+  ([`c56932b`](https://github.com/anaticulae/texes/commit/c56932b49254a93ac010eec6da3c068687015fc9))
+
+- **pyproject**: Sort dependencies
+  ([`68b302b`](https://github.com/anaticulae/texes/commit/68b302b681ac26c25ee1762826f7d577e4d00dce))
+
+### Documentation
+
+- **readme**: Adjust file types
+  ([`5913bde`](https://github.com/anaticulae/texes/commit/5913bde577b3dee092cd4898d64bcb7f6b240607))
+
+### Features
+
+- **texas**: Use dynamic version
+  ([`5c65de6`](https://github.com/anaticulae/texes/commit/5c65de6afd836f2c2e26db74b67a40b4bd1ab661))
+
+### Refactoring
+
+- **linter**: Solve linter warnings
+  ([`0a4b20c`](https://github.com/anaticulae/texes/commit/0a4b20c43d8f2160c5b6d532aaa50896f1a2e52e))
+
+- **packages**: Adjust names
+  ([`513b4f6`](https://github.com/anaticulae/texes/commit/513b4f65804d738dffa3f9732caf0ef6d639def0))
+
+- **packages**: Adjust names
+  ([`6333704`](https://github.com/anaticulae/texes/commit/633370497ec1910aebd073305fe7f66d589483ba))
+
 
 ## v0.15.1 (2022-11-10)
 
-### Chore
+### Chores
 
-* upgrade requirements.txt (80c6b90592ab)
+- **requirements**: Upgrade requirements.txt
+  ([`80c6b90`](https://github.com/anaticulae/texes/commit/80c6b90592ab313de0f02f99614e76d73cd556d8))
+
+### Testing
+
+- **refactor**: Ease debugging
+  ([`4a9a4f5`](https://github.com/anaticulae/texes/commit/4a9a4f50a9e2c73cf06bbd51f88fa89ca93f4fc2))
+
+- **rename**: Clarify test name
+  ([`6b609b7`](https://github.com/anaticulae/texes/commit/6b609b78660354c41a3c9bb0e0f050de52c611c3))
+
 
 ## v0.15.0 (2022-11-10)
 
-### Feature
+### Bug Fixes
 
-* use new hefopa result (da553459d457)
+- **cli**: Do not use legacy resource
+  ([`0b5db6f`](https://github.com/anaticulae/texes/commit/0b5db6f8fd79ce9d8672365bb3a0b85bfe28cac8))
 
-### Fix
+### Chores
 
-* do not use legacy resource (0b5db6f8fd79)
+- **requirements**: Upgrade requirements.txt
+  ([`2ca74b9`](https://github.com/anaticulae/texes/commit/2ca74b984f925ec44a150b54e849bead93217274))
 
-### Chore
+- **resources**: Extend test data generator
+  ([`2dac422`](https://github.com/anaticulae/texes/commit/2dac4224852572270ec92f1e58a0dd8c7b262873))
 
-* extend test data generator (2dac42248525)
-* upgrade requirements.txt (2ca74b984f92)
+### Features
+
+- **weblink**: Use new hefopa result
+  ([`da55345`](https://github.com/anaticulae/texes/commit/da553459d457ab6374fc659dd7738ec39f7df44e))
+
+### Refactoring
+
+- **footer**: Shorten var name
+  ([`1f89371`](https://github.com/anaticulae/texes/commit/1f8937137d9e4adb193f96f155e4e267a4127d1a))
+
+- **sentence**: Use real holy value
+  ([`ce43a3a`](https://github.com/anaticulae/texes/commit/ce43a3a09d660589c23241535abf51f7596d6a9c))
+
+### Testing
+
+- **baseline**: Update baseline
+  ([`de8516a`](https://github.com/anaticulae/texes/commit/de8516aaf2fde26fd4a28b523dd1c9eb03fa2209))
+
+- **link**: Extend intext verification
+  ([`184f9af`](https://github.com/anaticulae/texes/commit/184f9afb97841a90880589f864831129f661cc0e))
+
+- **weblink**: Adjust baseline
+  ([`c37c501`](https://github.com/anaticulae/texes/commit/c37c501d764d55da159bda0fd74b30999a4a53fb))
+
 
 ## v0.14.1 (2022-11-08)
 
-### Chore
+### Chores
 
-* convert nightly to all (c25f61d97dd6)
-* upgrade pipe library (f645791397c1)
-* add ghost (e3d4c62d8b2a)
-* upgrade environment (5d2e5b474b9f)
-* do not run in privileged mode (a04db8d6dd25)
-* adjust for automation tool (eb2bb88ac08a)
-* upgrade requirements.txt (f1fc998f23a2)
+- **changelog**: Adjust for automation tool
+  ([`eb2bb88`](https://github.com/anaticulae/texes/commit/eb2bb88ac08a7550c5870298f39b9b8eb2ab8721))
 
-## v0.13.0
+- **Jenkins**: Add ghost
+  ([`e3d4c62`](https://github.com/anaticulae/texes/commit/e3d4c62d8b2a54986b12be6c4dc5294dfe4586f0))
 
-### Feature
+- **Jenkins**: Convert nightly to all
+  ([`c25f61d`](https://github.com/anaticulae/texes/commit/c25f61d97dd6d7dfa59c48492f8ebb07fb45ef42))
 
-* extend table reference parser (5fb14061bd17)
-* improve sentence merger (53af2d75bbad)
-* extend section parser (b962abc83cd5)
-* extend colon pattern (c7983c65a813)
-* add simple colon parser and judgement (7c2491b35e0d)
-* create structure on runtime (caa9aacd0285)
-* extend valid section pattern (2edf4feb727f)
+- **Jenkins**: Do not run in privileged mode
+  ([`a04db8d`](https://github.com/anaticulae/texes/commit/a04db8d6dd253098af98b54a0341a3df1db1c17f))
 
-### Fix
+- **Jenkins**: Upgrade environment
+  ([`5d2e5b4`](https://github.com/anaticulae/texes/commit/5d2e5b474b9fcb357a9e594e9686872ed997addb))
 
-* adjust error message (b0b8b5549c69)
-* reduce runtime of bracket pattern (47c62497ca1a)
+- **Jenkins**: Upgrade pipe library
+  ([`f645791`](https://github.com/anaticulae/texes/commit/f645791397c1973e5bd3a75cf35975a6f03aef21))
 
-## v0.12.0
+- **requirements**: Upgrade requirements.txt
+  ([`f1fc998`](https://github.com/anaticulae/texes/commit/f1fc998f23a2542dd60a93780e67ca04ecaa8480))
 
-### Feature
+### Refactoring
 
-* extend table ref parser (d93cbcb28aeb)
-* extend figure ref parser (b9893e131ee9)
-* extend figure ref parser (882e2bdfb39b)
+- **replace**: Automated replacement
+  ([`ba7ff8d`](https://github.com/anaticulae/texes/commit/ba7ff8d254ddf5672f882c1ce5f1bb87d070951f))
 
-## v0.11.0
+### Testing
 
-### Feature
+- **baseline**: Write baseline
+  ([`06f4394`](https://github.com/anaticulae/texes/commit/06f439481d149f8ecb8dd648d0d0cc2b0adf5605))
 
-* extend section reference parser (3188f7cf124c)
-* extend table ref parser (de1c7e74faba)
-* improve figure references (ccb14658dc4a)
-* extend section reference parser (09b52c840c2b)
-* validate section references (c69c5bd8f4d5)
-* skip invalid table references (982394152c39)
-* make validator more flexible (6f597032310f)
-* add highnote validator (faaf9bf93dd0)
 
-## v0.10.0
+## v0.14.0 (2022-10-02)
 
-### Feature
+### Chores
 
-* extend pattern (d45db82047c6)
-* unite author pattern (7680bc01a897)
-* make parser more flexible (c59c6959d7a3)
-* add ebd (4335f42ea7e1)
-* add highnote inside bib ref (3ded028ef36d)
-* add optional brackets (bf5745353468)
-* make pattern more flexible (e9580ad9b5df)
-* align pages regex (7c83e2030c3b)
-* extend valid author parser (20a514c224e9)
-* extend valid bib parser (cf2b6e76851b)
-* decrease verbosity (65da25be275e)
-* extend author parser (5d303dc1a20e)
-* extend intext parser (dec639b4b55e)
-* make year parser more strict (cc05fe174596)
-* use improve headlines (d6d7e6400c17)
+- **ci**: Add Jenkinsfile
+  ([`3d7c132`](https://github.com/anaticulae/texes/commit/3d7c132b7cfd7e41c9d567bc70f1b82859cb6a93))
 
-### Fix
+- **ci**: Increase worker count on CI
+  ([`ac8f358`](https://github.com/anaticulae/texes/commit/ac8f35877bdafb273de7b5beeaea4c4d512d3782))
 
-* do not generate ghost pattern (9888669a3526)
+- **ci**: Save generated resource if nightly fails
+  ([`d2d5b6b`](https://github.com/anaticulae/texes/commit/d2d5b6b0d3b22e64ccfdff5b650a187e0924c2a3))
 
-## v0.9.2
+- **requirements**: Upgrade requirements.txt
+  ([`2927b16`](https://github.com/anaticulae/texes/commit/2927b163d5435680c3f5f5ba03b390fe4e0136d0))
 
-### Feature
+- **requirements**: Upgrade requirements.txt
+  ([`53c129b`](https://github.com/anaticulae/texes/commit/53c129b4edca6a76ed78d8231c477b06c3e993a2))
 
-* add more general parser (76fc8c31db97)
+- **resources**: Extend test data generator
+  ([`6ce2850`](https://github.com/anaticulae/texes/commit/6ce28502d3b67130d03a3fe6491fecb738f64f17))
 
-## v0.9.1
+### Testing
 
-### Fix
+- **baseline**: Adjust baseline
+  ([`0f17152`](https://github.com/anaticulae/texes/commit/0f1715230dbe7ab47e85d66a4803225ca9cc26a5))
 
-* do not fail on formula split (9841c7bbda00)
-* adjust bib table loader (898569f7728f)
+- **baseline**: Adjust baseline after software integration
+  ([`d7af5f5`](https://github.com/anaticulae/texes/commit/d7af5f5280c937fc6ddc4b1df195ea0b3749ee8b))
 
-## v0.9.0
+- **failing**: Mark failing tests after software integration
+  ([`b988a58`](https://github.com/anaticulae/texes/commit/b988a58eb42e0ae3d0b7b891a36affb1cc855d86))
 
-### Feature
+- **refactor**: Skip non generated tests
+  ([`bb9b3e9`](https://github.com/anaticulae/texes/commit/bb9b3e92968a9f598b8dbd964a6109cc8e769a66))
 
-* add bibliography hyperlink parser (445357cf745d)
-* parse links in footer (97982f6982c4)
-* skip step if resource does not exists (6041a177687c)
-* determine links out of sentences (914f686d18f2)
-* add method to determine result weblink sentence path (12efa7289763)
-* add basic cli (b6eeb9e4decc)
+- **refactor**: Use fixture shortcuts
+  ([`1b8152c`](https://github.com/anaticulae/texes/commit/1b8152c9016127215fbcc3842559baa957ef4a7c))
 
-### Fix
 
-* use germania word tokeniser (34ff373fd2d9)
+## v0.13.0 (2022-06-24)
+
+### Bug Fixes
+
+- **bib**: Adjust error message
+  ([`b0b8b55`](https://github.com/anaticulae/texes/commit/b0b8b5549c69898bb949a7f734ed0fcd80ef8554))
+
+- **bib**: Reduce runtime of bracket pattern
+  ([`47c6249`](https://github.com/anaticulae/texes/commit/47c62497ca1a69683b4dcebace26e51695806db9))
+
+### Chores
+
+- **requirements**: Upgrade requirements.txt
+  ([`32481fa`](https://github.com/anaticulae/texes/commit/32481faa08163fb43ff23a8f299dc69345e35b1c))
+
+- **resources**: Extend test data generator
+  ([`710974c`](https://github.com/anaticulae/texes/commit/710974c807ebbf2ec254ec1474383015a9402e92))
+
+### Code Style
+
+- **config**: Add missing copyright header
+  ([`fc2077c`](https://github.com/anaticulae/texes/commit/fc2077c9b3ad8e8b62ff6b261beb21cc3b87b06e))
+
+### Features
+
+- **bib**: Add simple colon parser and judgement
+  ([`7c2491b`](https://github.com/anaticulae/texes/commit/7c2491b35e0dad5ba9ffddb4f572d5c9eb8beb20))
+
+- **bib**: Extend colon pattern
+  ([`c7983c6`](https://github.com/anaticulae/texes/commit/c7983c65a8136c233352c9bd4ab79ca1d6135646))
+
+- **cli**: Create structure on runtime
+  ([`caa9aac`](https://github.com/anaticulae/texes/commit/caa9aacd02857bea60a973e7e43d4bc9255adde5))
+
+- **section**: Extend section parser
+  ([`b962abc`](https://github.com/anaticulae/texes/commit/b962abc83cd50dc1749722046d8e39bc5e717a7f))
+
+- **section**: Extend valid section pattern
+  ([`2edf4fe`](https://github.com/anaticulae/texes/commit/2edf4feb727fc56c56ff9d4781c0523f21b097d9))
+
+- **table**: Extend table reference parser
+  ([`5fb1406`](https://github.com/anaticulae/texes/commit/5fb14061bd175a005526d2c7f69d42bdd1aea634))
+
+- **utils**: Improve sentence merger
+  ([`53af2d7`](https://github.com/anaticulae/texes/commit/53af2d75bbad681144489cd98a62c4e162b30620))
+
+### Refactoring
+
+- **intext**: Improve method order
+  ([`e520802`](https://github.com/anaticulae/texes/commit/e520802d8a2583bb36a31a087e61942f55f6c13d))
+
+- **intext**: Simplify code
+  ([`13a43dc`](https://github.com/anaticulae/texes/commit/13a43dc07147aa6ef5e96eb49dfb717bd2fc1f84))
+
+- **move**: Move reference validator
+  ([`77f0418`](https://github.com/anaticulae/texes/commit/77f04182ec1121bc81383b641f30faa569c98934))
+
+- **utils**: Remove unused code
+  ([`3956151`](https://github.com/anaticulae/texes/commit/395615136c8eb71ab90d6c15ab33b5d3a120dec3))
+
+
+## v0.12.0 (2022-06-21)
+
+### Chores
+
+- **requirements**: Upgrade requirements.txt
+  ([`60f6a6d`](https://github.com/anaticulae/texes/commit/60f6a6db3db1103c544e720e88f399aa7c326a07))
+
+- **resources**: Remove default behavior
+  ([`6748ea0`](https://github.com/anaticulae/texes/commit/6748ea0bde9259a2bbfc32177552591819d59f33))
+
+### Features
+
+- **figure**: Extend figure ref parser
+  ([`b9893e1`](https://github.com/anaticulae/texes/commit/b9893e131ee997f1c7ff4fc58521cc1de3ed92bf))
+
+- **figure**: Extend figure ref parser
+  ([`882e2bd`](https://github.com/anaticulae/texes/commit/882e2bdfb39be3f96eac63841e1bcdab881142e5))
+
+- **table**: Extend table ref parser
+  ([`d93cbcb`](https://github.com/anaticulae/texes/commit/d93cbcb28aeb08841222bcfdcea040668886a382))
+
+### Testing
+
+- **adjust**: Adjust hyperlink validator
+  ([`5a2d36a`](https://github.com/anaticulae/texes/commit/5a2d36addff0b3b867eede9062c56ea826332106))
+
+
+## v0.11.0 (2022-06-19)
+
+### Features
+
+- **bib**: Make validator more flexible
+  ([`6f59703`](https://github.com/anaticulae/texes/commit/6f597032310fdb3149e964aad65926c99b5cc54f))
+
+- **figure**: Improve figure references
+  ([`ccb1465`](https://github.com/anaticulae/texes/commit/ccb14658dc4a2dc86902190dc721462fd00c7c56))
+
+- **intext**: Add highnote validator
+  ([`faaf9bf`](https://github.com/anaticulae/texes/commit/faaf9bf93dd00a70b57615eff8f2ed1eb6d2e199))
+
+- **section**: Extend section reference parser
+  ([`3188f7c`](https://github.com/anaticulae/texes/commit/3188f7cf124ce1b206633311b6db56037dee2417))
+
+- **section**: Extend section reference parser
+  ([`09b52c8`](https://github.com/anaticulae/texes/commit/09b52c840c2bade16a1f2a6d871ccc6ec283276c))
+
+- **section**: Validate section references
+  ([`c69c5bd`](https://github.com/anaticulae/texes/commit/c69c5bd8f4d57edb698348af5d1a58c338aca50d))
+
+- **table**: Extend table ref parser
+  ([`de1c7e7`](https://github.com/anaticulae/texes/commit/de1c7e74fabac427c82a5c35be862bab40e1a761))
+
+- **table**: Skip invalid table references
+  ([`9823941`](https://github.com/anaticulae/texes/commit/982394152c394398816f969c8601faf94d01290e))
+
+### Refactoring
+
+- **section**: Reduce complexity
+  ([`aa51a03`](https://github.com/anaticulae/texes/commit/aa51a03b5d4344310e9eb19220ad5bc16d1b9ba8))
+
+- **table**: Simplify code
+  ([`3b6d866`](https://github.com/anaticulae/texes/commit/3b6d866056c535915855b7599e15fc9765cc848f))
+
+- **tableref**: Adjust validation
+  ([`4a61a51`](https://github.com/anaticulae/texes/commit/4a61a5146a82a73c1b089c39c69d9f88160e58e6))
+
+### Testing
+
+- **docref**: Validate section references
+  ([`af48516`](https://github.com/anaticulae/texes/commit/af485163ba639dd16ac54827a442f2d56adc7b84))
+
+- **figure**: Extend figure validation
+  ([`8ed0f10`](https://github.com/anaticulae/texes/commit/8ed0f109bb51e7a97d964d5a68021547d6aa5b02))
+
+- **fix**: Select source correctly
+  ([`35c6557`](https://github.com/anaticulae/texes/commit/35c65578128a760d2943a56719ca55c75d1e8589))
+
+- **remove**: Remove unused list
+  ([`a1e9a0e`](https://github.com/anaticulae/texes/commit/a1e9a0e05097c8e6384695b6dd806b91613767d3))
+
+- **style**: Improve method order
+  ([`2132517`](https://github.com/anaticulae/texes/commit/213251734e8114b6aa563bd820adabd79b927f25))
+
+- **validate**: Extend table validation
+  ([`cbf6c00`](https://github.com/anaticulae/texes/commit/cbf6c00b8e9d88cf80e4b2a3e6400f61987f1e08))
+
+
+## v0.10.0 (2022-06-19)
+
+### Bug Fixes
+
+- **intext**: Do not generate ghost pattern
+  ([`9888669`](https://github.com/anaticulae/texes/commit/9888669a3526621d5933192c3bc4d4e50eac21a2))
+
+### Chores
+
+- **requirements**: Add missing headlines
+  ([`b55f30a`](https://github.com/anaticulae/texes/commit/b55f30ad27393292b8f6b6c08da72baed7a61605))
+
+- **requirements**: Extend test data generator
+  ([`25a655b`](https://github.com/anaticulae/texes/commit/25a655b7894c12693ce7cb2913228b060d4150ea))
+
+- **requirements**: Upgrade requirements.txt
+  ([`74cc074`](https://github.com/anaticulae/texes/commit/74cc074f25e138373c66d5f63ecc58fd2bd23515))
+
+- **requirements**: Upgrade requirements.txt
+  ([`c623a81`](https://github.com/anaticulae/texes/commit/c623a811beaba098bd583cc41a176c15676ea0ba))
+
+- **resources**: Extend test data generator
+  ([`7ff107d`](https://github.com/anaticulae/texes/commit/7ff107da3f1ded2a6f7e92cc579a5211058904b0))
+
+- **resources**: Run bib table detector
+  ([`568a720`](https://github.com/anaticulae/texes/commit/568a72020e3c7c2260728fd957e6a65d8abbf690))
+
+- **resources**: Sort resources alphabetically
+  ([`67ff0b4`](https://github.com/anaticulae/texes/commit/67ff0b4b26813ccab9bcd1c4da29991f3db82b13))
+
+- **resources**: Use headlines and lists
+  ([`dfb798a`](https://github.com/anaticulae/texes/commit/dfb798a2997db72bd4f457e0cc9ca380a3b7b0aa))
+
+### Code Style
+
+- **intext**: Format code
+  ([`701b30e`](https://github.com/anaticulae/texes/commit/701b30ec2b59001b6ac53a68a94838df9faa1a4e))
+
+- **tests**: Fix up trailing white space
+  ([`6de5989`](https://github.com/anaticulae/texes/commit/6de59895ffc2ad0504760377d50c99e26cf44b24))
+
+### Features
+
+- **bib**: Decrease verbosity
+  ([`65da25b`](https://github.com/anaticulae/texes/commit/65da25be275edc5172e552c0d6642d055f115ad9))
+
+- **bib**: Extend intext parser
+  ([`dec639b`](https://github.com/anaticulae/texes/commit/dec639b4b55e0cc02cfc9c89a24b93dc2db41113))
+
+- **bib**: Extend valid bib parser
+  ([`cf2b6e7`](https://github.com/anaticulae/texes/commit/cf2b6e76851b6ea7d47ba0215e4a49aad0a1fea3))
+
+- **bibliography**: Extend pattern
+  ([`d45db82`](https://github.com/anaticulae/texes/commit/d45db82047c676b9388f6d40112728583a8b95dc))
+
+- **cli**: Use improve headlines
+  ([`d6d7e64`](https://github.com/anaticulae/texes/commit/d6d7e6400c17270502fe8406dbfd4243357bcb3a))
+
+- **intext**: Add ebd
+  ([`4335f42`](https://github.com/anaticulae/texes/commit/4335f42ea7e148f367536d01897f6d90f0994a7d))
+
+- **intext**: Add highnote inside bib ref
+  ([`3ded028`](https://github.com/anaticulae/texes/commit/3ded028ef36de1b5e2da8cab7f20129d212d9b5f))
+
+- **intext**: Add optional brackets
+  ([`bf57453`](https://github.com/anaticulae/texes/commit/bf574535346896f6a1798c88d13879fc00b8d11d))
+
+- **intext**: Align pages regex
+  ([`7c83e20`](https://github.com/anaticulae/texes/commit/7c83e2030c3baf6b3b354abb8020f2b075ff6c96))
+
+- **intext**: Extend author parser
+  ([`5d303dc`](https://github.com/anaticulae/texes/commit/5d303dc1a20e416e5c7df8c3733ae79a952fd4f5))
+
+- **intext**: Extend valid author parser
+  ([`20a514c`](https://github.com/anaticulae/texes/commit/20a514c224e9d4d8854ffff50f068e4e289f54b7))
+
+- **intext**: Make parser more flexible
+  ([`c59c695`](https://github.com/anaticulae/texes/commit/c59c6959d7a352c90a06384bc812a9806fc19314))
+
+- **intext**: Make pattern more flexible
+  ([`e9580ad`](https://github.com/anaticulae/texes/commit/e9580ad9b5df7a829c73d445b5858c0c98f6f58a))
+
+- **intext**: Make year parser more strict
+  ([`cc05fe1`](https://github.com/anaticulae/texes/commit/cc05fe174596f1fe5bdb5cf4696b702c560a2d56))
+
+- **intext**: Unite author pattern
+  ([`7680bc0`](https://github.com/anaticulae/texes/commit/7680bc01a8971191298273d0d93e02780f6e73c7))
+
+### Refactoring
+
+- **bib**: Replace with utila code
+  ([`87cbf36`](https://github.com/anaticulae/texes/commit/87cbf3695e5250b75c3f7c93e907fc24e87d5b57))
+
+- **intext**: Move author to separate const
+  ([`77e83d6`](https://github.com/anaticulae/texes/commit/77e83d64366f0fe97b56b09753f380b5ec0f3f13))
+
+- **intext**: Reduce complexity
+  ([`9b60918`](https://github.com/anaticulae/texes/commit/9b609188f62a67ec523ce5f6c28e8e98d2718e28))
+
+- **intext**: Unite regex
+  ([`3e4ef46`](https://github.com/anaticulae/texes/commit/3e4ef46f90c7d32e8730763f2c19ee2c696e80d0))
+
+- **style**: Improve code style
+  ([`45ce37b`](https://github.com/anaticulae/texes/commit/45ce37be76b6cbed96cb643230fb76a8a15f28a6))
+
+### Testing
+
+- **adjust**: Adjust expected weblink
+  ([`d72bceb`](https://github.com/anaticulae/texes/commit/d72bcebb86d2ef63fb409da948178b357102695c))
+
+- **bib**: Adjust page numbers
+  ([`e51affd`](https://github.com/anaticulae/texes/commit/e51affdd6baecc7f36120741965af3ad9f5f6cb6))
+
+- **bib**: Ease test definition
+  ([`f5079c0`](https://github.com/anaticulae/texes/commit/f5079c0580babf0c2ebffe8864954fc1c0c24fa2))
+
+- **bib**: Extend intext bib validation
+  ([`815bd01`](https://github.com/anaticulae/texes/commit/815bd01c20b8354c35977df590fecb5098f08b35))
+
+- **bib**: Simplify test
+  ([`93fdd19`](https://github.com/anaticulae/texes/commit/93fdd198e3489c8e32aa43863e37ba5eed1b2d78))
+
+- **refactor**: Use content range function to determine text area
+  ([`7d6403c`](https://github.com/anaticulae/texes/commit/7d6403c1c72aae0b0ebf5eb19c4a476946aa700f))
+
+- **refactor**: Use improved test runner
+  ([`9f3f5a3`](https://github.com/anaticulae/texes/commit/9f3f5a3321a1f7a0776a9e61c56ce9fc5962058b))
+
+- **rename**: Align to project defaults
+  ([`5eba88c`](https://github.com/anaticulae/texes/commit/5eba88cb3e5d74748dd59bc4403dfee707ff9b58))
+
+- **textflow**: Format code
+  ([`056b518`](https://github.com/anaticulae/texes/commit/056b51857e7bcd656291804db135e03072aac6bf))
+
+- **weblink**: Update excepted results
+  ([`2857b61`](https://github.com/anaticulae/texes/commit/2857b61e27790bf421722c3b7ad826416c562148))
+
+
+## v0.9.2 (2022-06-10)
+
+### Chores
+
+- **requirements**: Upgrade requirements.txt
+  ([`5759d63`](https://github.com/anaticulae/texes/commit/5759d6345f66981075fafd7d4be34f4a383f54ee))
+
+### Features
+
+- **sentence**: Add more general parser
+  ([`76fc8c3`](https://github.com/anaticulae/texes/commit/76fc8c31db97f2ba00176acde61c258ea586bf42))
+
+### Refactoring
+
+- **rename**: Use improved naming
+  ([`b42ccb5`](https://github.com/anaticulae/texes/commit/b42ccb568fcec669e69819cdebbfbd7dc2f074c8))
+
+
+## v0.9.1 (2022-03-28)
+
+### Bug Fixes
+
+- **bib**: Adjust bib table loader
+  ([`898569f`](https://github.com/anaticulae/texes/commit/898569f7728f59c9ce406dda90c7645ce48ad190))
+
+- **quotation**: Do not fail on formula split
+  ([`9841c7b`](https://github.com/anaticulae/texes/commit/9841c7bbda009724c80ef51e3b3e136fb299fe12))
+
+### Chores
+
+- **requirements**: Upgrade requirements.txt
+  ([`6367d53`](https://github.com/anaticulae/texes/commit/6367d53764863e50d283ccc4d3c1e6fd68c81921))
+
+
+## v0.9.0 (2022-03-09)
+
+### Bug Fixes
+
+- **quotation**: Use german word tokeniser
+  ([`34ff373`](https://github.com/anaticulae/texes/commit/34ff373fd2d91cd27579e987a5f812c627db9226))
+
+### Chores
+
+- **requirements**: Upgrade requirements.txt
+  ([`01071b6`](https://github.com/anaticulae/texes/commit/01071b60197de01d789912ba5f367ae6dc64fb87))
+
+- **resources**: Extend test data generator
+  ([`b099c61`](https://github.com/anaticulae/texes/commit/b099c612c5688e944d8ac8ef8c3c7ad71befa3f0))
+
+- **resources**: Reduce amount of used worker
+  ([`7e055af`](https://github.com/anaticulae/texes/commit/7e055af4a897554e4da53bfdd66e5bb28c9ce858))
 
 ### Documentation
 
-* extend interface documentation (33720d20221a)
-* fix interface documentation (a987ea321922)
+- **alignment**: Fix interface documentation
+  ([`a987ea3`](https://github.com/anaticulae/texes/commit/a987ea321922a6041bbd314a0d45e3f6ea16dc69))
 
-## v0.8.1
+- **weblink**: Extend interface documentation
+  ([`33720d2`](https://github.com/anaticulae/texes/commit/33720d20221a9190e858b461b9ad80aa1ee09e5e))
 
-## v0.8.0
+### Features
 
-### Feature
+- **path**: Add method to determine result weblink sentence path
+  ([`12efa72`](https://github.com/anaticulae/texes/commit/12efa728976314c0514188b3eaa9456d518b7ab3))
 
-* extend valid intext pattern (2f511eeb8f64)
-* use sentences to determine quotations (d37dd787d28f)
-* compile pattern (165b2e7e9c1f)
-* extend valid intext parser (6b1e36e32d0d)
-* extend valid bib in text reference (550347a23581)
-* add highnotes as valid bib reference (c2d26de266e5)
-* add cache (f7ef6b74b698)
-* serialize raw bib reference (30975a38fefd)
+- **sentence**: Determine links out of sentences
+  ([`914f686`](https://github.com/anaticulae/texes/commit/914f686d18f243ed0df3d54b256ac84dc347b207))
 
-## v0.7.1
+- **sentence**: Skip step if resource does not exists
+  ([`6041a17`](https://github.com/anaticulae/texes/commit/6041a177687cb4e09947ef9aaae771d5e51b6412))
 
-### Fix
+- **weblink**: Add basic cli
+  ([`b6eeb9e`](https://github.com/anaticulae/texes/commit/b6eeb9e4deccd59ef4a237b689146f5b3a1bb63a))
 
-* load headlines (1a8549097916)
+- **weblink**: Add bibliography hyperlink parser
+  ([`445357c`](https://github.com/anaticulae/texes/commit/445357cf745d34ca04d76933b7f2bcc3f58498bd))
 
-## v0.7.0
+- **weblink**: Parse links in footer
+  ([`97982f6`](https://github.com/anaticulae/texes/commit/97982f6982c4d55378d66176196f6cd212af5f38))
 
-### Feature
+### Refactoring
 
-* make spacestation source optional (fd60c06c40f4)
+- **rename**: Shorten naming
+  ([`0faefb1`](https://github.com/anaticulae/texes/commit/0faefb1f52663296ce2850b54865d329df788aae))
+
+- **replace**: Replace with texmex code
+  ([`685b750`](https://github.com/anaticulae/texes/commit/685b7505afe86ad11e12302f539e810cda123398))
+
+- **style**: Reduce complexity
+  ([`a9bcb85`](https://github.com/anaticulae/texes/commit/a9bcb85a251ccacab80cdbc4e122bd3c02b56ba2))
+
+- **style**: Remove unused code
+  ([`dc1626e`](https://github.com/anaticulae/texes/commit/dc1626e3d4381157d03961d08c805238bfbdef48))
+
+### Testing
+
+- **adjust**: Adjust expected extraction after changing words tokenizer
+  ([`95d2f2d`](https://github.com/anaticulae/texes/commit/95d2f2d3af4040cf8df6ef3262378a8ea4f8b546))
+
+- **adjust**: Adjust unit test
+  ([`447fae4`](https://github.com/anaticulae/texes/commit/447fae45ca0977497cdf6dcefdd74199a370e954))
+
+- **refactor**: Shorten naming
+  ([`1059981`](https://github.com/anaticulae/texes/commit/1059981051a226c5d4b270f4322d8e3680d14282))
+
+- **refactor**: Simplify test
+  ([`d66b430`](https://github.com/anaticulae/texes/commit/d66b430528ddfa3b7449b33483d159ccfe9fd631))
+
+- **validate**: Validate hyperlinks
+  ([`f16de78`](https://github.com/anaticulae/texes/commit/f16de783a2283a8cf45a9107e115529421d38d41))
+
+- **weblink**: Adjust unit test
+  ([`281c612`](https://github.com/anaticulae/texes/commit/281c612535379c81368815d2e7627b39742bf205))
+
+- **weblink**: Move tests from words
+  ([`de81691`](https://github.com/anaticulae/texes/commit/de81691b1c14db5bfdb9717342d0f7f57d0d40dc))
+
+
+## v0.8.1 (2022-03-08)
+
+### Chores
+
+- **requirements**: Upgrade requirements.txt
+  ([`d3507e9`](https://github.com/anaticulae/texes/commit/d3507e9e39b7e2cccf204959c35deb7a72b10009))
+
+- **test**: Shrink test data generator
+  ([`e223ee7`](https://github.com/anaticulae/texes/commit/e223ee7f37aa703935664f315eb03daf8f8264ca))
+
+### Refactoring
+
+- **wordspace**: Clarify code
+  ([`6b5ffff`](https://github.com/anaticulae/texes/commit/6b5ffffb260b5a38e3943e473c49eafcec70d3d8))
+
+
+## v0.8.0 (2022-03-07)
+
+### Chores
+
+- **requirements**: Upgrade requirements.txt
+  ([`cefd3b1`](https://github.com/anaticulae/texes/commit/cefd3b164d40316707631b91cfe7d20c52c660bf))
+
+- **requirements**: Upgrade requirements.txt
+  ([`559496b`](https://github.com/anaticulae/texes/commit/559496b64edd8e471f3cb2482799a01488768121))
+
+- **requirements**: Upgrade requirements.txt
+  ([`3af4ef7`](https://github.com/anaticulae/texes/commit/3af4ef723c00d613f63c46aaf70951809f70be05))
+
+- **requirements**: Upgrade requirements.txt
+  ([`2d8ac43`](https://github.com/anaticulae/texes/commit/2d8ac435e3f68d15ba954b18e1aafffa65f7a125))
+
+- **resources**: Extend test data generator
+  ([`d915191`](https://github.com/anaticulae/texes/commit/d915191f1a1b13ba421a0e3515a2a71a0e46420d))
+
+- **test**: Keep long fast
+  ([`1c7cee5`](https://github.com/anaticulae/texes/commit/1c7cee553573f58825fbc49c43719d8477091d98))
+
+### Code Style
+
+- **docs**: Adjust headline
+  ([`1db8422`](https://github.com/anaticulae/texes/commit/1db8422992d31b71f35a2db1421fd5f64e10f13d))
+
+- **textflow**: Clarify test
+  ([`e64957a`](https://github.com/anaticulae/texes/commit/e64957a8a50c1ab37cd3b2898bcfa446d91c517e))
+
+### Features
+
+- **bib**: Add cache
+  ([`f7ef6b7`](https://github.com/anaticulae/texes/commit/f7ef6b74b6989c7944e4cdbd0450966b874d172f))
+
+- **bib**: Add highnotes as valid bib reference
+  ([`c2d26de`](https://github.com/anaticulae/texes/commit/c2d26de266e52303d0e15fea6e255f409713f25e))
+
+- **bib**: Extend valid bib in text reference
+  ([`550347a`](https://github.com/anaticulae/texes/commit/550347a235819f035eef52533b2c91bd3db9906c))
+
+- **bib**: Extend valid intext parser
+  ([`6b1e36e`](https://github.com/anaticulae/texes/commit/6b1e36e32d0db7bdb033fd2a101033be374491ef))
+
+- **bib**: Serialize raw bib reference
+  ([`30975a3`](https://github.com/anaticulae/texes/commit/30975a38fefd022ec66c2780158f65ec84515ae9))
+
+- **figure**: Extend valid intext pattern
+  ([`2f511ee`](https://github.com/anaticulae/texes/commit/2f511eeb8f648bc84c988b2e602f0dbc952f4daa))
+
+- **intext**: Compile pattern
+  ([`165b2e7`](https://github.com/anaticulae/texes/commit/165b2e7e9c1fe7c18343992e1c16dbf20da7dc09))
+
+- **quote**: Use sentences to determine quotations
+  ([`d37dd78`](https://github.com/anaticulae/texes/commit/d37dd787d28f9e09e95a18a5bef85a45ad26e476))
+
+### Refactoring
+
+- **bib**: Compile pattern
+  ([`5be468b`](https://github.com/anaticulae/texes/commit/5be468bf38553770b3e56050ed74371c53ab33d8))
+
+- **intext**: Clarify pattern
+  ([`63613c7`](https://github.com/anaticulae/texes/commit/63613c75fd5598a6e44a89f3ea62cf0f8ba35c2e))
+
+- **intext**: Format regex
+  ([`3dcdf48`](https://github.com/anaticulae/texes/commit/3dcdf482cf6fdfe3aae3bfb822fcbfe2506e8ffc))
+
+- **reference**: Replace with docref code
+  ([`285908b`](https://github.com/anaticulae/texes/commit/285908b199a4177e77542716f6c743a7bfd25282))
+
+- **rename**: Shorten naming
+  ([`e8ded90`](https://github.com/anaticulae/texes/commit/e8ded904d6474e49ac523c5d156cafd5327aaf41))
+
+- **replace**: Replace with serialize code
+  ([`7668d09`](https://github.com/anaticulae/texes/commit/7668d09db15d9c8624dab672d79c7a7bfb7c8d58))
+
+- **replace**: Replace with serializeraw
+  ([`54470b4`](https://github.com/anaticulae/texes/commit/54470b4385874e32ea9640bbf6521b3372974e81))
+
+- **test**: Use modern quotation comparer
+  ([`d57323a`](https://github.com/anaticulae/texes/commit/d57323abf65a9f8ffefacf12b1c8f170beaf8d03))
+
+### Testing
+
+- **adjust**: Adjust extracted quotation
+  ([`ea25319`](https://github.com/anaticulae/texes/commit/ea253194bd7926fbb34dd34cbea90c1e34ba91aa))
+
+- **adjust**: Adjust unit test
+  ([`31eba96`](https://github.com/anaticulae/texes/commit/31eba96a2eb0f3df47c64bd687ae842434f119a2))
+
+- **adjust**: Adjust unit tests after regenerating
+  ([`cbfae57`](https://github.com/anaticulae/texes/commit/cbfae57ed03ee21037e6c3823594d03eef3031d3))
+
+- **adjust**: Simplify unit test
+  ([`ca8c49a`](https://github.com/anaticulae/texes/commit/ca8c49ac0ba4f1cb3f3ddba3749c735b8cf43bef))
+
+- **bib**: Convert label test
+  ([`77aedda`](https://github.com/anaticulae/texes/commit/77aedda09ea8a9b5a432e1c5152aea57f713263a))
+
+- **bib**: Enable xpassed test
+  ([`ba7794c`](https://github.com/anaticulae/texes/commit/ba7794c6fe35531defe8f5f7b39c2e1cb453e65d))
+
+- **bib**: Validate bib reference parsing, add baseline
+  ([`4a04df6`](https://github.com/anaticulae/texes/commit/4a04df6a152a6a9886c1bc6428d7ec1f0cf60fb2))
+
+- **docs**: Format docs
+  ([`9f21bcd`](https://github.com/anaticulae/texes/commit/9f21bcd16aeb6f661471e6f0524e19e0bcf14743))
+
+- **fix**: Words is already done
+  ([`1c426a1`](https://github.com/anaticulae/texes/commit/1c426a1df3bcaa583e9e080c4e0af174978aa3ae))
+
+- **fix**: Words is already executed while test generation
+  ([`a5aa7b4`](https://github.com/anaticulae/texes/commit/a5aa7b41fd7983ffd6676347a7e607c1e69131db))
+
+- **refactor**: Clarify code
+  ([`5f19641`](https://github.com/anaticulae/texes/commit/5f19641dd23361f8a62910d11c7959ec85683bbf))
+
+- **refactor**: Cleanup test files
+  ([`97f15d8`](https://github.com/anaticulae/texes/commit/97f15d8e39f26e6bb4befadcbe4c08ec03e2a8c4))
+
+- **refactor**: Convert unit test
+  ([`70b478a`](https://github.com/anaticulae/texes/commit/70b478aac977360f842516fb28549d2cbd4cda1c))
+
+- **refactor**: Improve code style
+  ([`9890661`](https://github.com/anaticulae/texes/commit/9890661a81ee796179c7211e688b3cdaeabb16d2))
+
+- **refactor**: Improve code style
+  ([`5e76ffa`](https://github.com/anaticulae/texes/commit/5e76ffaf912c30baaef192dd44b855e92f6dd5d9))
+
+- **remove**: Already verified by expected test
+  ([`b691b23`](https://github.com/anaticulae/texes/commit/b691b239e7547e728cb724aefd13ceca0e1b69ec))
+
+
+## v0.7.1 (2022-02-24)
+
+### Bug Fixes
+
+- **bib**: Load headlines
+  ([`1a85490`](https://github.com/anaticulae/texes/commit/1a8549097916dff646b5e4945eed43bbcf0324ea))
+
+### Chores
+
+- **requirements**: Upgrade requirements.txt
+  ([`3bcdefe`](https://github.com/anaticulae/texes/commit/3bcdefe17cc6121102efea4977446b55a8f4b910))
+
+
+## v0.7.0 (2022-01-23)
+
+### Chores
+
+- **requirements**: Upgrade requirements.txt
+  ([`b465a02`](https://github.com/anaticulae/texes/commit/b465a02c8e1e38ba886d4f4dff58f71240932aad))
+
+- **resources**: Extend test data generator
+  ([`187ef9a`](https://github.com/anaticulae/texes/commit/187ef9ab4bb9ad373b6c4c9896da81bbd6c0bdd0))
 
 ### Documentation
 
-* adjust modules path (02526d9e1875)
-* Happy New Year! (4dcb456f6407)
+- **copyright**: Happy New Year!
+  ([`4dcb456`](https://github.com/anaticulae/texes/commit/4dcb456f6407baa10e62a13241efe0ec6d15f777))
 
-## v0.6.0
+- **fix**: Adjust modules path
+  ([`02526d9`](https://github.com/anaticulae/texes/commit/02526d9e18751944e0a49d8ec3ce8fef7466764f))
 
-### Feature
+### Features
 
-* use sentences instead of text as label parser source (b4e49749fc61)
+- **cli**: Make spacestation source optional
+  ([`fd60c06`](https://github.com/anaticulae/texes/commit/fd60c06c40f4f2b995462af4be4d611597642a36))
 
-## v0.5.1
+### Refactoring
 
-## v0.5.0
+- **yaml**: Replace with utila code
+  ([`fff04b1`](https://github.com/anaticulae/texes/commit/fff04b1f8553ef12aa163e5b6f06747911443105))
 
-### Feature
+### Testing
 
-* lookup holy value cloud (b7dbf57a00da)
-* use holy values (bc1393a844f0)
+- **bib**: Skip cli test
+  ([`d305b35`](https://github.com/anaticulae/texes/commit/d305b357bcfc2acdb682cc3771fa1c5a6e241ec6))
 
-## v0.4.0
+- **bib**: Validate diss172 bib doc ref
+  ([`bb02624`](https://github.com/anaticulae/texes/commit/bb02624fa56c41eb1a9fc15ee0e3f94bbf262c52))
 
-### Feature
 
-* add more pattern (e8fd13827fa6)
-* extend numbered intext pattern (87970e10d67e)
+## v0.6.0 (2021-12-07)
 
-## v0.3.1
+### Chores
 
-### Feature
+- **requirements**: Upgrade requirements.txt
+  ([`476b8f1`](https://github.com/anaticulae/texes/commit/476b8f1f93478143d6fac3b7a2d269e27fe7b546))
 
-* add bib-number-ref inside parser (a041a937fcd0)
+### Features
+
+- **docref**: Use sentences instead of text as label parser source
+  ([`b4e4974`](https://github.com/anaticulae/texes/commit/b4e49749fc61d489f24916231ab394847d650be1))
+
+### Testing
+
+- **adjust**: Adjust unit test
+  ([`c6e5824`](https://github.com/anaticulae/texes/commit/c6e5824c6dbe01e747e0a4bb35770f31ed8c8dd7))
+
+- **disable**: Disable failing unit test
+  ([`7006b96`](https://github.com/anaticulae/texes/commit/7006b96377feeae32516aa6e470b54d57dd6c0a0))
+
+
+## v0.5.1 (2021-11-02)
+
+### Chores
+
+- **requirements**: Upgrade requirements.txt
+  ([`0629cf6`](https://github.com/anaticulae/texes/commit/0629cf604b6becd2bc9e7253485c41786e13977f))
+
+### Refactoring
+
+- **replace**: Move code from words
+  ([`efe9b30`](https://github.com/anaticulae/texes/commit/efe9b30fb3bb43353985701ebcfdb885f607aa68))
+
+
+## v0.5.0 (2021-10-18)
+
+### Chores
+
+- **requirements**: Add configo
+  ([`d1b5e84`](https://github.com/anaticulae/texes/commit/d1b5e84c87042b62d3ff7c5c31dda3c3c3ef41e7))
+
+- **requirements**: Upgrade requirements.txt
+  ([`e2b803b`](https://github.com/anaticulae/texes/commit/e2b803b7ff48b7e7a1b355524184b2b5f8a2c928))
+
+- **resource**: Reduce text data generator
+  ([`fb74aa4`](https://github.com/anaticulae/texes/commit/fb74aa49494c62efd675553339cb91da837aabb4))
+
+### Features
+
+- **hv**: Lookup holy value cloud
+  ([`b7dbf57`](https://github.com/anaticulae/texes/commit/b7dbf57a00da8bb404db72ed5b234572d62feaa0))
+
+- **hv**: Use holy values
+  ([`bc1393a`](https://github.com/anaticulae/texes/commit/bc1393a844f02f799068f69e5af371a4b168545e))
+
+### Refactoring
+
+- **name**: Clarify naming
+  ([`b46520e`](https://github.com/anaticulae/texes/commit/b46520e5f855a99ecc97e67a5f21dd9a7bd9d3d9))
+
+### Testing
+
+- **section**: Adjust failing test
+  ([`489c0fd`](https://github.com/anaticulae/texes/commit/489c0fd06329baafef7653340ed1ded35be05ce9))
+
+
+## v0.4.0 (2021-10-05)
+
+### Chores
+
+- **requirements**: Upgrade requirements.txt
+  ([`da4d4b9`](https://github.com/anaticulae/texes/commit/da4d4b939928da658e4489927c3bf9d74b35370e))
+
+- **resources**: Extend test data generator
+  ([`5238685`](https://github.com/anaticulae/texes/commit/523868574537fb8e6404ec33ed7c98efdce26ad7))
+
+- **test**: Keep dev build fast
+  ([`554155c`](https://github.com/anaticulae/texes/commit/554155c1c14e02f6e797b34c63fd326f75ab4720))
+
+### Features
+
+- **bib**: Extend numbered intext pattern
+  ([`87970e1`](https://github.com/anaticulae/texes/commit/87970e10d67e42f6959c746945a3c25f3298b26e))
+
+- **section**: Add more pattern
+  ([`e8fd138`](https://github.com/anaticulae/texes/commit/e8fd13827fa636dd9a7454e44ab6f93fc02d4505))
+
+### Refactoring
+
+- **info**: Clarify code
+  ([`75c901f`](https://github.com/anaticulae/texes/commit/75c901fa1a84c5fd9d63f152ff613d74745297fd))
+
+- **section**: Simplify code
+  ([`8d284f8`](https://github.com/anaticulae/texes/commit/8d284f8d1fb7bd05bbdc0fd19e8e58b8d2b1fc46))
+
+### Testing
+
+- **bib**: Verify multiple intext bibs
+  ([`dc7c159`](https://github.com/anaticulae/texes/commit/dc7c159bd39377e682e8291c00122beadc0cda83))
+
+
+## v0.3.1 (2021-09-11)
+
+### Chores
+
+- **requirements**: Upgrade requirements.txt
+  ([`d86edfe`](https://github.com/anaticulae/texes/commit/d86edfe26be5b34d3764056ce37e3143a885aa5f))
 
 ### Documentation
 
-* adjust data type annotation (c7fb165ca335)
+- **fix**: Adjust data type annotation
+  ([`c7fb165`](https://github.com/anaticulae/texes/commit/c7fb165ca33580dd6a08e551003a2f01ad4318f0))
 
-## v0.3.0
+### Features
 
-### Feature
+- **parser**: Add bib-number-ref inside parser
+  ([`a041a93`](https://github.com/anaticulae/texes/commit/a041a937fcd0e6dcf71199c0341f0f47184fc452))
 
-* add number reference as valid bib reference (b6af34786916)
 
-## v0.2.4
+## v0.3.0 (2021-09-09)
 
-### Feature
+### Chores
 
-* add TextAlignment to str converter (439ce786feb8)
+- **rename**: Rename config
+  ([`d462a7a`](https://github.com/anaticulae/texes/commit/d462a7a465596b891d1a0619a18237ed56b23470))
 
-## v0.2.3
+- **requirements**: Upgrade requirements.txt
+  ([`00bba8e`](https://github.com/anaticulae/texes/commit/00bba8e4423d498140bf2eb64227e945857f36d0))
 
-## v0.2.2
+- **resources**: Extend test data generator
+  ([`9c3aa86`](https://github.com/anaticulae/texes/commit/9c3aa867a8258b5805d19b841fd134e3542df3f8))
 
-## v0.2.1
+### Code Style
 
-## v0.2.0
+- **imports**: Organize imports
+  ([`ac96202`](https://github.com/anaticulae/texes/commit/ac9620208192d53e745f2bf0e4d5d5f6883751aa))
 
-### Feature
+- **rename**: Improve naming
+  ([`49cf35d`](https://github.com/anaticulae/texes/commit/49cf35dc4fdef2fb9b820f595d4916386d17ebb3))
 
-* add further parser (05c96936b06e)
+### Features
 
-## v0.1.0
+- **bib**: Add number reference as valid bib reference
+  ([`b6af347`](https://github.com/anaticulae/texes/commit/b6af34786916811ebb94c3dc7d9fa54ba6bbbdac))
 
-### Feature
+### Refactoring
 
-* move textflow and docref from words (2e45a491c6fd)
+- **bib**: Simplify bib reference notation
+  ([`9f8a42d`](https://github.com/anaticulae/texes/commit/9f8a42d10d2f6f63ea8ef2052b3f4872c340c7c0))
 
-## v0.0.0 Initial release
+- **rename**: Make figure parser more general
+  ([`43f701c`](https://github.com/anaticulae/texes/commit/43f701ce1503ffba53fb5c562f7e7e26d4af2ba3))
+
+### Testing
+
+- **bib**: Test intext bib number references
+  ([`c7ff44a`](https://github.com/anaticulae/texes/commit/c7ff44adba5a8bbd3bfb7c994a75c71851399bcc))
+
+
+## v0.2.4 (2021-08-14)
+
+### Chores
+
+- **requirements**: Upgrade requirements.txt
+  ([`eb84977`](https://github.com/anaticulae/texes/commit/eb8497715a909be4e3d56a1ab343a59204b8bce4))
+
+### Code Style
+
+- **imports**: Organize imports
+  ([`e0e1f03`](https://github.com/anaticulae/texes/commit/e0e1f03be824058216206587ad40490fb36f0f5f))
+
+### Features
+
+- **style**: Add TextAlignment to str converter
+  ([`439ce78`](https://github.com/anaticulae/texes/commit/439ce786feb88f000aeaa5cd4ca3886d0caab6cb))
+
+
+## v0.2.3 (2021-08-11)
+
+### Chores
+
+- **requirements**: Upgrade requirements.txt
+  ([`bc4de0b`](https://github.com/anaticulae/texes/commit/bc4de0bf7fa54f442d9cb26cfdfa907541918376))
+
+
+## v0.2.2 (2021-07-29)
+
+### Chores
+
+- **requirements**: Upgrade requirements.txt
+  ([`cb036ab`](https://github.com/anaticulae/texes/commit/cb036ab61c1a09f179e667fb3f60dbeccd092b31))
+
+### Testing
+
+- **adjust**: Adjust unit test
+  ([`9fa3ff5`](https://github.com/anaticulae/texes/commit/9fa3ff529bfd08c1f330c14b221ed9c4fc0a84f7))
+
+
+## v0.2.1 (2021-07-06)
+
+### Chores
+
+- **requirements**: Fix upper limit
+  ([`43fd4c9`](https://github.com/anaticulae/texes/commit/43fd4c94abc9d6915e262b012a9b115c2f35d289))
+
+
+## v0.2.0 (2021-07-06)
+
+### Chores
+
+- **requirements**: Upgrade requirements.txt
+  ([`c7a8c83`](https://github.com/anaticulae/texes/commit/c7a8c83dc36fdf553ce216e7a3e851a0d5095b52))
+
+### Code Style
+
+- **imports**: Organize imports
+  ([`5fdfa3e`](https://github.com/anaticulae/texes/commit/5fdfa3e4e68d3e0c0341ab412c97d9c2840ca44a))
+
+### Features
+
+- **intext**: Add further parser
+  ([`05c9693`](https://github.com/anaticulae/texes/commit/05c96936b06e9da52ffd8c371de39387359e6d4c))
+
+### Testing
+
+- **adjust**: Adjust test after fixing groupme header extractor
+  ([`1fb2661`](https://github.com/anaticulae/texes/commit/1fb2661a25f13e65a23f7f48f703c8ea4ce84715))
+
+- **style**: Format test text
+  ([`8689bec`](https://github.com/anaticulae/texes/commit/8689becfb07cfbb5f03d7a1d8ae7944c7d1f556b))
+
+
+## v0.1.0 (2021-07-05)
+
+### Chores
+
+- **requirements**: Add generator reference
+  ([`ecbf430`](https://github.com/anaticulae/texes/commit/ecbf430535fc51fd270343d207b1fee6455cdf0d))
+
+- **requirements**: Add words
+  ([`9faed7c`](https://github.com/anaticulae/texes/commit/9faed7c3ee8010d98ec731112b4fca2711489fbf))
+
+### Features
+
+- **move**: Move textflow and docref from words
+  ([`2e45a49`](https://github.com/anaticulae/texes/commit/2e45a491c6fd7d9becb99c5e6d619f158b5e0888))
+
+
+## v0.0.0 (2021-07-05)
+
+- Initial Release
