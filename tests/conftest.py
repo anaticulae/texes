@@ -14,13 +14,13 @@ import utilotest
 from utilotest import mp  # pylint:disable=W0611
 from utilotest import td  # pylint:disable=W0611
 
-import texas
+import texes
 
 pytest_plugins = ['pytester', 'xdist']  # pylint: disable=invalid-name
 
-PACKAGE = texas.PACKAGE
+PACKAGE = texes.PACKAGE
 
-hoverpower.setup(texas.ROOT)
+hoverpower.setup(texes.ROOT)
 
 RESOURCES = [
     (hoverpower.DISS143_PDF, '0:50'),

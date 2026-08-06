@@ -16,11 +16,11 @@ import utilo
 import utilotest
 
 import tests.textflow_
-import texas
+import texes
 import textflow.path
 
 ARCHIVE = utilo.join(
-    texas.ROOT,
+    texes.ROOT,
     'tests/textflow_/quotations/expected',
     exist=True,
 )

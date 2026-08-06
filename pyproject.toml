@@ -93,7 +93,7 @@ include = [
     "docref.biblio",
     "docref.biblio.strategies",
     "docref.features",
-    "texas",
+    "texes",
     "textflow",
     "textflow.alignment",
     "textflow.features",
