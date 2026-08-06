@@ -47,8 +47,8 @@ dev = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/anaticulae/texas"
-Repository = "https://github.com/anaticulae/texas"
+Homepage = "https://github.com/anaticulae/texes"
+Repository = "https://github.com/anaticulae/texes"
 
 [project.scripts]
 docref = "docref.cli:main"
