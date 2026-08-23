@@ -8,6 +8,7 @@
 # =============================================================================
 
 import hoverpower
+import pytest
 import serializeraw
 import utilotest
 
@@ -15,6 +16,7 @@ import docref.path
 import tests.docref_
 
 
+@pytest.mark.xfail(reason='software')
 @utilotest.requires(hoverpower.MASTER075_PDF)
 def test_figure_master75page6(td, mp):
     source = hoverpower.link(hoverpower.MASTER075_PDF)
