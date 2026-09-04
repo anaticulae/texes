@@ -1,6 +1,48 @@
 # CHANGELOG
 
 
+## v1.0.1 (2026-09-04)
+
+### Bug Fixes
+
+- **texas**: Adjust project name
+  ([`512a9de`](https://github.com/anaticulae/texes/commit/512a9de0ecf02e9ce7fc9b80209ec0712856e765))
+
+### Chores
+
+- **conftest**: Increase worker count
+  ([`61c19fe`](https://github.com/anaticulae/texes/commit/61c19fe7f0634395be01d8f1e9a6c63a81d04be4))
+
+- **github**: Do not run tests twice
+  ([`948b4b7`](https://github.com/anaticulae/texes/commit/948b4b71d6024c8059730bed87baa460bce1dcbf))
+
+- **make**: Generate test data later
+  ([`a73b751`](https://github.com/anaticulae/texes/commit/a73b75149fcc494c9e2fadae5be6675dbc5386fd))
+
+- **pyproject**: Add missing generators
+  ([`067f804`](https://github.com/anaticulae/texes/commit/067f804821cb7313a83cc4efbf96c1cd27fa88af))
+
+- **pyproject**: Adjust project url
+  ([`e43da91`](https://github.com/anaticulae/texes/commit/e43da91d60b3899416d4644eec8c8c7079c35d19))
+
+- **requirements**: Upgrade pyproject.toml
+  ([`302256b`](https://github.com/anaticulae/texes/commit/302256b2b7d7565d92d0e9fc89a2acb0c2f52bdb))
+
+- **requirements**: Upgrade pyproject.toml
+  ([`067f804`](https://github.com/anaticulae/texes/commit/067f804821cb7313a83cc4efbf96c1cd27fa88af))
+
+- **test**: Add missing secret
+  ([`f813c95`](https://github.com/anaticulae/texes/commit/f813c957a2af027ef1160ab80dce5de2a91089ec))
+
+### Testing
+
+- **baseline**: Adjust baseline
+  ([`3e70856`](https://github.com/anaticulae/texes/commit/3e708564f3979bd7bb02306ed1ed545083f64c68))
+
+- **disable**: Disable broken tests
+  ([`d6a6b47`](https://github.com/anaticulae/texes/commit/d6a6b4722e18d3e595be2a56339e44e8fa8174d4))
+
+
 ## v1.0.0 (2026-08-06)
 
 ### Chores
