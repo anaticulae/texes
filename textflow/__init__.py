@@ -9,11 +9,11 @@
 
 import configos
 
-import texas
+import texes
 
-__version__ = texas.__version__
+__version__ = texes.__version__
 
 PROCESS = 'textflow'
-ROOT = texas.ROOT
+ROOT = texes.ROOT
 
 configos.cloud_lookup(PROCESS)

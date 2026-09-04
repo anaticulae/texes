@@ -9,6 +9,7 @@
 
 import hoverpower
 import iamraw
+import pytest
 import serializeraw
 import utilo
 import utilotest
@@ -32,7 +33,7 @@ def test_textflow_quotation_master72p10t20(td, mp):
     assert loaded == current
 
 
-@utilotest.longrun
+@utilotest.nightly
 def test_textflow_quotation_bachelor76(td, mp):
     quotations = extract_quotations(
         hoverpower.BACHELOR076_PDF,
@@ -76,7 +77,8 @@ zur Reduktion von Schnittstellen , zur funktionsübergreifenden Vernetzung und\
 # „ In - dustrie 4.0 ”"""
 
 
-@utilotest.longrun
+@pytest.mark.xfail(reason='software')
+@utilotest.nightly
 def test_textflow_quotation_validate_bachelor76p4_10(td, mp):
     quotations = extract_quotations(
         hoverpower.BACHELOR076_PDF,

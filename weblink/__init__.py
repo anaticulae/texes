@@ -9,12 +9,12 @@
 
 import configos
 
-import texas
+import texes
 import weblink.path
 
-__version__ = texas.__version__
+__version__ = texes.__version__
 
 PROCESS = 'weblink'
-ROOT = texas.ROOT
+ROOT = texes.ROOT
 
 configos.cloud_lookup(PROCESS)

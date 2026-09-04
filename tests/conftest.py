@@ -14,13 +14,13 @@ import utilotest
 from utilotest import mp  # pylint:disable=W0611
 from utilotest import td  # pylint:disable=W0611
 
-import texas
+import texes
 
 pytest_plugins = ['pytester', 'xdist']  # pylint: disable=invalid-name
 
-PACKAGE = texas.PACKAGE
+PACKAGE = texes.PACKAGE
 
-hoverpower.setup(texas.ROOT)
+hoverpower.setup(texes.ROOT)
 
 RESOURCES = [
     (hoverpower.DISS143_PDF, '0:50'),
@@ -43,7 +43,7 @@ RESOURCES = [
     hoverpower.MASTER116_PDF,
     hoverpower.todo(hoverpower.BACHELOR056_PDF, '0:20', spacestation=True),
 ]
-WORKER = utilotest.worker_count(4, onci=len(RESOURCES))
+WORKER = utilotest.worker_count(12, onci=len(RESOURCES))
 
 
 @pytest.mark.usefixtures('session')

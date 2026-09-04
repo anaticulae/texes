@@ -23,7 +23,7 @@ docker-fasttest: docker-decrypt
 		-v $(CURDIR):/var/workdir\
 		-v /tmp/texes:/tmp/texes\
 		$(IMAGE)\
-		"baw test fast --generate"
+		"baw test fast"
 
 docker-longtest: docker-decrypt
 	docker run\
